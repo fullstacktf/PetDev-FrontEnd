@@ -10,14 +10,14 @@ const initialValue = {
   age: ""
 };
 
-const Input = ({ name, type = "text", label, value, handleChange }) => {
+const Input: any = ({ name, type = "text", label, value, handleChange }) => {
   return (
     <Input>
       {label}:
       <input
         name={name}
         type={type}
-        value={value[name]}
+        value="{value[name]} "
         onChange={handleChange}
       />
     </Input>
@@ -44,8 +44,8 @@ export const Login = () => {
   return (
     <div>
       <form>
-        {FIELDS.map(field => (
-          <Input handleChange={handleChange} value={formData} {...field} />
+        {FIELDS.map((field, i) => (
+          <Input handleChange={handleChange} key={i} value={formData} {...field} />
         ))}
         <button onClick={handleOnClick}>Login</button>
       </form>
