@@ -1,27 +1,27 @@
 import React, { useState } from "react";
+import styled from '@emotion/styled';
 
-/* const InputField = styled.input`
+const InputField = styled.div`
   color: ${props => props.theme.error ? 'red' : 'black'};
   font-weight: ${props => props.theme.error ? 'bold' : 'normal'};
-`; */
+`;
+
 const initialValue = {
   email: "",
   password: "",
   age: ""
 };
 
-const Input: any = ({ name, type = "text", label, value, handleChange }) => {
-  return (
-    <Input>
-      {label}:
-      <input
-        name={name}
-        type={type}
-        value="{value[name]} "
-        onChange={handleChange}
-      />
-    </Input>
-  );
+const Input = ({ name, type = "text", label, value, handleChange }) => {
+  return <InputField>
+    {label}:
+    <input
+      name={name}
+      type={type}
+      value="{value[name]} "
+      onChange={handleChange}
+    />
+  </InputField>;
 };
 
 const FIELDS = [
@@ -44,9 +44,7 @@ export const Login = () => {
   return (
     <div>
       <form>
-        {FIELDS.map((field, i) => (
-          <Input handleChange={handleChange} key={i} value={formData} {...field} />
-        ))}
+        {FIELDS.map((field, i) => <Input handleChange={handleChange} key={i} value={formData} {...field} />)}
         <button onClick={handleOnClick}>Login</button>
       </form>
     </div>
