@@ -1,11 +1,14 @@
 import React from 'react'
-import FullHomePage from '../components/FullContainerHome';
+import LoginForm from '../components/CompleteLogin';
+
+
 
 export default class HomePage extends React.Component {
     
     render() {
         return(
-            <FullHomePage/>
+          <LoginForm/> 
+         
         )
     }
 }
