@@ -15,7 +15,7 @@ class ProfileMap extends Component {
   render() {
     return (
       // Important! Always set the container height explicitly
-      <div style={{ height: "50vh", width: "40vw", marginLeft: '30px' }}>
+      <div style={{ height: "50vh", width: "40vw", marginLeft: '' }}>
         <GoogleMapReact
           bootstrapURLKeys={{ key: "AIzaSyBzGVNtpx96mevl5hXFpx7n-ZeAeM3u1k8" }}
           defaultCenter={this.props.center}
