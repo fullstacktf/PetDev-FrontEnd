@@ -1,13 +1,14 @@
 import React from 'react'
 import { Container, Header } from 'semantic-ui-react'
 import InputSearchHomePage from './SearchHomePage';
+import Photo from '../'
 
 
 const ContainerHomePage = () => (
     <div>
     <style>{`
       html, body {
-        background-color: #d7a8f0; !important
+        background-color: #d7a8f0; 
         
       }
       

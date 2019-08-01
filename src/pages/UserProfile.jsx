@@ -1,3 +1,4 @@
+
 import React from 'react';
 import 'semantic-ui-css/semantic.min.css';
 import HeaderFanimals from '../components/HeaderFanimals';
@@ -48,3 +49,4 @@ const UserProfile = () => (
 )
 
 export default UserProfile;
+
