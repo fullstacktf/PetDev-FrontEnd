@@ -10,7 +10,14 @@ import Login from './pages/Login'
 import SignUp from './pages/SignUp'
 import UserProfile from './pages/UserProfile'
 
+import birdsbackground from './assets/matthew.png';
 
+const styles = {
+  // linear-gradient(120deg, rgba(255, 178, 243, 0.6), transparent)
+  backgroundImage: `linear-gradient(rgba(255, 178, 243, 0.6), rgba(255, 178, 243, 0.6)), url(${birdsbackground})`,
+  backgroundRepeat: 'repeat',
+  backgroundBlendMode: 'difference'
+}
 
 const App = () => {
   return (
@@ -18,7 +25,7 @@ const App = () => {
     <Router>
 
 
-      <div className="App">
+      <div className="App" style={styles}>
         <HeaderFanimals />
         <Route exact path="/" component={HomePage} />
         <Route exact path="/home" component={HomePage} />
