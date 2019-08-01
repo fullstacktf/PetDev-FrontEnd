@@ -1,14 +1,13 @@
 import React from 'react'
-import { Card, Icon, Image,  } from 'semantic-ui-react'
-
+import { Card, Icon, Image, } from 'semantic-ui-react'
 import RatingUser from './RatinUser'
+/* import photo from '../assets/matthew.png' */
 
 const UserCard = () => (
 
-  <Card style={{marginLeft: '30px'}} className="card1"color="purple">
-    
+  <Card style={{ marginLeft: '30px' }} className="card1" color="purple">
     <Card.Content>
-    
+      <Image size='mini' wrapped ui={false} />
       <Card.Header>Aaron</Card.Header>
       <Card.Meta>
         <span className='date'>Se unió en 2019</span>
@@ -19,11 +18,11 @@ const UserCard = () => (
       <Card.Description>
         Tipo de Vivienda: piso.
       </Card.Description>
-      <Card.Content style={{paddingTop: '20px'}}>
-        <Icon name="edit outline"/>
+      <Card.Content style={{ paddingTop: '20px' }}>
+        <Icon name="edit outline" />
         Persona amantes de los animales, veterinario y desarrollador de fanimals
       </Card.Content>
-      
+
     </Card.Content>
     <Card.Content extra>
       <a>
@@ -44,7 +43,7 @@ const UserCard = () => (
       </a>
     </Card.Content>
     <Card.Content>
-        <RatingUser/>
+      <RatingUser />
     </Card.Content>
   </Card>
 )
