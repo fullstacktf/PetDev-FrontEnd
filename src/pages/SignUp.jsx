@@ -1,13 +1,13 @@
 import React from 'react'
-import SignUpForm from '../components/SignUp';
+import { SignUpForm } from '../components/forms/SignUpForm';
 
 
-export default class HomePage extends React.Component {
-    
-    render() {
-        return(
-          <SignUpForm/>
-         
-        )
-    }
+export default class SignUp extends React.Component {
+
+  render() {
+    return (
+      <SignUpForm />
+
+    )
+  }
 }

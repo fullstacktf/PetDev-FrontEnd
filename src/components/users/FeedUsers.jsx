@@ -1,7 +1,7 @@
 import React from 'react'
 import { Feed, Icon } from 'semantic-ui-react'
 
-const FeedExampleBasic = () => (
+const FeedUser = () => (
     <Feed>
         <Feed.Event>
             <Feed.Label>
@@ -105,4 +105,4 @@ const FeedExampleBasic = () => (
     </Feed>
 )
 
-export default FeedExampleBasic
+export default FeedUser

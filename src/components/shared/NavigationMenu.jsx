@@ -1,11 +1,11 @@
 import React from 'react';
 import { Container, Menu } from 'semantic-ui-react';
 
-export default () => (
+export const NavigationMenu = () => (
   <Menu>
     <Container>
       <Menu.Item as="a" header>
-        
+
       </Menu.Item>
 
       <Menu.Menu position="top">

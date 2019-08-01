@@ -1,7 +1,7 @@
 import React from 'react'
 import { Grid } from 'semantic-ui-react'
-import UserCard from './CardUser';
-import ProfileMap from './ProfileMap';
+import UserCard from './UserCard';
+import ProfileMap from '../maps/ProfileMap';
 import UserComents from './UserComents';
 
 const NewUserGrid = () => (

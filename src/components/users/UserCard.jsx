@@ -1,13 +1,14 @@
 import React from 'react'
-import { Card, Icon, Image, } from 'semantic-ui-react'
-import RatingUser from './RatinUser'
-/* import photo from '../assets/matthew.png' */
+import { Card, Icon, } from 'semantic-ui-react'
+
+import RatingUser from './RatingUser'
 
 const UserCard = () => (
 
   <Card style={{ marginLeft: '30px' }} className="card1" color="purple">
+
     <Card.Content>
-      <Image size='mini' wrapped ui={false} />
+
       <Card.Header>Aaron</Card.Header>
       <Card.Meta>
         <span className='date'>Se unió en 2019</span>
@@ -25,19 +26,19 @@ const UserCard = () => (
 
     </Card.Content>
     <Card.Content extra>
-      <a>
+      <a href="http://goole.com">
         <Icon name='moon' />
         5 Noches Pendientes
       </a>
     </Card.Content>
     <Card.Content extra>
-      <a>
+      <a href="http://goole.com">
         <Icon name='upload' />
         Edita tu imagen de perfil
       </a>
     </Card.Content>
     <Card.Content extra>
-      <a>
+      <a href="http://goole.com">
         <Icon name='hand peace' />
         Número de mascotas: 2
       </a>

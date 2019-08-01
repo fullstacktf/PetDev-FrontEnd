@@ -1,24 +1,23 @@
 
 import React from 'react';
 import 'semantic-ui-css/semantic.min.css';
-import HeaderFanimals from '../components/HeaderFanimals';
-import Footer from '../components/FooterHomePage';
-import { Container, FeedUser } from 'semantic-ui-react'
-import ProfileMap from '../components/ProfileMap';
-import './UserProfile.css';
-import UserCardProfile from '../components/UserCardProfile';
-import PetMiniCard from '../components/PetMiniCard';
-import FeedUsers from '../components/FeedUsers';
-import GridImages from '../components/GridImages';
+import HeaderFanimals from '../components/shared/HeaderFanimals';
+import Footer from '../components/shared/FooterFanimals';
+import { Container } from 'semantic-ui-react'
+import '../UserProfile.css';
+import UserCardProfile from '../components/users/UserCardProfile';
+import PetMiniCard from '../components/users/PetMiniCard';
+import FeedUsers from '../components/users/FeedUsers';
+import GridImages from '../components/users/GridImages';
 
 const UserProfile = () => (
     <div className="superContainer">
         <style>{`
     html, body {
         background-color: #d7a8f0; !important
-      
+
     }
-    
+
     `}
         </style>
         <Container className="container" fluid textAlign="center" >

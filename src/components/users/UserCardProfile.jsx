@@ -1,9 +1,9 @@
 import React from 'react'
 import { Card, Icon, Image } from 'semantic-ui-react'
-import photo from '../assets/matthew.png'
-import '../pages/UserProfile.css'
-import MiniMap from './MiniMap';
-import RatingUser from './RatinUser'
+import photo from '../../assets/matthew.png'
+import '../../UserProfile.css'
+import MiniMap from '../maps/MiniMap';
+import RatingUser from './RatingUser'
 
 const UserCardProfile = () => (
     <Card>
@@ -18,7 +18,7 @@ const UserCardProfile = () => (
       </Card.Description>
         </Card.Content>
         <Card.Content extra>
-            <a>
+            <a href="http://google.com">
                 <Icon name='user' />
                 22 Friends
             </a>
@@ -37,19 +37,19 @@ const UserCardProfile = () => (
             Persona amantes de los animales, veterinario y desarrollador de fanimals
       </Card.Content>
         <Card.Content extra>
-            <a>
+            <a href="http://google.com">
                 <Icon name='moon' />
                 5 Noches Pendientes
       </a>
         </Card.Content>
         <Card.Content extra>
-            <a>
+            <a href="http://google.com">
                 <Icon name='upload' />
                 Edita tu imagen de perfil
       </a>
         </Card.Content>
         <Card.Content extra>
-            <a>
+            <a href="http://google.com">
                 <Icon name='hand peace' />
                 Número de mascotas: 2
       </a>
