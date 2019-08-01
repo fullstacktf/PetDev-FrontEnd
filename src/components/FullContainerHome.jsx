@@ -4,7 +4,7 @@ import HeaderFanimals from './MenuHomePage';
 import ContainerHomePage from './ContainerHomePage';
 import Footer from './FooterHomePage';
 
-const FullHomePage = () => (
+const HomePage = () => (
   <Container>
  <HeaderFanimals/>
  <ContainerHomePage/>
@@ -13,4 +13,4 @@ const FullHomePage = () => (
   </Container>
 )
 
-export default FullHomePage
+export default connect (HomePage)
