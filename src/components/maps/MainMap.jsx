@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 import axios from 'axios';
 import markerIcon from '../../assets/faIcon.png';
-import apiKey from '../../apikey.txt';
+
+import apiKey from '../../apikey.json';
+
 
 const mapStyles = {
   width: '100%',
@@ -10,7 +12,7 @@ const mapStyles = {
 };
 
 class MainMap extends Component {
-  
+
   state = {
     showingInfoWindow: false,  //Hides or the shows the infoWindow
     activeMarker: {},          //Shows the active marker upon click
@@ -33,32 +35,33 @@ class MainMap extends Component {
       });
     }
   };
-  
+
   displayMarkers = () => {
     const markers = [];
 
-    this.state.users.map((user, index)=>{ console.log(user)
+    this.state.users.map((user, index) => {
+      console.log(user)
       markers.push(<Marker
-            key={index}
-            onClick={this.onMarkerClick}
-            name={user.name}
-            icon={markerIcon}
-            position={{lat: user.geo.coordinates[1], lng:user.geo.coordinates[0]}}
-            />)
-      
+        key={index}
+        onClick={this.onMarkerClick}
+        name={user.name}
+        icon={markerIcon}
+        position={{ lat: user.geo.coordinates[1], lng: user.geo.coordinates[0] }}
+      />)
+
 
     })
     console.log(markers)
-    return(markers);
+    return (markers);
   }
 
   componentWillMount() {
-    axios.get(`http://localhost:3000/users/`)
+    axios.get(`http://localhost:4000/users/`)
       .then(res => {
         const usersInfo = res.data;
-        this.setState({users: usersInfo})
+        this.setState({ users: usersInfo })
       })
-  } 
+  }
 
   render() {
     return (
@@ -69,17 +72,19 @@ class MainMap extends Component {
           style={mapStyles}
           initialCenter={{
             lat: 28.467297,
-            lng:-16.2755351 
+            lng: -16.2755351
           }}
-          > 
+        >
 
           {this.displayMarkers()}
 
-          </Map>
+        </Map>
       </div>
     );
   }
 }
+
+console.log(apiKey);
 
 export default GoogleApiWrapper({
   apiKey
