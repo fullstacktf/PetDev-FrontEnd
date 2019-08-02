@@ -18,3 +18,7 @@
 .pet-container {
     justify-content: space-between;
 }
+
+.comments {
+    text-align: left;
+}

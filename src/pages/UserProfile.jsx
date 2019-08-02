@@ -3,7 +3,7 @@ import React from 'react';
 import 'semantic-ui-css/semantic.min.css';
 import HeaderFanimals from '../components/shared/HeaderFanimals';
 import Footer from '../components/shared/FooterFanimals';
-import { Container } from 'semantic-ui-react'
+import { Container, Divider, } from 'semantic-ui-react'
 import '../UserProfile.css';
 import UserCardProfile from '../components/users/UserCardProfile';
 import PetMiniCard from '../components/users/PetMiniCard';
@@ -29,15 +29,21 @@ const UserProfile = () => (
                     </div>
                 </div>
                 <div className="container-right">
+                    <Divider horizontal inverted>
+                        Mascotas
+                    </Divider>
                     <div className="pet-conatiner">
                         <PetMiniCard />
                     </div>
+                    <Divider horizontal inverted>
+                        Galería
+                    </Divider>
                     <br />
                     <div>
                         <GridImages />
                     </div>
                     <br />
-                    <div>
+                    <div className="comments">
                         <FeedUsers />
                     </div>
                 </div>
