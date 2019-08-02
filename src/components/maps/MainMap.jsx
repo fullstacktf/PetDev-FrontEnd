@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 import axios from 'axios';
 import markerIcon from '../../assets/faIcon.png';
+
 import apiKey from '../../apikey.json';
+
 
 const mapStyles = {
   width: '100%',
@@ -85,5 +87,5 @@ class MainMap extends Component {
 console.log(apiKey);
 
 export default GoogleApiWrapper({
-  apiKey: apiKey.googleMaps
+  apiKey
 })(MainMap);
