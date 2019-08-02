@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 import axios from 'axios';
-import markerIcon from '../assets/faIcon.png';
+import markerIcon from '../../assets/faIcon.png';
 import apiKey from '../../apikey.txt';
 
 const mapStyles = {
@@ -82,5 +82,5 @@ class MainMap extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: apiKey
+  apiKey: 'AIzaSyBzGVNtpx96mevl5hXFpx7n-ZeAeM3u1k8'
 })(MainMap);
