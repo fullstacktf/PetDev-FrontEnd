@@ -82,5 +82,5 @@ class MainMap extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyBzGVNtpx96mevl5hXFpx7n-ZeAeM3u1k8'
+  apiKey
 })(MainMap);
