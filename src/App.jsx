@@ -9,6 +9,7 @@ import HeaderFanimals from './components/shared/HeaderFanimals'
 import Login from './pages/Login'
 import SignUp from './pages/SignUp'
 import UserProfile from './pages/UserProfile'
+import About from './pages/About'
 
 import birdsbackground from './assets/matthew.png';
 
@@ -32,6 +33,7 @@ const App = () => {
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/user" component={UserProfile} />
+        <Route exact path="/about" component={About} />
 
 
 
