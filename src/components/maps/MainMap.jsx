@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
+import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 import axios from 'axios';
 import markerIcon from '../../assets/faIcon.png';
 
@@ -27,7 +27,7 @@ class MainMap extends Component {
       showingInfoWindow: true
     });
 
-  onClose = props => {
+  onClose = (props) => {
     if (this.state.showingInfoWindow) {
       this.setState({
         showingInfoWindow: false,
@@ -84,7 +84,6 @@ class MainMap extends Component {
   }
 }
 
-console.log(apiKey);
 
 export default GoogleApiWrapper({
   apiKey

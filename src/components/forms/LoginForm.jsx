@@ -1,6 +1,6 @@
 
 import React from 'react'
-import { Button, Form, Grid, Header, Icon, Message, Segment } from 'semantic-ui-react'
+import { Button, Form, Grid, Header, Icon } from 'semantic-ui-react'
 
 const LoginForm = () => (
   <Grid className="container2" textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>

@@ -1,13 +1,14 @@
 import React from 'react'
 import { Button, Menu } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
-import image from '../../assets/logo-fanimals.png'
+import Image from '../../assets/logo-fanimals.png'
 // TODO: Update <Search> usage after its will be implemented
 
 const HeaderFanimals = () => (
   <div>
     <Menu fixed="top">
-      <h1 style={{ margin: 'auto', marginLeft: '10px' }}> <img src={Image} alt="" /> Fanimals</h1>
+    <img width="75px" height="75px"src={Image} alt="" />
+      <h1 style={{ margin: 'auto', marginLeft: '10px' }}>  Fanimals</h1>
 
       <Menu.Menu position='right'>
         <div className='ui right aligned category search item'>
@@ -29,4 +30,4 @@ const HeaderFanimals = () => (
   </div>
 )
 
-export default HeaderFanimals
+export default HeaderFanimals;
