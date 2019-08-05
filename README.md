@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/fullstacktf/fanimals-frontend.svg?branch=master)](https://travis-ci.org/fullstacktf/fanimals-frontend)
 
-_Proyecto Web para encontrar alojamiento a tu mascota, de confianza y tu alrededor._
+_Proyecto Web para encontrar alojamiento a tu mascota, de confianza y a tu alrededor._
 _Un proyecto altruista para solucionar problemas reales._
 
 ## Equipo: :punch:
