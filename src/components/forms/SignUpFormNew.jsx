@@ -41,15 +41,8 @@ const Label = styled.label`
   font-weight: bold;
 `;
 
-const Box = styled.div`
-  background: black;
-  width: 500px;
-  height: 500px;
-`;
-
 export const SignUpFormNew = () => (
   <FormsContainer>
-    {/* <Box /> */}
     <Form>
       <Label>E-mail</Label>
       <Input type="text" placeholder="E-mail" />
