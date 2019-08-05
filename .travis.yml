@@ -8,7 +8,7 @@ jobs:
     - stage: test
       name: "Unit testing"
       script:
-        npm run test
+        npm run test --forceExit
     - stage: Build
       name: "Building the final page"
       script:

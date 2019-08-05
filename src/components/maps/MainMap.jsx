@@ -84,7 +84,7 @@ class MainMap extends Component {
   }
 }
 
-console.log(apiKey);
+//console.log(apiKey);
 
 export default GoogleApiWrapper({
   apiKey
