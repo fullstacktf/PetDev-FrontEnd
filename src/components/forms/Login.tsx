@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import styled from '@emotion/styled';
 
 const InputField = styled.div`
-  color: ${props => props.theme.error ? 'red' : 'black'};
-  font-weight: ${props => props.theme.error ? 'bold' : 'normal'};
+
 `;
 
 const initialValue = {
