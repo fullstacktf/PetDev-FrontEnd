@@ -1,16 +1,15 @@
 ---
-to: <%= path %>/<%= name %>.test.jsx
+to: <%= path %>/__test__/<%= name %>.test.jsx
 unless_exists: true
 ---
 import React from 'react';
 import { render, cleanup } from "@testing-library/react"; 
 import '@testing-library/jest-dom/extend-expect'
-import <%= Name %> from '<%= dir %>/<%= name %>'
+import <%= name %> from './<%= name %>'
 
-describe('<%= Name %>',()=>{
+describe('<%= name %>',()=>{
     afterEach(cleanup)
     test('Checks render component', () => {
-        expect( render(< <%= Name %> />)).toMatchSnapshot();
+        render(< <%= name %> />)
     })
-}
-
+})

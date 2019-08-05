@@ -13,6 +13,7 @@ module.exports = {
           if(file.map(file => file.endsWith('jsx')))
           {
             const name = file[0].split('.')[0]
+            console.log({...path,name})
             return {...path,name}
           }
           else

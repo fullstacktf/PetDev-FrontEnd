@@ -1,6 +1,7 @@
 const fs = require('fs');
 function searching(stringArray){
-  return stringArray.map( item => item.endsWith('jsx'))
+  const booleans = stringArray.map( item => item.endsWith('jsx'))
+  return booleans.every(items => items === true)
 }
 function dirSearch(path){
   return fs.readdirSync(path)
@@ -12,34 +13,29 @@ module.exports = {
     const directory = [{
       type: 'input',
       name: 'path',
-      message: 'What is the directory component?',
+      message: 'Where are the component?',
     }]
 
-    return prompter.prompt(directory).then( ( {path} ) => 
+    return prompter.prompt(directory)
+    .then( path  => 
     {
-      const dir = `${path}`;
-      let search = dirSearch(dir);
+      const dir = path.path;
+      const root = dirSearch(dir);
 
-      if(searching(search)[0])
+      if(searching(root)) 
         {
-          console.log(search)
-          console.log(dir)
-          console.log('Here are the components! Saving names ...')
-          console.log(search)
-          const { search } = path
+          const name = root[0].split('.')[0]
+          return {...path,name}
         }
         else
         {
           console.log('Root dir, searching ...')
-          const components = search.map( item => fs.readdirSync(`${path}/`+ item ))
-          if(searching(components[0])[0])
-          {
-            
-            console.log('Here are the components! Saving names ...')
-            const { components } = path
-          }
+          const searchComponents = root.map( item => dirSearch(dir +'/'+ item ))
+          const components = searchComponents.map(item => item.filter(item => item.split('.')[1]==='jsx'))
+          const name = components.toString().split(',')
+          console.log({...{path},root,components,name})
+          return {...path,root,components,name}
         }
-        return path
       })
   },
 }
