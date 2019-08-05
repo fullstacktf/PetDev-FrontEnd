@@ -1,7 +1,6 @@
 
 import React from 'react';
 import 'semantic-ui-css/semantic.min.css';
-import HeaderFanimals from '../components/shared/HeaderFanimals';
 import Footer from '../components/shared/FooterFanimals';
 import { Container, Divider, } from 'semantic-ui-react'
 import '../UserProfile.css';
@@ -21,7 +20,7 @@ const UserProfile = () => (
     `}
         </style>
         <Container className="container" fluid textAlign="center" >
-            <HeaderFanimals />
+            
             <div className="container-divs">
                 <div className="card-container">
                     <div>

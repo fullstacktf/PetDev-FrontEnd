@@ -56,7 +56,7 @@ class MainMap extends Component {
   }
 
   componentWillMount() {
-    axios.get(`http://localhost:4000/users/`)
+    axios.get(`http://localhost:4000/api/users/`)
       .then(res => {
         const usersInfo = res.data;
         this.setState({ users: usersInfo })
