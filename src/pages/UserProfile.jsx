@@ -21,7 +21,7 @@ const UserProfile = () => (
     `}
         </style>
         <Container className="container" fluid textAlign="center" >
-            <HeaderFanimals />
+            
             <div className="container-divs">
                 <div className="card-container">
                     <div>

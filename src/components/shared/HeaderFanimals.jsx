@@ -7,7 +7,7 @@ import image from '../../assets/logo-fanimals.png'
 const HeaderFanimals = () => (
   <div>
     <Menu fixed="top">
-      <h1 style={{ margin: 'auto', marginLeft: '10px' }}> <img src={Image} alt="" /> Fanimals</h1>
+      <h1 style={{ margin: 'auto', marginLeft: '10px' }}> <img src={image} alt="" /> Fanimals</h1>
 
       <Menu.Menu position='right'>
         <div className='ui right aligned category search item'>
