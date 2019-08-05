@@ -14,6 +14,7 @@ jobs:
       script:
         npm run build
     - deploy:
+        name: "Deploy to Github Pages"
         local_dir: build
         github_token: $GH_TOKEN
         provider: pages
