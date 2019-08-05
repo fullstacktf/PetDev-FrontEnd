@@ -35,42 +35,62 @@ const Button = styled.button`
   width: 100px;
 `;
 
-const Input = styled.input`
-  width: 200px;
-`;
-
+ const InputField = styled.div`
+ 
+`; 
+const Input = ({ name, type = "text", label, value, handleChange }) => {
+  return <InputField>
+    {label}:
+    <input
+      name={name}
+      type={type}
+      value={value[name]}
+      onChange={handleChange}
+    />
+  </InputField>;
+};
 const Label = styled.label`
   font-weight: bold;
 `;
 
+const initialValue = {
+  email: "asd",
+  password: "asdasd"
+};
+
+const FIELDS = [
+  { label: "Email", name: "email" },
+  { label: "Password", type: "password", name: "password" }
+];
+
 export function SignUpFormNew (props) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
-  const [lastName, setLastName] = useState("");
+  const [formData, setFormData] = useState(initialValue);
 
-
+  const handleChange = ({name, value}) =>
+    setFormData({...formData, [name]:value});
+    
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    axios({
+    console.log(formData);
+/*     axios({
       method: 'post',
       url: 'http://localhost:3001/api/users/',
       data: {
-        email, password, name, lastName, 
-      }
-    });
-    alert(`Email ${email}`);
+        
+      } 
+    });*/
+    alert(`Email ${formData}`);
 }
 
   return(
   <Form onSubmit={handleSubmit}>
-    <Label>E-mail</Label>
+    {FIELDS.map((field, i)=> <Input handleChange={handleChange} key={i} value={formData} {...field}/>)}
+{/*     <Label>E-mail</Label>
     <Input
       name="email"
       type="email"
       value={email}
-      onChange={e => setEmail(e.target.value)}
+      handleChange={handleChange}
       placeholder="E-mail"
     />
     <Label>Password</Label>
@@ -78,10 +98,10 @@ export function SignUpFormNew (props) {
       name="password"
       type="password"
       value={password}
-      onChange={e => setEmail(e.target.value)}
+      handleChange={handleChange}
       placeholder="Password"
-    />
-    <Label>Nombre</Label>
+    /> 
+     <Label>Nombre</Label>
     <Input
       name="name"
       type="text"
@@ -186,9 +206,9 @@ export function SignUpFormNew (props) {
         onChange={e => setEmail(e.target.value)}
         placeholder="Lng"
       />
-    </LatLngContainer>
+    </LatLngContainer> */}
     <Button>Enviar</Button>
-    <pre>{JSON.stringify}</pre>
+
   </Form>
   )
 };
