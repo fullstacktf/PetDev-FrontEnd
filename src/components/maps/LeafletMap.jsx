@@ -23,7 +23,7 @@ export default class LeafletMap extends Component {
     };
 
     componentWillMount() {
-        axios.get(`http://192.168.1.63:3000/users/`).then(res => {
+        axios.get(`http://localhost:3001/users/`).then(res => {
             const usersInfo = res.data;
             this.setState({ users: usersInfo });
         });
