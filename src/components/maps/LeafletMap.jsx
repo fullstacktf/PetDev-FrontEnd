@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Map, TileLayer } from "react-leaflet";
-import L from "leaflet";
+//import L from "leaflet";
 import axios from "axios";
-import PopUpMiniCardMap from "../users/PopUpMiniCardMap";
+//import PopUpMiniCardMap from "../users/PopUpMiniCardMap";
 import { Marker } from "./Marker";
 
 const mapStyles = {
