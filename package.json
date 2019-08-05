@@ -57,7 +57,7 @@
     "@types/node": "^12.6.8",
     "@types/react": "^16.8.23",
     "@types/react-dom": "^16.8.4",
-    "react-test-renderer": "^16.8.6"
+    "react-test-renderer": "^16.8.6",
     "@types/react-leaflet": "^2.2.1"
 
   }
