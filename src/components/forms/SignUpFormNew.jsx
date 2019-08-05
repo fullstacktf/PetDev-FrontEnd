@@ -1,5 +1,6 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "@emotion/styled";
+import axios from 'axios';
 import { SignUpFormWrapper } from "./SignUpFormWrapper";
 
 const FormsContainer = styled.div`
@@ -42,116 +43,152 @@ const Label = styled.label`
   font-weight: bold;
 `;
 
-export const SignUpFormNew = ({ state, handleSubmit }) => (
+export function SignUpFormNew (props) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const [lastName, setLastName] = useState("");
+
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    axios({
+      method: 'post',
+      url: 'http://localhost:3001/api/users/',
+      data: {
+        email, password, name, lastName, 
+      }
+    });
+    alert(`Email ${email}`);
+}
+
+  return(
   <Form onSubmit={handleSubmit}>
     <Label>E-mail</Label>
     <Input
       name="email"
       type="email"
-      value={state.values.email}
+      value={email}
+      onChange={e => setEmail(e.target.value)}
       placeholder="E-mail"
     />
     <Label>Password</Label>
     <Input
       name="password"
       type="password"
-      value={state.values.password}
+      value={password}
+      onChange={e => setEmail(e.target.value)}
       placeholder="Password"
     />
     <Label>Nombre</Label>
     <Input
       name="name"
       type="text"
-      value={state.values.name}
+      value={name}
+      onChange={e => setEmail(e.target.value)}
       placeholder="Nombre"
     />
     <Label>Apellidos</Label>
     <Input
       name="lastName"
       type="text"
-      value={state.values.lastName}
+      value={lastName}
+      onChange={e => setEmail(e.target.value)}
       placeholder="Apellidos"
     />
-    <Label>Nickname</Label>
+    <Label>Username</Label>
     <Input
-      name="nickName"
+      name="userName"
       type="text"
-      value={state.values.nickName}
-      placeholder="Nickname"
+      value={userName}
+      onChange={e => setEmail(e.target.value)}
+      placeholder="Username"
     />
     <Label>Tipo de casa</Label>
     <Input
       name="houseType"
       type="text"
-      value={state.values.houseType}
+      value={houseType}
+      onChange={e => setEmail(e.target.value)}
       placeholder="Tipo de casa"
     />
     <Label>Fecha de nacimiento</Label>
-    <Input name="birthDate" type="date" value={state.values.birthDate} />
+    <Input name="birthDate" type="date" value={birthDate} onChange={e => setEmail(e.target.value)} />
     <Label>Descripción</Label>
     <Input
       name="description"
       type="text"
-      value={state.values.description}
+      value={description}
+      onChange={e => setEmail(e.target.value)}
       placeholder="Háblanos de ti"
     />
     <Label>Preferencias</Label>
     <Input
       name="preferences"
       type="text"
-      value={state.values.preferences}
+      value={preferences}
+      onChange={e => setEmail(e.target.value)}
       placeholder="Preferencias"
     />
     <Label>Pet Coins</Label>
     <Input
       name="coins"
       type="text"
-      value={state.values.coins}
+      value={coins}
+      onChange={e => setEmail(e.target.value)}
       placeholder="Pet Coins"
     />
     <Label>País</Label>
     <Input
       name="country"
       type="text"
-      value={state.values.country}
+      value={country}
+      onChange={e => setEmail(e.target.value)}
       placeholder="País"
     />
     <Label>Provincia</Label>
     <Input
       name="province"
       type="text"
-      value={state.values.province}
+      value={province}
+      onChange={e => setEmail(e.target.value)}
       placeholder="Provincia"
     />
     <Label>Dirección</Label>
     <Input
       name="addressLine"
       type="text"
-      value={state.values.addressLine}
+      onChange={e => setEmail(e.target.value)}
+      value={addressLine}
       placeholder="Dirección"
     />
     <Label>Código Postal</Label>
     <Input
       name="postalCode"
       type="text"
-      value={state.values.postalCode}
+      onChange={e => setEmail(e.target.value)}
+      value={postalCode}
       placeholder="Código Postal"
     />
     <LatLngContainer>
       <CoordInput
         name="lat"
         type="number"
-        value={state.values.lat}
+        value={lat}
+        onChange={e => setEmail(e.target.value)}
         placeholder="Lat"
       />
       <CoordInput
         name="lng"
         type="number"
-        value={state.values.lng}
+        value={lng}
+        onChange={e => setEmail(e.target.value)}
         placeholder="Lng"
       />
     </LatLngContainer>
     <Button>Enviar</Button>
-    <pre>{JSON.stringify(state)}</pre>
+    <pre>{JSON.stringify}</pre>
   </Form>
-);
+  )
+};

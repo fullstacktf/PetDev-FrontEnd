@@ -28,8 +28,8 @@ const App = () => {
 
 
       <div className="App" style={styles}>
-        <HeaderFanimals />
-        <Route exact path="/" component={HomePage} />
+        {/* <HeaderFanimals />
+ */}        <Route exact path="/" component={HomePage} />
         <Route exact path="/home" component={HomePage} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={SignUp} />
