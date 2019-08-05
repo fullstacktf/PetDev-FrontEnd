@@ -31,15 +31,15 @@ export default class LeafletMap extends Component {
 
     render() {
         const { users } = this.state;
-        const position = [this.state.lat, this.state.lng];
+        const position = [this.state.lng, this.state.lat];
         return (
-            <Map center={position} zoom={this.state.zoom} style={mapStyles}>
+            <Map center={[25,23]} zoom={this.state.zoom} style={mapStyles}>
                 <TileLayer
                     attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
-                {users.map(user => <Marker key={user.id} user={user}/>)}
+                {users.map(user => <Marker key={user} user={user}/>)}
             </Map>
         );
     }
-}
+};
