@@ -1,116 +1,128 @@
-import React from 'react';
-import { Button, Form, Grid, Input , Header, Icon, Divider, Segment } from 'semantic-ui-react';
-import styled from '@emotion/styled';
+import React, {useState} from "react";
+import styled from "@emotion/styled";
+import axios from 'axios';
 
-import DropdownCountry from './DropdownCountries';
 
-const FormsContainer = styled.div`
-  display:flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items:center; 
-  height: 100vh;
-  width: 66vw;
-  margin: auto;
-
-/*   border: 1px solid red; */
-
-`;
-const LatLngContainer = styled.div`
-
+const Form = styled.form`
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  flex-direction: column;
 `;
 
-const DataContainer= styled.div`
-  display:flex;
-  flex-direction:column;
-  justify-content: space-around;
-  height: 80px;
-`
-export const SignUpForm = () => (
+const Button = styled.button`
+  margin: auto;
+  width: 100px;
+`;
 
+const InputField = styled.div`
+
+`; 
+const Input = ({ name, type = "text", label, value, handleChange }) => {
+  return <InputField>
+    {label}:
+    <input
+      name={name}
+      type={type}
+      value={value[name]}
+      onChange={handleChange}
+    />
+  </InputField>;
+};
+
+const initialState = {
+  
+  addressLine: "",
+  country: "",
+  description: "",
+  email: "",
+  houseType: "",
+  lastName: "",
+  name: "",
+  password: "",
+  petPreferences: "",
+  postalCode: "",
+  province: "",
+  userName: "",
+  lat: -16,
+  lng: 28
+};
+
+const initialCoords = {
+  
     
-   /*  <Header as='h2' color='white' textAlign='center'>
-        <Icon name="signup" color="purple" />
-        Unete a nosotros!
-        </Header> */
-      <React.Fragment>
-        
-      {/* <FormsContainer> */}
-      <Grid columns="equal" >
-      <Grid.Column >
-      <Form size='small' onSubmit= {console.log("hola")} success>
-        <Form.Field>
-          <label>E-mail</label>
-        
-            <Input style={{ width:"150px" }}  placeholder='E-mail' />
-            <Input style={{ width:"150px" }} size="small" placeholder='Confirma tu e-mail' />
-          
-        </Form.Field>
-        <Form.Field>
-          <label>Password</label>
-        
-            <Input style={{ width:"150px" }} size="small" type="password"placeholder='Password' />
-            <Input style={{ width:"150px" }} size="small" type="password" placeholder='Confirma tu password' />
-          
-        </Form.Field>
-        
-        <LatLngContainer>
-          <Form.Input style={{ width:"150px" }} size="small" style={{width:"50px"}}fluid placeholder='Lat: ' />
-          <Form.Input style={{ width:"150px" }} size="small" style={{width:"50px"}}fluid placeholder='Lng: ' />
-        </LatLngContainer>
+  
+};
 
-      </Form>
-      </Grid.Column>
+const FIELDS = [
+  { label: "Email", name: "email" },
+  { label: "Password", type: "password", name: "password" },
+  { label: "Name", name: "name" },
+  { label: "Last Name", name: "lastName" },
+  { label: "Username", name: "userName" },
+  { label: "House type", name: "houseType" },
+  { label: "Description", name: "description" },
+  { label: "Pet preferences", name: "petPreferences" },
+  { label: "Country", name: "country" },
+  { label: "Province", name: "province" },
+  { label: "Address", name: "addressLine" },
+  { label: "Postal code", name: "postalCode" },
+  { label: "Lat", name: "lat", type: "number" },
+  { label: "Lng", name: "lng", type: "number" }
+];
+
+export function SignUpForm () {
+  const [formData, setFormData] = useState(initialState);
+  const [coords, setCoords] = useState(initialCoords);
+
+  function handleChange({ target: { name, value } }){
+    setCoords({...coords, [name]:value})
+    setFormData({...formData, [name]:value}); 
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
     
-      <Grid.Column>
-      <Form>
-      <Form.Field>
-          <label>E-mail</label>
-        
-            <Input style={{ width:"150px" }} size="small" placeholder='E-mail' />
-            <Input style={{ width:"150px" }} size="small" placeholder='Confirma tu e-mail' />
-          
-        </Form.Field>
-        <Form.Field>
-          <label>Password</label>
-        
-            <Input style={{ width:"150px" }} size="small" type="password"placeholder='Password' />
-            <Input style={{ width:"150px" }} size="small" type="password" placeholder='Confirma tu password' />
-          
-        </Form.Field>
-        <Form.Field>
-          <label>Password</label>
-        
-            <Input style={{ width:"150px" }} size="small" type="password"placeholder='Password' />
-            <Input style={{ width:"150px" }} size="small" type="password" placeholder='Confirma tu password' />
-          
-        </Form.Field>
-        <Form.Field>
-          <label>Password</label>
-        
-            <Input style={{ width:"150px" }} size="small" type="password"placeholder='Password' />
-            <Input style={{ width:"150px" }} size="small" type="password" placeholder='Confirma tu password' />
-          
-        </Form.Field>
-        
-        <LatLngContainer>
-          <Form.Input style={{ width:"150px" }} size="small" style={{width:"50px"}}fluid placeholder='Lat: ' />
-          <Form.Input style={{ width:"150px" }} size="small" style={{width:"50px"}}fluid placeholder='Lng: ' />
-        </LatLngContainer>
+    const address = {
+      country: formData.country,
+      province: formData.province,
+      addressLine: formData.addressLine,
+      postal: formData.postalCode
+      }
+    
+      const geo = {
+        coordinates: [formData.lng, formData.lat]
+      }
 
-        
+    axios({
+      method: 'post',
+      url: 'http://localhost:3001/api/users/',
+      data: {...formData, address, geo} 
+    });
+    
 
-      </Form>
-      </Grid.Column>
-      </Grid>
-      
-{/*       </FormsContainer> */}
-      <Button style = {{width:"150px", margin: "auto"}} type='submit' color='purple' fluid size='large'>
-      ¡Comienza!
-      </Button>
-    </React.Fragment>
-      
-)
+}
+
+  return(
+  <Form onSubmit={handleSubmit}>
+    {FIELDS.map((field, i)=> <Input handleChange={handleChange} key={i} value={formData} {...field}/>)}
+
+{/*     <LatLngContainer>
+      <CoordInput
+        name="lat"
+        type="number"
+        value={coords}
+        onChange={handleChange}
+        placeholder="Lat"
+      />
+      <CoordInput
+        name="lng"
+        type="number"
+        value={coords}
+        onChange={handleChange}
+        placeholder="Lng"
+      />
+    </LatLngContainer>  */}
+    <Button>Enviar</Button>
+
+  </Form>
+  )
+};
