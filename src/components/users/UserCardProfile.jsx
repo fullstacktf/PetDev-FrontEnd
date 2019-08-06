@@ -6,7 +6,7 @@ import MiniMap from "../maps/MiniMap";
 import RatingUser from "./RatingUser";
 import axios from "axios";
 
-const id = "5d48d3c2e28e1c5854a01c79";
+const id = "5d49c446b097c85ec3631e6f";
 
 class UserCardProfile extends Component {
   state = {

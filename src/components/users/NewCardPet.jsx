@@ -1,15 +1,38 @@
-import React from 'react'
+import React, { Component } from 'react';
 import { Card, Image, Icon } from 'semantic-ui-react';
+import axios from 'axios';
 
-const PetMiniCard = () => (
-    <Card.Group centered>
+const id =  "5d49c446b097c85ec3631e6f";
+
+class NewCardPet extends Component {
+    state= {
+        user: {},
+        pets: {}
+    };
+
+    componentWillMount(){
+        axios.get(`http://localhost:3001/api/users/${id}`).then(res =>{
+            const user = res.data;
+            const pets = res.data.pets;
+            
+            this.setState({
+                user,
+                pets
+            });
+            console.log(pets)
+        });
+    }
+    render() {
+        return (
+        <Card.Group centered>
         <Card>
             <Card.Content>
                 <Image floated='right' circular size='mini' src='https://saudeplanoparapet.nsbeneficios.com.br/img/carenciazero_pet_mobile.png' />
-                <Card.Header><Icon name="paw" />Firulai</Card.Header>
-                <Card.Meta>Friends of Elliot</Card.Meta>
+                <Card.Header><Icon name="paw" />{this.state.pets.petName}</Card.Header>
+                <Card.Meta>Owner: {this.state.user.name}</Card.Meta>
                 <Card.Description>
-                    A Firulai le encanta las pelotas.
+                   {this.state.pets.chip}
+             
                 </Card.Description>
             </Card.Content>
         </Card>
@@ -25,6 +48,9 @@ const PetMiniCard = () => (
             </Card.Content>
         </Card>
     </Card.Group>
-)
+            
+        )
+    }
+    }
 
-export default PetMiniCard
+    export default NewCardPet;

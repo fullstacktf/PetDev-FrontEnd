@@ -5,7 +5,7 @@ import Footer from '../components/shared/FooterFanimals';
 import { Container, Divider, } from 'semantic-ui-react'
 import '../UserProfile.css';
 import UserCardProfile from '../components/users/UserCardProfile';
-import PetMiniCard from '../components/users/PetMiniCard';
+import NewCardPet from '../components/users/NewCardPet'
 import FeedUsers from '../components/users/FeedUsers';
 import GridImages from '../components/users/GridImages';
 
@@ -32,7 +32,7 @@ const UserProfile = () => (
                         Mascotas
                     </Divider>
                     <div className="pet-conatiner">
-                        <PetMiniCard />
+                        <NewCardPet/>
                     </div>
                     <Divider horizontal inverted>
                         Galería
