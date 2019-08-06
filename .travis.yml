@@ -1,1 +1,24 @@
 language: node_js
+nodejs:
+  - "10"
+
+
+jobs:
+  include:
+    - stage: test
+      name: "Unit testing"
+      script:
+        npm run test --forceExit
+    - stage: Build
+      name: "Building the final page"
+      script:
+        npm run build
+    - deploy:
+        name: "Deploy to Github Pages"
+        local_dir: build
+        github_token: $GH_TOKEN
+        provider: pages
+        skip_cleanup: true
+        keep_history: true
+        on:
+          branch: gh-pages

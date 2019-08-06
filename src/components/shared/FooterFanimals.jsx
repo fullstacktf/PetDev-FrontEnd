@@ -10,7 +10,7 @@ export default class Footer extends Component {
     const { activeItem } = this.state
 
     return (
-      <Menu style={{marginLeft: '500px'}} color="purple" size="large" fixed="bottom" text horizontal>
+      <Menu style={{marginLeft: '500px'}} color="purple" size="large" fixed="bottom" text horizontal="true">
         <Menu.Item header>Fanimals.me</Menu.Item>
         <Menu.Item
           name='About Us'

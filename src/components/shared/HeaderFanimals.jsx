@@ -7,7 +7,8 @@ import Image from '../../assets/logo-fanimals.png'
 const HeaderFanimals = () => (
   <div>
     <Menu fixed="top">
-    <img src={Image} alt="" /> <h1 style={{ margin: 'auto', marginLeft: '10px' }}>  Fanimals</h1>
+    <img width="75px" height="75px"src={Image} alt="" />
+      <h1 style={{ margin: 'auto', marginLeft: '10px' }}>  Fanimals</h1>
 
       <Menu.Menu position='right'>
         <div className='ui right aligned category search item'>
@@ -29,4 +30,4 @@ const HeaderFanimals = () => (
   </div>
 )
 
-export default HeaderFanimals
+export default HeaderFanimals;

@@ -1,6 +1,5 @@
 import React from 'react'
 import { Card, Icon, Image} from 'semantic-ui-react'
-import { jsx, css, Global, ClassNames } from '@emotion/core';
 import styled from '@emotion/styled'
 import RatingUser from './RatingUser'
 
