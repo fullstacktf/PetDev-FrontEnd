@@ -13,7 +13,6 @@
     "noImplicitAny": false,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noImplicitAny": false,
     "noEmit": true,
     "jsx": "preserve"
   },

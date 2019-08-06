@@ -17,7 +17,7 @@ const Input = ({ name, type = "text", label, value, handleChange }) => {
     <input
       name={name}
       type={type}
-      value="{value[name]} "
+      value={value[name]}
       onChange={handleChange}
     />
   </InputField>;

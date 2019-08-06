@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
+import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 import axios from 'axios';
 import markerIcon from '../../assets/faIcon.png';
 
@@ -20,14 +20,14 @@ class MainMap extends Component {
     users: []         //Shows the infoWindow to the selected place upon a marker
   };
 
-  onMarkerClick = (props, marker, e) =>
+  onMarkerClick = (props, marker) =>
     this.setState({
       selectedPlace: props,
       activeMarker: marker,
       showingInfoWindow: true
     });
 
-  onClose = props => {
+  onClose = () => {
     if (this.state.showingInfoWindow) {
       this.setState({
         showingInfoWindow: false,
@@ -56,7 +56,7 @@ class MainMap extends Component {
   }
 
   componentWillMount() {
-    axios.get(`http://localhost:4000/users/`)
+    axios.get(`http://localhost:3001/api/users/`)
       .then(res => {
         const usersInfo = res.data;
         this.setState({ users: usersInfo })
@@ -84,7 +84,6 @@ class MainMap extends Component {
   }
 }
 
-console.log(apiKey);
 
 export default GoogleApiWrapper({
   apiKey
