@@ -86,7 +86,7 @@ export function SignUpForm () {
     setFormData({...formData, [name]:value}); 
   }
 
-  const handleSubmit = (event) => {
+  const handleOnSubmit = (event) => {
     event.preventDefault();
     
     const address = {
@@ -110,25 +110,10 @@ export function SignUpForm () {
 }
 
   return(
-  <Form onSubmit={handleSubmit}>
-    {FIELDS.map((field, i)=> <Input handleChange={handleChange} key={i} value={formData} {...field}/>)}
+  <Form onSubmit={handleOnSubmit}>
+    
+    { FIELDS && FIELDS.map((field, i)=> <Input handleChange={handleChange} key={i} value={formData} {...field}/>)}
 
-{/*     <LatLngContainer>
-      <CoordInput
-        name="lat"
-        type="number"
-        value={coords}
-        onChange={handleChange}
-        placeholder="Lat"
-      />
-      <CoordInput
-        name="lng"
-        type="number"
-        value={coords}
-        onChange={handleChange}
-        placeholder="Lng"
-      />
-    </LatLngContainer>  */}
     <Button>Enviar</Button>
 
   </Form>
