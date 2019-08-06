@@ -6,14 +6,22 @@ import axios from 'axios';
 const Form = styled.form`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
 `;
 
 const Button = styled.button`
   margin: auto;
   width: 100px;
+  
+
 `;
 
 const InputField = styled.div`
+  padding: 5px;
+  
+
 
 `; 
 const Input = ({ name, type = "text", label, value, handleChange }) => {
