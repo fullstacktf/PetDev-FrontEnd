@@ -1,7 +1,6 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import styled from "@emotion/styled";
-import axios from 'axios';
-
+import axios from "axios";
 
 const Form = styled.form`
   display: flex;
@@ -14,30 +13,27 @@ const Form = styled.form`
 const Button = styled.button`
   margin: auto;
   width: 100px;
-
-
 `;
 
 const InputField = styled.div`
   padding: 2px;
   width: 80px;
-
-
-`; 
+`;
 const Input = ({ name, type = "text", label, value, handleChange }) => {
-  return <InputField>
-    {label}:
-    <input
-      name={name}
-      type={type}
-      value={value[name]}
-      onChange={handleChange}
-    />
-  </InputField>;
+  return (
+    <InputField>
+      {label}:
+      <input
+        name={name}
+        type={type}
+        value={value[name]}
+        onChange={handleChange}
+      />
+    </InputField>
+  );
 };
 
 const initialState = {
-  
   addressLine: "",
   country: "",
   description: "",
@@ -54,11 +50,7 @@ const initialState = {
   lng: 28
 };
 
-const initialCoords = {
-  
-    
-  
-};
+const initialCoords = {};
 
 const FIELDS = [
   { label: "Email", name: "email" },
@@ -77,60 +69,47 @@ const FIELDS = [
   { label: "Lng", name: "lng", type: "number" }
 ];
 
-export function SignUpForm () {
+export function SignUpForm() {
   const [formData, setFormData] = useState(initialState);
   const [coords, setCoords] = useState(initialCoords);
 
-  function handleChange({ target: { name, value } }){
-    setCoords({...coords, [name]:value})
-    setFormData({...formData, [name]:value}); 
+  function handleChange({ target: { name, value } }) {
+    setCoords({ ...coords, [name]: value });
+    setFormData({ ...formData, [name]: value });
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = event => {
     event.preventDefault();
-    
+
     const address = {
       country: formData.country,
       province: formData.province,
       addressLine: formData.addressLine,
       postal: formData.postalCode
-      }
-    
-      const geo = {
-        coordinates: [formData.lng, formData.lat]
-      }
+    };
+
+    const geo = {
+      coordinates: [formData.lng, formData.lat]
+    };
 
     axios({
-      method: 'post',
-      url: 'http://localhost:3001/api/users/',
-      data: {...formData, address, geo} 
+      method: "post",
+      url: "http://localhost:3001/api/users/",
+      data: { ...formData, address, geo }
     });
-    
+  };
 
+  return (
+    <Form onSubmit={handleSubmit}>
+      {FIELDS.map((field, i) => (
+        <Input
+          handleChange={handleChange}
+          key={i}
+          value={formData}
+          {...field}
+        />
+      ))}
+      <Button>Enviar</Button>
+    </Form>
+  );
 }
-
-  return(
-  <Form onSubmit={handleSubmit}>
-    {FIELDS.map((field, i)=> <Input handleChange={handleChange} key={i} value={formData} {...field}/>)}
-
-{/*     <LatLngContainer>
-      <CoordInput
-        name="lat"
-        type="number"
-        value={coords}
-        onChange={handleChange}
-        placeholder="Lat"
-      />
-      <CoordInput
-        name="lng"
-        type="number"
-        value={coords}
-        onChange={handleChange}
-        placeholder="Lng"
-      />
-    </LatLngContainer>  */}
-    <Button>Enviar</Button>
-
-  </Form>
-  )
-};
