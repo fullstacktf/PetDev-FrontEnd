@@ -53,22 +53,30 @@ const Label = styled.label`
   font-weight: bold;
 `;
 
-const initialValue = {
-  email: "asd",
-  password: "asdasd"
-};
 
 const FIELDS = [
   { label: "Email", name: "email" },
-  { label: "Password", type: "password", name: "password" }
+  { label: "Password", type: "password", name: "password" },
+  { label: "Name", name: "name" },
+  { label: "Last Name", name: "lastName" },
+  { label: "Username", name: "userName" },
+  { label: "House type", name: "houseType" },
+  { label: "Description", name: "description" },
+  { label: "Pet preferences", name: "petPreferences" },
+  { label: "Country", name: "country" },
+  { label: "Province", name: "province" },
+  { label: "Address", name: "addressLine" },
+  { label: "Postal code", name: "postalCode" }
 ];
 
 export function SignUpFormNew (props) {
-  const [formData, setFormData] = useState(initialValue);
+  const [formData, setFormData] = useState({});
 
-  const handleChange = ({name, value}) =>
-    setFormData({...formData, [name]:value});
-    
+  function handleChange({ target: { name, value } }){
+
+    setFormData({...formData, [name]:value}); 
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(formData);
@@ -79,131 +87,26 @@ export function SignUpFormNew (props) {
         
       } 
     });*/
-    alert(`Email ${formData}`);
+
 }
 
   return(
   <Form onSubmit={handleSubmit}>
     {FIELDS.map((field, i)=> <Input handleChange={handleChange} key={i} value={formData} {...field}/>)}
-{/*     <Label>E-mail</Label>
-    <Input
-      name="email"
-      type="email"
-      value={email}
-      handleChange={handleChange}
-      placeholder="E-mail"
-    />
-    <Label>Password</Label>
-    <Input
-      name="password"
-      type="password"
-      value={password}
-      handleChange={handleChange}
-      placeholder="Password"
-    /> 
-     <Label>Nombre</Label>
-    <Input
-      name="name"
-      type="text"
-      value={name}
-      onChange={e => setEmail(e.target.value)}
-      placeholder="Nombre"
-    />
-    <Label>Apellidos</Label>
-    <Input
-      name="lastName"
-      type="text"
-      value={lastName}
-      onChange={e => setEmail(e.target.value)}
-      placeholder="Apellidos"
-    />
-    <Label>Username</Label>
-    <Input
-      name="userName"
-      type="text"
-      value={userName}
-      onChange={e => setEmail(e.target.value)}
-      placeholder="Username"
-    />
-    <Label>Tipo de casa</Label>
-    <Input
-      name="houseType"
-      type="text"
-      value={houseType}
-      onChange={e => setEmail(e.target.value)}
-      placeholder="Tipo de casa"
-    />
-    <Label>Fecha de nacimiento</Label>
-    <Input name="birthDate" type="date" value={birthDate} onChange={e => setEmail(e.target.value)} />
-    <Label>Descripción</Label>
-    <Input
-      name="description"
-      type="text"
-      value={description}
-      onChange={e => setEmail(e.target.value)}
-      placeholder="Háblanos de ti"
-    />
-    <Label>Preferencias</Label>
-    <Input
-      name="preferences"
-      type="text"
-      value={preferences}
-      onChange={e => setEmail(e.target.value)}
-      placeholder="Preferencias"
-    />
-    <Label>Pet Coins</Label>
-    <Input
-      name="coins"
-      type="text"
-      value={coins}
-      onChange={e => setEmail(e.target.value)}
-      placeholder="Pet Coins"
-    />
-    <Label>País</Label>
-    <Input
-      name="country"
-      type="text"
-      value={country}
-      onChange={e => setEmail(e.target.value)}
-      placeholder="País"
-    />
-    <Label>Provincia</Label>
-    <Input
-      name="province"
-      type="text"
-      value={province}
-      onChange={e => setEmail(e.target.value)}
-      placeholder="Provincia"
-    />
-    <Label>Dirección</Label>
-    <Input
-      name="addressLine"
-      type="text"
-      onChange={e => setEmail(e.target.value)}
-      value={addressLine}
-      placeholder="Dirección"
-    />
-    <Label>Código Postal</Label>
-    <Input
-      name="postalCode"
-      type="text"
-      onChange={e => setEmail(e.target.value)}
-      value={postalCode}
-      placeholder="Código Postal"
-    />
+{/* 
     <LatLngContainer>
       <CoordInput
         name="lat"
         type="number"
         value={lat}
-        onChange={e => setEmail(e.target.value)}
+        onChange={e => setLat(e.target.value)}
         placeholder="Lat"
       />
       <CoordInput
         name="lng"
         type="number"
         value={lng}
-        onChange={e => setEmail(e.target.value)}
+        onChange={e => setLng(e.target.value)}
         placeholder="Lng"
       />
     </LatLngContainer> */}
