@@ -8,19 +8,19 @@ const Form = styled.form`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 50px;
+  padding: 15px;
 `;
 
 const Button = styled.button`
   margin: auto;
   width: 100px;
-  
+
 
 `;
 
 const InputField = styled.div`
-  padding: 5px;
-  
+  padding: 2px;
+  width: 80px;
 
 
 `; 

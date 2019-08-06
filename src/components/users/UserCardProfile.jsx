@@ -1,25 +1,55 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Card, Icon, Image, Label } from 'semantic-ui-react'
 import photo from '../../assets/matthew.png'
 import '../../UserProfile.css'
 import MiniMap from '../maps/MiniMap';
 import RatingUser from './RatingUser'
+import axios from 'axios'
 
-const UserCardProfile = () => (
+const id = '5d48d3c2e28e1c5854a01c79';
+
+class UserCardProfile extends Component {
+  
+    state = {
+        user: {}, 
+        address: {}
+    };
+
+    componentWillMount() {
+        axios.get(`http://localhost:3001/api/users/${id}`).then(res => {
+            
+            const userInfo = res.data;
+            const addressInfo = res.data.address;
+            console.log(addressInfo);
+            this.setState({ user: userInfo, address: addressInfo });
+            console.log(userInfo)
+            
+        });
+    }
+    render() {
+        return(
     <Card>
         <Image src={photo} wrapped ui={false} />
         <Card.Content>
-            <Card.Header>Miguel <Label as='a'>15  <Icon name="paw" /></Label></Card.Header>
+            <Card.Header>{this.state.user.name} {this.state.user.lastName} <Label as='a'>15<Icon name="paw" /></Label></Card.Header>
             <Card.Content style={{ paddingTop: '20px' }}>
-                <Icon name="edit outline" />
-                Persona amantes de los animales, veterinario y desarrollador de fanimals
-      </Card.Content>
-            {/* <Card.Description>
-                Miguel es un artista del pop.
-      </Card.Description> */}
+                <Icon name="edit outline" />{this.state.user.description}
+                </Card.Content>
+            <Card.Content style={{ paddingTop: '20px' }}>
+                {this.state.address.addressLine}
+                </Card.Content>
         </Card.Content>
+
+        <Card.Content style={{ paddingTop: '20px' }}>
+        Tipo de casa: {this.state.user.houseType}
+            </Card.Content>
+
         <Card.Meta>
             <span className='date'>Se unió en 2019</span>
+        </Card.Meta>
+        <Card.Meta>
+
+        
         </Card.Meta>
         <Card.Content>
             <RatingUser />
@@ -48,6 +78,9 @@ const UserCardProfile = () => (
             </div>
         </Card.Content>
     </Card>
-)
+    )
+  }
+}
+
 
 export default UserCardProfile
