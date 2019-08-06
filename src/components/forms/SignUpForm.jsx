@@ -2,12 +2,17 @@ import React, { useState } from "react";
 import styled from "@emotion/styled";
 import axios from "axios";
 
+const FormContainer = styled.div`
+  width: 70vw;
+  display: flex;
+  justify-content: center;
+`;
+
 const Form = styled.form`
   display: flex;
   flex-direction: column;
+  flex-wrap: nowrap;
   justify-content: center;
-  align-items: center;
-  padding: 15px;
 `;
 
 const Button = styled.button`
@@ -46,8 +51,8 @@ const initialState = {
   postalCode: "",
   province: "",
   userName: "",
-  lat: -16,
-  lng: 28
+  lat: "",
+  lng: ""
 };
 
 const initialCoords = {};
@@ -68,7 +73,7 @@ const FIELDS = [
   { label: "Nombre de mascota", name: "petName" },
   { label: "Chip", name: "chip" },
   { label: "Especie", name: "specie" },
-  { label: "Descripcion", name: "description" },
+  { label: "Descripcion", name: "petDescription" },
   { label: "Lat", name: "lat", type: "number" },
   { label: "Lng", name: "lng", type: "number" }
 ];
@@ -84,6 +89,8 @@ export function SignUpForm() {
 
   const handleSubmit = event => {
     event.preventDefault();
+    setFormData(initialState);
+    setCoords(initialCoords);
 
     const address = {
       country: formData.country,
@@ -111,16 +118,18 @@ export function SignUpForm() {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      {FIELDS.map((field, i) => (
-        <Input
-          handleChange={handleChange}
-          key={i}
-          value={formData}
-          {...field}
-        />
-      ))}
-      <Button>Enviar</Button>
-    </Form>
+    <FormContainer>
+      <Form onSubmit={handleSubmit}>
+        {FIELDS.map((field, i) => (
+          <Input
+            handleChange={handleChange}
+            key={i}
+            value={formData}
+            {...field}
+          />
+        ))}
+        <Button>Enviar</Button>
+      </Form>
+    </FormContainer>
   );
 }
