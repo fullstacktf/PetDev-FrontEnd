@@ -65,6 +65,10 @@ const FIELDS = [
   { label: "Province", name: "province" },
   { label: "Address", name: "addressLine" },
   { label: "Postal code", name: "postalCode" },
+  { label: "Nombre de mascota", name: "petName" },
+  { label: "Chip", name: "chip" },
+  { label: "Especie", name: "specie" },
+  { label: "Descripcion", name: "description" },
   { label: "Lat", name: "lat", type: "number" },
   { label: "Lng", name: "lng", type: "number" }
 ];
@@ -88,6 +92,13 @@ export function SignUpForm() {
       postal: formData.postalCode
     };
 
+    const pets = {
+      chip: formData.chip,
+      petName: formData.petName,
+      specie: formData.specie,
+      description: formData.description
+    };
+
     const geo = {
       coordinates: [formData.lng, formData.lat]
     };
@@ -95,7 +106,7 @@ export function SignUpForm() {
     axios({
       method: "post",
       url: "http://localhost:3001/api/users/",
-      data: { ...formData, address, geo }
+      data: { ...formData, address, geo, pets }
     });
   };
 
