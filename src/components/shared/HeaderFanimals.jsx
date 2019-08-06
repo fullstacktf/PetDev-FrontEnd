@@ -7,7 +7,7 @@ import Image from '../../assets/logo-fanimals.png'
 const HeaderFanimals = () => (
   <div>
     <Menu fixed="top">
-    <img width="75px" height="75px"src={Image} alt="" />
+    <img width="50px" height="50px"src={Image} alt="" />
       <h1 style={{ margin: 'auto', marginLeft: '10px' }}>  Fanimals</h1>
 
       <Menu.Menu position='right'>
