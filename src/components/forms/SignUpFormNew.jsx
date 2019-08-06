@@ -1,29 +1,7 @@
 import React, {useState} from "react";
 import styled from "@emotion/styled";
 import axios from 'axios';
-import { SignUpFormWrapper } from "./SignUpFormWrapper";
 
-const FormsContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: auto;
-  width: 70vw;
-  height: 100vh;
-
-  border: 1px solid red;
-`;
-
-const CoordInput = styled.input`
-  width: 70px;
-`;
-
-const LatLngContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-`;
 
 const Form = styled.form`
   display: flex;
@@ -35,8 +13,8 @@ const Button = styled.button`
   width: 100px;
 `;
 
- const InputField = styled.div`
- 
+const InputField = styled.div`
+
 `; 
 const Input = ({ name, type = "text", label, value, handleChange }) => {
   return <InputField>
@@ -49,10 +27,30 @@ const Input = ({ name, type = "text", label, value, handleChange }) => {
     />
   </InputField>;
 };
-const Label = styled.label`
-  font-weight: bold;
-`;
 
+const initialState = {
+  
+  addressLine: "",
+  country: "",
+  description: "",
+  email: "",
+  houseType: "",
+  lastName: "",
+  name: "",
+  password: "",
+  petPreferences: "",
+  postalCode: "",
+  province: "",
+  userName: "",
+  lat: -16,
+  lng: 28
+};
+
+const initialCoords = {
+  
+    
+  
+};
 
 const FIELDS = [
   { label: "Email", name: "email" },
@@ -66,50 +64,63 @@ const FIELDS = [
   { label: "Country", name: "country" },
   { label: "Province", name: "province" },
   { label: "Address", name: "addressLine" },
-  { label: "Postal code", name: "postalCode" }
+  { label: "Postal code", name: "postalCode" },
+  { label: "Lat", name: "lat", type: "number" },
+  { label: "Lng", name: "lng", type: "number" }
 ];
 
-export function SignUpFormNew (props) {
-  const [formData, setFormData] = useState({});
+export function SignUpFormNew () {
+  const [formData, setFormData] = useState(initialState);
+  const [coords, setCoords] = useState(initialCoords);
 
   function handleChange({ target: { name, value } }){
-
+    setCoords({...coords, [name]:value})
     setFormData({...formData, [name]:value}); 
   }
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(formData);
-/*     axios({
+    
+    const address = {
+      country: formData.country,
+      province: formData.province,
+      addressLine: formData.addressLine,
+      postal: formData.postalCode
+      }
+    
+      const geo = {
+        coordinates: [formData.lng, formData.lat]
+      }
+
+    axios({
       method: 'post',
       url: 'http://localhost:3001/api/users/',
-      data: {
-        
-      } 
-    });*/
+      data: {...formData, address, geo} 
+    });
+    
 
 }
 
   return(
   <Form onSubmit={handleSubmit}>
     {FIELDS.map((field, i)=> <Input handleChange={handleChange} key={i} value={formData} {...field}/>)}
-{/* 
-    <LatLngContainer>
+
+{/*     <LatLngContainer>
       <CoordInput
         name="lat"
         type="number"
-        value={lat}
-        onChange={e => setLat(e.target.value)}
+        value={coords}
+        onChange={handleChange}
         placeholder="Lat"
       />
       <CoordInput
         name="lng"
         type="number"
-        value={lng}
-        onChange={e => setLng(e.target.value)}
+        value={coords}
+        onChange={handleChange}
         placeholder="Lng"
       />
-    </LatLngContainer> */}
+    </LatLngContainer>  */}
     <Button>Enviar</Button>
 
   </Form>

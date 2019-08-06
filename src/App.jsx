@@ -5,7 +5,7 @@ import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import HomePage from './pages/Home';
 
-import HeaderFanimals from './components/shared/HeaderFanimals';
+//import HeaderFanimals from './components/shared/HeaderFanimals';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import UserProfile from './pages/UserProfile';
