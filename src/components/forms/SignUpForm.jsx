@@ -69,7 +69,7 @@ const FIELDS = [
   { label: "Lng", name: "lng", type: "number" }
 ];
 
-export function SignUpFormNew () {
+export function SignUpForm () {
   const [formData, setFormData] = useState(initialState);
   const [coords, setCoords] = useState(initialCoords);
 
