@@ -1,13 +1,8 @@
-import React from 'react'
-import { SignUpForm } from '../components/forms/SignUpForm';
-
+import React from "react";
+import { SignUpFormNew } from "../components/forms/SignUpFormNew";
 
 export default class SignUp extends React.Component {
-
   render() {
-    return (
-      <SignUpForm />
-
-    )
+    return <SignUpFormNew />;
   }
 }
