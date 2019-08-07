@@ -3,11 +3,7 @@ import styled from "@emotion/styled";
 import axios from "axios";
 
 const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 15px;
+
 `;
 
 const Button = styled.button`
