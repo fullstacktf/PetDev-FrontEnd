@@ -8,7 +8,7 @@ export const InputAndMap = () => {
 
 
     const [results, setResults] = useState();
-    const [needMapUpdate, setNeedMapUpdate] = useState();
+
 
    
     const returnInputValue = (results) =>{
@@ -18,27 +18,24 @@ export const InputAndMap = () => {
         });
 
     }
-    const mapUpdate = () => {
-        setNeedMapUpdate({
-            needMapUpdate : true
-        })
-    }
 
     
-    if (needMapUpdate){
+    if (results[0]){
         console.log(results.results.location.lat);
         console.log(results.results.location.lng);
         return (
             <div>
-                <LeafletMapF mapUpdate = {needMapUpdate} lat = {results.results.location.lat} lng = {results.results.location.lng} zoom = {13}/>
                 <GeocodingInput parentCallback = {returnInputValue}/>
+                <LeafletMapF  lat = {results.results.location.lat} lng = {results.results.location.lng} zoom = {13}/>
+                
             </div>
             );
     }else {
         return (
             <div>
-                <LeafletMapF lat = {23} lng = {-16} zoom = {13}/>
                 <GeocodingInput parentCallback = {returnInputValue}/>
+                <LeafletMapF lat = {23} lng = {-16} zoom = {13}/>
+                
             </div>
             );
     }
