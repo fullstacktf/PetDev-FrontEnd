@@ -12,9 +12,9 @@ const mapStyles = {
 
 export default class LeafletMap extends Component {
     state = {
-        lat: 28.467297,
-        lng: -16.2755351,
-        zoom: 13,
+        lat: this.props.lat,
+        lng: this.props.lng,
+        zoom: this.props.zoom,
         users: []
     };
 

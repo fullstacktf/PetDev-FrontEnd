@@ -2,6 +2,7 @@ import * as React from "react";
 import { useEffect, useState } from "react";
 import { MOCK_RESPONSE } from "./mock";
 import { AddressResult } from "./AddressResult";
+import { tsPropertySignature } from "@babel/types";
 
 const KEY = 'AIzaSyBzGVNtpx96mevl5hXFpx7n-ZeAeM3u1k8';
 const BASE_URL = `https://maps.googleapis.com/maps/api/geocode/json?key=${KEY}`;
@@ -35,7 +36,7 @@ const getStreetsRequests = (inputValue: string): Promise<GeocodingResult[]> => {
   });
 };
 
-export const GeocodingInput = () => {
+export const GeocodingInput = ({ parentCallback }) => {
   const [inputValue, setInputValue] = useState<string>();
   const [results, setResults] = useState<GeocodingResult[]>([]);
 
@@ -56,8 +57,15 @@ export const GeocodingInput = () => {
     setInputValue(target.value);
   };
 
-  return <div>
+
+  const handleOnSubmit = e => {
+    e.preventDefault();
+    parentCallback(results[0]);
+    
+  }
+
+  return <form onSubmit = {handleOnSubmit}>
     <input onChange={handleOnChange}/>
     {results && results.map(result => <AddressResult address={result}/>)}
-  </div>
+  </form>
 };
