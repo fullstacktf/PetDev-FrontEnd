@@ -28,18 +28,34 @@ export default class LeafletMap extends Component {
             const usersInfo = res.data;
             this.setState({ users: usersInfo });
         });
-    }
+
+    };
+
+    componentDidMount(){
+
+    };
+
+    updateMap(){
+        this.setState({
+            lat: this.props.lat,
+            lng: this.props.lng,
+            zoom: this.props.zoom,
+        })
+        }
+    
 
     render() {
         const { users } = this.state;
         const position = [this.state.lat, this.state.lng];
         return (
+                
             <Map center={position} zoom={this.state.zoom} style={mapStyles}>
                 <TileLayer
                     attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
                 {users.map(user => <Marker key={user.id} user={user}/>)}
+                {console.log(this.props)}
             </Map>
         );
     }
