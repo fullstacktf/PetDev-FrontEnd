@@ -18,7 +18,7 @@ export default class PopUpMiniCardMap extends Component<PopUpMiniCardMapProps> {
 
     render() {
         return (
-            <Card.Group>
+            <Card.Group >
                 <Card>
                     <Card.Content>
                         <Image floated='right' circular size='mini' src={this.props.urlImage}/>

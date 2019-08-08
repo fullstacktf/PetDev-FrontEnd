@@ -28,7 +28,7 @@ class UserCardProfile extends Component {
   }
   render() {
     return (
-      <Card>
+      <Card style={{marginTop: '20px', background: 'whitesmoke',  boxShadow: '0.5px 0.5px 5px black'}}>
         <Image src={photo} wrapped ui={false} />
         <Card.Content>
           <Card.Header>

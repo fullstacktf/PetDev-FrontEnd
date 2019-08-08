@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
 import axios from "axios";
-
+import {windowStyle} from '../../App'
 const Form = styled.form`
 
 `;
@@ -9,21 +9,27 @@ const Form = styled.form`
 const Button = styled.button`
   margin: auto;
   width: 100px;
+  border: 0;
 `;
 
 const InputField = styled.div`
-  padding: 2px;
-  width: 80px;
+  display: flex;
+  flex-position: row;
+  justify-content: center;
+  padding: 4px;
+  margin: auto;
+  
 `;
 const Input = ({ name, type = "text", label, value, handleChange }) => {
   return (
-    <InputField>
+    <InputField >
       {label}:
       <input
         name={name}
         type={type}
         value={value[name]}
         onChange={handleChange}
+        
       />
     </InputField>
   );
@@ -107,7 +113,7 @@ export function SignUpForm() {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form style={windowStyle} onSubmit={handleSubmit}>
       {FIELDS.map((field, i) => (
         <Input
           handleChange={handleChange}

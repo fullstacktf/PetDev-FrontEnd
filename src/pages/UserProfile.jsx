@@ -8,18 +8,12 @@ import UserCardProfile from '../components/users/UserCardProfile';
 import NewCardPet from '../components/users/NewCardPet'
 import FeedUsers from '../components/users/FeedUsers';
 import GridImages from '../components/users/GridImages';
+import {windowStyle} from '../App'
 
 const UserProfile = () => (
     <div className="superContainer">
-        <style>{`
-    html, body {
-        background-color: #d7a8f0; !important
-
-    }
-
-    `}
-        </style>
-        <Container className="container" fluid textAlign="center" >
+        
+        <Container style={windowStyle} className="container" fluid textAlign="center" >
             
             <div className="container-divs">
                 <div className="card-container">
