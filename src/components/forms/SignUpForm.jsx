@@ -107,7 +107,7 @@ export function SignUpForm() {
     };
 
     const geo = {
-      coordinates: [formData.lng, formData.lat]
+      coordinates: [formData.lat, formData.lng]
     };
 
     axios({

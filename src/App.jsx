@@ -28,7 +28,7 @@ const App = () => {
 
 
       <div className="App" style={styles}>
-        <HeaderFanimals />
+       {/*  <HeaderFanimals /> */}
         <Route exact path="/" component={HomePage} />
         <Route exact path="/home" component={HomePage} />
         <Route exact path="/login" component={Login} />

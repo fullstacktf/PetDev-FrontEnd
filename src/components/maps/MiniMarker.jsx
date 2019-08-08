@@ -2,8 +2,8 @@ import { Marker as LeafletMiniMarker  } from "react-leaflet";
 import {Icon} from "leaflet";
 import React, {useState} from 'react';
 export const PointerIcon = new Icon({
-    iconUrl: require("../../assets/faIcon.png"),
-    iconRetinaUrl: require("../../assets/faIcon.png"),
+    iconUrl: require("../../assets/faniMarker.png"),
+    iconRetinaUrl: require("../../assets/faniMarker.png"),
     iconAnchor: [10, 55],
     popupAnchor: [10, -44],
     iconSize: [35, 35]
