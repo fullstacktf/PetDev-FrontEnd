@@ -14,7 +14,7 @@ class UserCardProfile extends Component {
     address: {}
   };
 
-  componentWillMount() {
+  componentDidMount() {
     axios.get(`http://localhost:3001/api/users/${id}`).then(res => {
       const user = res.data;
       const address = res.data.address;
