@@ -38,7 +38,7 @@ export default class LeafletMap extends Component {
                     attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
-                {users.map(user => <Marker key={user.id} user={user}/>)}
+                {users.map((user, i) => <Marker  key={i} user={user}/>)}
             </Map>
         );
     }
