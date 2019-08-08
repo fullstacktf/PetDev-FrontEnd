@@ -31,7 +31,9 @@ export const PointerIconSelected = new L.Icon({
 export const Marker = props => {
     const { user } = props;
     const [selected, setSelected] = useState(false);
-    console.log(user)
+   // console.log(user)
+   const profileURL = `http://localhost:3000/user/${user._id}`;
+
     const handleOnMouseOver = (e) => {
         e.target.openPopup();
         setSelected(true);
@@ -42,19 +44,23 @@ export const Marker = props => {
         e.target.closePopup();
     };
     
+    
 
-    return (<div>
-    <Link to = "/user/" >
+    return (
+        <a href="www.google.com">
+            
+            
     <LeafletMarker
         position={user.geo.coordinates}
         icon={selected ? PointerIcon : PointerIconSelected}
         onMouseOut={handleOnMouseOut}
-        onMouseOver={handleOnMouseOver}>
-            <Button>asd</Button>
+        onMouseOver={handleOnMouseOver}
+        onClick={window.open(profileURL)}>
+        
         <Popup>
             <PopUpMiniCardMap name={user.name}/>
         </Popup>
     </LeafletMarker>
-    </Link>
-    </div>)
+    
+    </a>)
 };
