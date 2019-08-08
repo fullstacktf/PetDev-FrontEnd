@@ -10,7 +10,6 @@ import axios from "axios";
 
 class UserCardProfile extends Component {
 
-
   state = {
     user: {},
     address: {}

@@ -1,7 +1,7 @@
-import React from 'react'
-import { Button, Menu } from 'semantic-ui-react'
-import { Link } from 'react-router-dom'
-import Image from '../../assets/logo-fanimals.png'
+import React from 'react';
+import { Button, Menu } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
+import Image from '../../assets/logo-fanimals.png';
 // TODO: Update <Search> usage after its will be implemented
 
 const HeaderFanimals = () => (

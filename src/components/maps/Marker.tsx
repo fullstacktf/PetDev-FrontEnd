@@ -2,6 +2,8 @@ import PopUpMiniCardMap from "../users/PopUpMiniCardMap";
 import React, { useState } from "react";
 import { Marker as LeafletMarker, Popup } from "react-leaflet";
 import L from "leaflet";
+import { Link } from 'react-router-dom';
+import { Button, Menu } from 'semantic-ui-react';
 
 export const PointerIcon = new L.Icon({
     iconUrl: require("../../assets/faIcon.png"),
@@ -29,7 +31,7 @@ export const PointerIconSelected = new L.Icon({
 export const Marker = props => {
     const { user } = props;
     const [selected, setSelected] = useState(false);
-
+    console.log(user)
     const handleOnMouseOver = (e) => {
         e.target.openPopup();
         setSelected(true);
@@ -39,14 +41,20 @@ export const Marker = props => {
         setSelected(false);
         e.target.closePopup();
     };
+    
 
-    return <LeafletMarker
+    return (<div>
+    <Link to = "/user/" >
+    <LeafletMarker
         position={user.geo.coordinates}
         icon={selected ? PointerIcon : PointerIconSelected}
         onMouseOut={handleOnMouseOut}
         onMouseOver={handleOnMouseOver}>
+            <Button>asd</Button>
         <Popup>
             <PopUpMiniCardMap name={user.name}/>
         </Popup>
     </LeafletMarker>
+    </Link>
+    </div>)
 };
