@@ -2,7 +2,7 @@ import React from "react";
 import GoogleMapReact from "google-map-react";
 import {apiKey as key} from "../../apiKey.json"
 import { Map, TileLayer } from "react-leaflet";
-import { Marker } from "./Marker";
+import { MiniMarker } from "./MiniMarker";
 
 const mapStyles = {
     width: "250px",
@@ -18,7 +18,7 @@ export const MiniMap = props => {
                 attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
                 
-                
+                <MiniMarker center={props.center}/>
                 
         </Map>
    
