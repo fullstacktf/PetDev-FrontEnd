@@ -1,92 +1,94 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import { Card, Icon, Image, Label } from "semantic-ui-react";
 import photo from "../../assets/matthew.png";
 import "../../UserProfile.css";
-import MiniMap from "../maps/MiniMap";
+import { MiniMap } from "../maps/MiniMap";
 import RatingUser from "./RatingUser";
 import axios from "axios";
 
 //const id = "5d48d3c2e28e1c5854a01c79";
-
-class UserCardProfile extends Component {
-
-  state = {
+const UserCardProfile = props => {
+  const [state, setState] = useState({
     user: {},
     address: {},
-    geo: {}
-  };
-
-  componentDidMount() {
-    const { userID }= this.props.id.params;
-    axios.get(`http://localhost:3001/api/users/${userID}`).then(res => {
+    nose: 0,
+    niuna: 0
+  });
+  const getUser = () => {
+    const { userID } = props.id.params;
+    axios({
+      method: "get",
+      url: `http://localhost:3001/api/users/${userID}`
+    }).then(res => {
       const user = res.data;
       const address = res.data.address;
-      const geo = res.data.geo;
-      this.setState({
+      const lat = res.data.geo.coordinates[0];
+      const lng = res.data.geo.coordinates[1];
+      setState({
         user,
-        address, 
-        geo
+        address,
+        lat,
+        lng
       });
     });
-  }
-  render() {
-    return (
-      <Card>
-        <Image src={photo} wrapped ui={false} />
-        <Card.Content>
-          <Card.Header>
-            {this.state.user.name} {this.state.user.lastName}{" "}
-            <Label as="a">
-              15
-              <Icon name="paw" />
-            </Label>
-          </Card.Header>
-          <Card.Content style={{ paddingTop: "20px" }}>
-            <Icon name="edit outline" />
-            {this.state.user.description}
-          </Card.Content>
-          <Card.Content style={{ paddingTop: "20px" }}>
-            {this.state.address.addressLine}
-          </Card.Content>
-        </Card.Content>
-
+  };
+  useEffect(() => {
+    getUser();
+  }, []);
+  return (
+    <Card>
+      <Image src={photo} wrapped ui={false} />
+      <Card.Content>
+        <Card.Header>
+          {state.user.name} {state.user.lastName}{" "}
+          <Label as="a">
+            15
+            <Icon name="paw" />
+          </Label>
+        </Card.Header>
         <Card.Content style={{ paddingTop: "20px" }}>
-          Tipo de casa: {this.state.user.houseType}
+          <Icon name="edit outline" />
+          {state.user.description}
         </Card.Content>
-
-        <Card.Meta>
-          <span className="date">Se unió en 2019</span>
-        </Card.Meta>
-        <Card.Meta />
-        <Card.Content>
-          <RatingUser />
+        <Card.Content style={{ paddingTop: "20px" }}>
+          {state.address.addressLine}
         </Card.Content>
-        <Card.Content extra>
-          <a href="http://google.com">
-            <Icon name="user" />
-            22 Friends
-          </a>
-        </Card.Content>
-        <Card.Content extra>
-          <a href="http://google.com">
-            <Icon name="upload" />
-            Edita tu imagen de perfil
-          </a>
-        </Card.Content>
-        <Card.Content extra>
-          <a href="http://google.com">
-            <Icon name="hand peace" />
-            Número de mascotas: 2
-          </a>
-        </Card.Content>
-        <Card.Content extra>
-          <div style={{ alignItems: "center" }}>
-            <MiniMap center= {this.state}/>
-          </div>
-        </Card.Content>
-      </Card>
-    );
-  }
-}
+      </Card.Content>{" "}
+      <Card.Content style={{ paddingTop: "20px" }}>
+        Tipo de casa: {state.user.houseType}
+      </Card.Content>{" "}
+      <Card.Meta>
+        <span className="date">Se unió en 2019</span>
+      </Card.Meta>
+      <Card.Meta />
+      <Card.Content>
+        <RatingUser />
+      </Card.Content>
+      <Card.Content extra>
+        <a href="http://google.com">
+          <Icon name="user" />
+          22 Friends
+        </a>
+      </Card.Content>
+      <Card.Content extra>
+        <a href="http://google.com">
+          <Icon name="upload" />
+          Edita tu imagen de perfil
+        </a>
+      </Card.Content>
+      <Card.Content extra>
+        <a href="http://google.com">
+          <Icon name="hand peace" />
+          Número de mascotas: 2
+        </a>
+      </Card.Content>
+      <Card.Content extra>
+        <div style={{ alignItems: "center" }}>
+          <MiniMap lat={state.lat} lng={state.lng} />
+        </div>
+      </Card.Content>
+    </Card>
+  );
+};
 
 export default UserCardProfile;
