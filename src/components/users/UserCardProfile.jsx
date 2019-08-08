@@ -11,8 +11,8 @@ const UserCardProfile = props => {
   const [state, setState] = useState({
     user: {},
     address: {},
-    nose: 0,
-    niuna: 0
+    lat: 10,
+    lng: 10
   });
   const getUser = () => {
     const { userID } = props.id.params;
@@ -22,8 +22,8 @@ const UserCardProfile = props => {
     }).then(res => {
       const user = res.data;
       const address = res.data.address;
-      const lat = res.data.geo.coordinates[0];
-      const lng = res.data.geo.coordinates[1];
+      const lat = res.data.geo.coordinates[0] ;
+      const lng = res.data.geo.coordinates[1] ;
       setState({
         user,
         address,
@@ -84,7 +84,7 @@ const UserCardProfile = props => {
       </Card.Content>
       <Card.Content extra>
         <div style={{ alignItems: "center" }}>
-          <MiniMap lat={state.lat} lng={state.lng} />
+          <MiniMap center={[ state.lat , state.lng ]} />
         </div>
       </Card.Content>
     </Card>

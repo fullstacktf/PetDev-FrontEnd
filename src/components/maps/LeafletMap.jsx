@@ -4,7 +4,7 @@ import { Map, TileLayer } from "react-leaflet";
 import axios from "axios";
 //import PopUpMiniCardMap from "../users/PopUpMiniCardMap";
 import { Marker } from "./Marker";
-
+const API_URL = "http://localhost:3001/api"
 const mapStyles = {
     width: "100%",
     height: "65vh"
@@ -23,7 +23,7 @@ export default class LeafletMap extends Component {
     };
 
     componentWillMount() {
-        axios.get(`http://localhost:3001/api/users/`).then(res => {
+        axios.get(`${API_URL}/users/`).then(res => {
             const usersInfo = res.data;
             this.setState({ users: usersInfo });
         });
