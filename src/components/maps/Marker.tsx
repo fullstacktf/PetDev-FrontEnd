@@ -46,7 +46,7 @@ export const Marker = props => {
     
     const handleOnClick = (e)=> {
         
-        window.location.replace(profileURL);
+        window.location.assign(profileURL);
         
     }
     

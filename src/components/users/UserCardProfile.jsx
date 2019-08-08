@@ -12,7 +12,8 @@ class UserCardProfile extends Component {
 
   state = {
     user: {},
-    address: {}
+    address: {},
+    geo: {}
   };
 
   componentDidMount() {
@@ -20,9 +21,11 @@ class UserCardProfile extends Component {
     axios.get(`http://localhost:3001/api/users/${userID}`).then(res => {
       const user = res.data;
       const address = res.data.address;
+      const geo = res.data.geo;
       this.setState({
         user,
-        address
+        address, 
+        geo
       });
     });
   }
@@ -78,7 +81,7 @@ class UserCardProfile extends Component {
         </Card.Content>
         <Card.Content extra>
           <div style={{ alignItems: "center" }}>
-            <MiniMap />
+            <MiniMap center= {this.state}/>
           </div>
         </Card.Content>
       </Card>
