@@ -15,15 +15,15 @@ class UserCardProfile extends Component {
   };
 
   componentDidMount() {
+    const {handle} = this.props-matchMedia.params;
+    console.log(handle)
     axios.get(`http://localhost:3001/api/users/${id}`).then(res => {
       const user = res.data;
       const address = res.data.address;
-      console.log(address);
       this.setState({
         user,
         address
       });
-      console.log(user);
     });
   }
   render() {
