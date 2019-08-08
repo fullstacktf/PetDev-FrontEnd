@@ -9,7 +9,7 @@ import PetMiniCard from '../components/users/PetMiniCard';
 import FeedUsers from '../components/users/FeedUsers';
 import GridImages from '../components/users/GridImages';
 
-const UserProfile = () => (
+const UserProfile = ({match}) => (
     <div className="superContainer">
         <style>{`
     html, body {
@@ -24,7 +24,7 @@ const UserProfile = () => (
             <div className="container-divs">
                 <div className="card-container">
                     <div>
-                        <UserCardProfile />
+                        <UserCardProfile id={match}/>
                     </div>
                 </div>
                 <div className="container-right">

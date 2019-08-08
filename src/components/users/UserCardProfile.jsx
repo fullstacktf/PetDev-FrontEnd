@@ -6,18 +6,19 @@ import MiniMap from "../maps/MiniMap";
 import RatingUser from "./RatingUser";
 import axios from "axios";
 
-const id = "5d48d3c2e28e1c5854a01c79";
+//const id = "5d48d3c2e28e1c5854a01c79";
 
 class UserCardProfile extends Component {
+
+
   state = {
     user: {},
     address: {}
   };
 
   componentDidMount() {
-    const {handle} = this.props-matchMedia.params;
-    console.log(handle)
-    axios.get(`http://localhost:3001/api/users/${id}`).then(res => {
+    const { userID }= this.props.id.params;
+    axios.get(`http://localhost:3001/api/users/${userID}`).then(res => {
       const user = res.data;
       const address = res.data.address;
       this.setState({
