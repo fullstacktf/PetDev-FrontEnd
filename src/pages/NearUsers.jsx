@@ -15,6 +15,7 @@ const Container = styled.div`
     
 `;
 
+
 const MOCKED_USERS=[];
 const USERS_NUM=8;
 

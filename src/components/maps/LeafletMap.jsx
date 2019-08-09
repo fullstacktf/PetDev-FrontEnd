@@ -7,7 +7,8 @@ import { Marker } from "./Marker";
 const API_URL = "http://localhost:3001/api"
 const mapStyles = {
     width: "100%",
-    height: "65vh"
+    height: "65vh",
+    
 };
 
 export default class LeafletMap extends Component {

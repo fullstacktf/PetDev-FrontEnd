@@ -24,6 +24,7 @@ const UserCardProfile = props => {
       const address = res.data.address;
       const lat = res.data.geo.coordinates[0] ;
       const lng = res.data.geo.coordinates[1] ;
+
       setState({
         user,
         address,
@@ -35,6 +36,7 @@ const UserCardProfile = props => {
   useEffect(() => {
     getUser();
   }, []);
+  
   return (
     <Card>
       <Image src={photo} wrapped ui={false} />

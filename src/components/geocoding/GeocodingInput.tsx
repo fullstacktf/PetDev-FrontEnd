@@ -56,8 +56,12 @@ export const GeocodingInput = () => {
     setInputValue(target.value);
   };
 
-  return <div>
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
+  }
+
+  return <form onSubmit={handleOnSubmit}>
     <input onChange={handleOnChange}/>
-    {results && results.map(result => <AddressResult address={result}/>)}
-  </div>
+    {results && results.map((result, i) => <AddressResult key={i} address={result}/>)}
+  </form>
 };
