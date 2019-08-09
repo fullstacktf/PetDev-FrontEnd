@@ -15,7 +15,7 @@ import birdsbackground from './assets/birdsbackground.png';
 export const windowStyle = {
   
   // linear-gradient(120deg, rgba(255, 178, 243, 0.6), transparent)
-  backgroundImage: `linear-gradient(rgba(10, 242, 109, 0.6), rgba(157, 237, 191, 0.6), rgba(157, 237, 191, 0.6)), url(${birdsbackground})`,
+  backgroundImage: `linear-gradient(rgba(137, 236, 125, 0.6), rgba(101, 138, 149, 0.6)), url(${birdsbackground})`,
   backgroundRepeat: 'repeat',
   backgroundBlendMode: ''
 }
@@ -32,7 +32,7 @@ const App = () => {
         <Route exact path="/home" component={HomePage} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={SignUp} />
-        <Route exact path="/user" component={UserProfile} />
+        <Route exact path="/user/:userID" component={UserProfile} />
         <Route exact path="/about" component={About} />
         <Route exact path="/nearusers" component={NearUsers} />
 
