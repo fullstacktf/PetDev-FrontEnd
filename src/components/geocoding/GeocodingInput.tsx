@@ -69,10 +69,14 @@ export const GeocodingInput = () => {
   const handleOnChange = ({ target }) => {
     setInputValue(target.value);
   };
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
+  }
 
-  return <div>
+  return <form onSubmit={handleOnSubmit}>
     <input style={styleInput} onChange={handleOnChange} placeholder="Encuentra cuidadores cerca..."/>
     <i className='purple circular inverted paw icon' onClick={handleOnChange} style={{marginLeft: '-35px'}}></i>
-    {results && results.map(result => <AddressResult address={result}/>)}
-  </div>
+    {results && results.map((result, i) => <AddressResult key={i} address={result}/>)}
+    </form>
+
 };

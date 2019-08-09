@@ -1,10 +1,14 @@
 import React from 'react'
-import { Card, Image, Icon } from 'semantic-ui-react'
+import { Card, Image, Icon } from 'semantic-ui-react';
 
+const petMiniCardStyle ={
+    border: '1px solid grey',
+    borderRadius: '3px',
+}
 
 const PetMiniCard = () => (
-    <Card.Group centered>
-        <Card>
+    <Card.Group  centered>
+        <Card >
             <Card.Content>
                 <Image floated='right' circular size='mini' src='https://saudeplanoparapet.nsbeneficios.com.br/img/carenciazero_pet_mobile.png' />
                 <Card.Header><Icon name="paw" />Firulai</Card.Header>
@@ -14,17 +18,7 @@ const PetMiniCard = () => (
                 </Card.Description>
             </Card.Content>
         </Card>
-        <Card>
-            <Card.Content>
-                <Image floated='right' circular size='mini' src='https://upload.wikimedia.org/wikipedia/commons/6/66/An_up-close_picture_of_a_curious_male_domestic_shorthair_tabby_cat.jpg' />
-
-                <Card.Header><Icon name="paw" />Toby</Card.Header>
-                <Card.Meta>New User</Card.Meta>
-                <Card.Description>
-                    Todo el tiempo Toby caza lagartos en el parque.
-                </Card.Description>
-            </Card.Content>
-        </Card>
+        
     </Card.Group>
 )
 
