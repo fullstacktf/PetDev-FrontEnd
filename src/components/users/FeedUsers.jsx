@@ -1,7 +1,18 @@
 import React from 'react'
 import { Button, Comment, Form, Header } from 'semantic-ui-react'
+import { Container } from 'semantic-ui-react';
 
 const FeedUsers = () => (
+    
+    <Container style={
+        {border: `1px solid grey`, 
+        padding: '40px', 
+        background: 'whitesmoke', 
+        borderRadius: '5px',
+        marginBottom: '20px',
+        boxShadow: '0.5px 0.5px 5px grey'
+    }
+}>
     <Comment.Group>
         <Header as='h3' dividing>
             Comments
@@ -43,7 +54,7 @@ const FeedUsers = () => (
                         <Comment.Metadata>
                             <div>Just now</div>
                         </Comment.Metadata>
-                        <Comment.Text>Elliot you are always so right :)</Comment.Text>
+                        <Comment.Text>Elliot you are always so right :</Comment.Text>
                         <Comment.Actions>
                             <Comment.Action>Reply</Comment.Action>
                         </Comment.Actions>
@@ -71,6 +82,8 @@ const FeedUsers = () => (
             <Button content='Add Reply' labelPosition='left' icon='edit' primary />
         </Form>
     </Comment.Group>
+    </Container>
+    
 )
 
 export default FeedUsers

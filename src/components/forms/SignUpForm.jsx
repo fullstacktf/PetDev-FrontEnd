@@ -2,37 +2,35 @@ import React, { useState } from "react";
 import styled from "@emotion/styled";
 import axios from "axios";
 
-const FormContainer = styled.div`
-  width: 70vw;
-  display: flex;
-  justify-content: center;
-`;
-
+import {windowStyle} from '../../App'
 const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: center;
+
 `;
 
 const Button = styled.button`
   margin: auto;
   width: 100px;
+  border: 0;
 `;
 
 const InputField = styled.div`
-  padding: 2px;
-  width: 80px;
+  display: flex;
+  flex-position: row;
+  justify-content: center;
+  padding: 4px;
+  margin: auto;
+  
 `;
 const Input = ({ name, type = "text", label, value, handleChange }) => {
   return (
-    <InputField>
+    <InputField >
       {label}:
       <input
         name={name}
         type={type}
         value={value[name]}
         onChange={handleChange}
+        
       />
     </InputField>
   );
@@ -78,6 +76,8 @@ const FIELDS = [
   { label: "Lng", name: "lng", type: "number" }
 ];
 
+
+const URL = "http://localhost:3001";
 export function SignUpForm() {
   const [formData, setFormData] = useState(initialState);
   const [coords, setCoords] = useState(initialCoords);
@@ -87,7 +87,7 @@ export function SignUpForm() {
     setFormData({ ...formData, [name]: value });
   }
 
-  const handleSubmit = event => {
+  const handleOnSubmit = (event) => {
     event.preventDefault();
     setFormData(initialState);
     setCoords(initialCoords);
@@ -107,29 +107,24 @@ export function SignUpForm() {
     };
 
     const geo = {
-      coordinates: [formData.lng, formData.lat]
+      coordinates: [formData.lat, formData.lng]
     };
 
     axios({
       method: "post",
-      url: "http://localhost:3001/api/users/",
+      url: `${URL}/api/users/`,
       data: { ...formData, address, geo, pets }
     });
   };
 
-  return (
-    <FormContainer>
-      <Form onSubmit={handleSubmit}>
-        {FIELDS.map((field, i) => (
-          <Input
-            handleChange={handleChange}
-            key={i}
-            value={formData}
-            {...field}
-          />
-        ))}
-        <Button>Enviar</Button>
-      </Form>
-    </FormContainer>
-  );
-}
+
+  return(
+  <Form style={windowStyle} onSubmit={handleOnSubmit}>
+    
+    { FIELDS && FIELDS.map((field, i)=> <Input handleChange={handleChange} key={i} value={formData} {...field}/>)}
+
+    <Button>Enviar</Button>
+
+  </Form>
+  )
+};
