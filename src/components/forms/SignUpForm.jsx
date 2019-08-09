@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
 import axios from "axios";
+
 import {windowStyle} from '../../App'
 const Form = styled.form`
 
@@ -48,8 +49,8 @@ const initialState = {
   postalCode: "",
   province: "",
   userName: "",
-  lat: -16,
-  lng: 28
+  lat: "",
+  lng: ""
 };
 
 const initialCoords = {};
@@ -70,11 +71,13 @@ const FIELDS = [
   { label: "Nombre de mascota", name: "petName" },
   { label: "Chip", name: "chip" },
   { label: "Especie", name: "specie" },
-  { label: "Descripcion", name: "description" },
+  { label: "Descripcion", name: "petDescription" },
   { label: "Lat", name: "lat", type: "number" },
   { label: "Lng", name: "lng", type: "number" }
 ];
 
+
+const URL = "http://localhost:3001";
 export function SignUpForm() {
   const [formData, setFormData] = useState(initialState);
   const [coords, setCoords] = useState(initialCoords);
@@ -86,6 +89,8 @@ export function SignUpForm() {
 
   const handleSubmit = event => {
     event.preventDefault();
+    setFormData(initialState);
+    setCoords(initialCoords);
 
     const address = {
       country: formData.country,
@@ -107,7 +112,7 @@ export function SignUpForm() {
 
     axios({
       method: "post",
-      url: "http://localhost:3001/api/users/",
+      url: `${URL}/api/users/`,
       data: { ...formData, address, geo, pets }
     });
   };
