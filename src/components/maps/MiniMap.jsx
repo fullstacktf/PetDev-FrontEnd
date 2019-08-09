@@ -22,6 +22,6 @@ export const MiniMap = props => {
                 <MiniMarker center={props.center}/>
                 
         </Map>
-   
+  
   )
 };

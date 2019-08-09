@@ -1,27 +1,27 @@
 import React, { Component } from "react";
 import { Map, TileLayer } from "react-leaflet";
-//import L from "leaflet";
 import axios from "axios";
-//import PopUpMiniCardMap from "../users/PopUpMiniCardMap";
 import { Marker } from "./Marker";
+
+
+
 const API_URL = "http://localhost:3001/api"
 const mapStyles = {
-    width: "100%",
-    height: "65vh",
-    
+  width: "850px",
+  height: "620px"
 };
 
 export default class LeafletMap extends Component {
-    state = {
-        lat: 28.467297,
-        lng: -16.2755351,
-        zoom: 13,
-        users: []
-    };
+  state = {
+    lat: 28.467297,
+    lng: -16.2755351,
+    zoom: 13,
+    users: []
+  };
 
-    displayMarkers = () => {
+  displayMarkers = () => {
 
-    };
+  };
 
     componentWillMount() {
         axios.get(`${API_URL}/users/`).then(res => {
@@ -32,7 +32,6 @@ export default class LeafletMap extends Component {
 
     render() {
         const { users } = this.state;
-        console.log(users)
         const position = [this.state.lat, this.state.lng];
         return (
             <Map center={position} zoom={this.state.zoom} style={mapStyles}>
