@@ -2,7 +2,7 @@ import React from 'react'
 import { Card, Icon, Image} from 'semantic-ui-react'
 import styled from '@emotion/styled'
 import RatingUser from './RatingUser'
-import axios from 'axios'
+
 
 
 const SubTitleContainer = styled.div`
@@ -42,7 +42,7 @@ const UserCardMini = () => (
       }}>
         <Image  src='https://react.semantic-ui.com/images/avatar/large/matthew.png'  />
       </Card.Content>
-     
+
       <Card.Content>
         Persona amantes de los animales, veterinario y desarrollador de Fanimals
       </Card.Content>

@@ -36,14 +36,14 @@ export const Marker = props => {
     };
 
     const handleOnMouseOut = (e) => {
-        setSelected(false);
+        //setSelected(false);
         e.target.closePopup();
     };
 
     return <LeafletMarker
         position={user.geo.coordinates}
         icon={selected ? PointerIcon : PointerIconSelected}
-        onMouseOut={handleOnMouseOut}>
+        onMouseOut={handleOnMouseOut}
         onMouseOver={handleOnMouseOver}>
         <Popup>
             <PopUpMiniCardMap name={user.name}/>

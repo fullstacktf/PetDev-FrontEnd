@@ -1,13 +1,13 @@
-import React from 'react'
-import { Button, Menu } from 'semantic-ui-react'
-import { Link } from 'react-router-dom'
-import Image from '../../assets/logo-fanimals.png'
+import React from 'react';
+import { Button, Menu } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
+import Image from '../../assets/faniLogo.png';
 // TODO: Update <Search> usage after its will be implemented
 
 const HeaderFanimals = () => (
   <div>
     <Menu fixed="top">
-    <img width="50px" height="50px"src={Image} alt="" />
+    <img width="75px" height="75px" src={Image} alt="" style={{padding:"10px"}}/>
       <h1 style={{ margin: 'auto', marginLeft: '10px' }}>  Fanimals</h1>
 
       <Menu.Menu position='right'>

@@ -10,7 +10,7 @@ import FeedUsers from '../components/users/FeedUsers';
 import GridImages from '../components/users/GridImages';
 import {windowStyle} from '../App'
 
-const UserProfile = () => (
+const UserProfile = ({match}) => (
     <div className="superContainer">
         
         <Container style={windowStyle} className="container" fluid textAlign="center" >
@@ -18,7 +18,7 @@ const UserProfile = () => (
             <div className="container-divs">
                 <div className="card-container">
                     <div>
-                        <UserCardProfile />
+                        <UserCardProfile id={match}/>
                     </div>
                 </div>
                 <div className="container-right">
