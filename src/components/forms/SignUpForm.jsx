@@ -87,7 +87,7 @@ export function SignUpForm() {
     setFormData({ ...formData, [name]: value });
   }
 
-  const handleSubmit = event => {
+  const handleOnSubmit = (event) => {
     event.preventDefault();
     setFormData(initialState);
     setCoords(initialCoords);
@@ -117,19 +117,13 @@ export function SignUpForm() {
     });
   };
 
-  return (
-    <FormContainer>
-      <Form onSubmit={handleSubmit}>
-        {FIELDS.map((field, i) => (
-          <Input
-            handleChange={handleChange}
-            key={i}
-            value={formData}
-            {...field}
-          />
-        ))}
-        <Button>Enviar</Button>
-      </Form>
-    </FormContainer>
-  );
-}
+  return(
+  <Form onSubmit={handleOnSubmit}>
+    
+    { FIELDS && FIELDS.map((field, i)=> <Input handleChange={handleChange} key={i} value={formData} {...field}/>)}
+
+    <Button>Enviar</Button>
+
+  </Form>
+  )
+};
