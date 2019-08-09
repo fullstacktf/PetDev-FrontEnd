@@ -28,6 +28,17 @@ const Name = styled.h2`
   animation: ${bounce} ${Math.random()}s ease infinite;
 `;
 
+const Button = styled.button`
+  width: 500px;
+  background: white;
+  border: 0;
+  height: 50px;
+  text-align: left;
+  &:hover {
+    background: rgb(245, 245, 245) ;
+  }
+`;
+
 
 interface AddressResultProps {
   address: GeocodingResult
@@ -36,10 +47,11 @@ interface AddressResultProps {
 const COLOR = ['red', 'green', 'blue'];
 
 
+
 export const AddressResult = (props: AddressResultProps) => {
   const color = COLOR[~~(Math.random() * COLOR.length)];
   return <Container>
-    <Name color={color}>{props.address.name}</Name>
-    <div>{props.address.location.lat}</div>
+    <Button> <i className='map marker alternate icon'></i> {props.address.name}</Button>
+   {/*  <div>{props.address.location.lat}</div> */}
   </Container>
 };
