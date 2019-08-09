@@ -7,5 +7,5 @@ export const axiosHandler = (method, endPoint, data) => {
     method,
     url: `${BASEURL}${endPoint}`,
     data
-  }).then(res => console.log(res.data));
+  }).then(/* res => console.log(res.data) */);
 };

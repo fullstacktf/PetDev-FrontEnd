@@ -6,18 +6,18 @@ export const PointerIcon = new Icon({
     iconRetinaUrl: require("../../assets/faniMarker.png"),
     iconAnchor: [10, 55],
     popupAnchor: [10, -44],
-    iconSize: [35, 35]
+    iconSize: [65, 65]
     //shadowUrl: "../assets/marker-shadow.png",
     //shadowSize: [680, 905],
     //shadowAnchor: [20, 92]
 });
 
 export const PointerIconSelected = new Icon({
-    iconUrl: require("../../assets/faIconSelected.png"),
-    iconRetinaUrl: require("../../assets/faIconSelected.png"),
+    iconUrl: require("../../assets/faniMarker.png"),
+    iconRetinaUrl: require("../../assets/faniMarker.png"),
     iconAnchor: [10, 55],
     popupAnchor: [10, -44],
-    iconSize: [35, 35]
+    iconSize: [65, 65]
     //shadowUrl: "../assets/marker-shadow.png",
     //shadowSize: [100, 100],
     //shadowAnchor: [20, 92]

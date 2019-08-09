@@ -1,29 +1,29 @@
 import PopUpMiniCardMap from "../users/PopUpMiniCardMap";
 import React, { useState } from "react";
 import { Marker as LeafletMarker, Popup,  } from "react-leaflet";
-import L from "leaflet";
+import {Icon} from "leaflet";
 import { Link } from 'react-router-dom';
 import { Button, Menu } from 'semantic-ui-react';
 
-export const PointerIcon = new L.Icon({
-    iconUrl: require("../../assets/faIcon.png"),
-    iconRetinaUrl: require("../../assets/faIcon.png"),
-    iconAnchor: [10, 55],
-    popupAnchor: [10, -44],
-    iconSize: [35, 35]
+export const PointerIcon = new Icon({
+    iconUrl: require("../../assets/faniMarker.png"),
+    iconRetinaUrl: require("../../assets/faniMarker.png"),
+    iconAnchor: [17, 55],
+    popupAnchor: [17, -44],
+    iconSize: [65, 65]
     //shadowUrl: "../assets/marker-shadow.png",
     //shadowSize: [680, 905],
     //shadowAnchor: [20, 92]
 });
 
-export const PointerIconSelected = new L.Icon({
-    iconUrl: require("../../assets/faIconSelected.png"),
-    iconRetinaUrl: require("../../assets/faIconSelected.png"),
-    iconAnchor: [10, 55],
-    popupAnchor: [10, -44],
-    iconSize: [35, 35]
+export const PointerIconSelected = new Icon({
+    iconUrl: require("../../assets/faniMarker.png"),
+    iconRetinaUrl: require("../../assets/faniMarker.png"),
+    iconAnchor: [17, 55],
+    popupAnchor: [17, -44],
+    iconSize: [65, 65]
     //shadowUrl: "../assets/marker-shadow.png",
-    //shadowSize: [100, 100],
+    //shadowSize: [170, 170],
     //shadowAnchor: [20, 92]
 });
 
@@ -64,7 +64,7 @@ export const Marker = props => {
         >
         
         <Popup>
-            <PopUpMiniCardMap name={user.name}/>
+            <PopUpMiniCardMap user={{...user}}/>
         </Popup>
     </LeafletMarker>
  
