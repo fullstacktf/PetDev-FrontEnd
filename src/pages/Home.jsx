@@ -3,44 +3,37 @@ import { InputSearchHomePage } from "../components/forms/InputSearchHomePage";
 import { axiosHandler } from "../axios";
 import LeafletMap from "../components/maps/LeafletMap";
 import { css } from 'emotion'
-import { Header, Divider } from "semantic-ui-react";
-import MiniBoxIcon from "../components/containers/MiniBoxHome";
+import { Header, Divider, Accordion } from "semantic-ui-react";
+import AccordionHome from "../components/containers/AccordionHome";
 export default class Home extends React.Component {
   render() {
     const newUser = { name: "test" };
     return (
       <div className={css`
-        top: 95px;
         width: 100%;
         height: 100%;
+        margin: 25px;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         justify-content: center;
-        align-items: center;
-
+        align-items: top;
       `}>
+
         <div className={css`
-            width: auto;
-            height: auto;
-        `} >
-          <div className={css` margin: 15px;`}>
-            <Header inverted textAlign='center' color={"grey"} centered as="h2" >"ENCUENTRA PERSONAS DE CONFIANZA PARA TU MASCOTA"</Header>
-          </div>
+        margin-top: 150px;
+        margin: 25px;
+        `}>
           <InputSearchHomePage />
           {axiosHandler("GET", "/users", newUser)}
+          <LeafletMap />
         </div>
 
         <div className={css`
-          width: auto;
-          height: auto;
-      `}>
-          <LeafletMap />
+        margin-top: 100px;
+        margin: 25px;
+        `}>
+          <AccordionHome />
         </div>
-        <Divider vertical />
-        <div>
-          <MiniBoxIcon />
-        </div>
-
       </div>
     );
   }
