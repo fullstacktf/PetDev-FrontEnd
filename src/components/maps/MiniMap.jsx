@@ -1,6 +1,4 @@
 import React from "react";
-import GoogleMapReact from "google-map-react";
-import {apiKey as key} from "../../apiKey.json"
 import { Map, TileLayer } from "react-leaflet";
 import { MiniMarker } from "./MiniMarker";
 

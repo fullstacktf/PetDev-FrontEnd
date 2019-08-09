@@ -36,7 +36,7 @@ const UserCardProfile = props => {
   useEffect(() => {
     getUser();
   }, []);
-  
+
   return (
     <Card>
       <Image src={photo} wrapped ui={false} />
