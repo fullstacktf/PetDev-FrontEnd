@@ -4,42 +4,43 @@ import { Map, TileLayer } from "react-leaflet";
 import axios from "axios";
 //import PopUpMiniCardMap from "../users/PopUpMiniCardMap";
 import { Marker } from "./Marker";
+import { css } from 'emotion'
 
 const mapStyles = {
-    width: "100%",
-    height: "65vh"
+  width: "850px",
+  height: "620px"
 };
 
 export default class LeafletMap extends Component {
-    state = {
-        lat: 28.467297,
-        lng: -16.2755351,
-        zoom: 13,
-        users: []
-    };
+  state = {
+    lat: 28.467297,
+    lng: -16.2755351,
+    zoom: 13,
+    users: []
+  };
 
-    displayMarkers = () => {
+  displayMarkers = () => {
 
-    };
+  };
 
-    componentWillMount() {
-        axios.get(`http://localhost:3001/api/users/`).then(res => {
-            const usersInfo = res.data;
-            this.setState({ users: usersInfo });
-        });
-    }
+  componentWillMount() {
+    axios.get(`http://localhost:3001/api/users/`).then(res => {
+      const usersInfo = res.data;
+      this.setState({ users: usersInfo });
+    });
+  }
 
-    render() {
-        const { users } = this.state;
-        const position = [this.state.lat, this.state.lng];
-        return (
-            <Map center={position} zoom={this.state.zoom} style={mapStyles}>
-                <TileLayer
-                    attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                />
-                {users.map(user => <Marker key={user.id} user={user}/>)}
-            </Map>
-        );
-    }
+  render() {
+    const { users } = this.state;
+    const position = [this.state.lat, this.state.lng];
+    return (
+      <Map center={position} zoom={this.state.zoom} style={mapStyles} className={css`border-radius: 5px; `}>
+        <TileLayer
+          attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        {users.map(user => <Marker key={user.id} user={user} />)}
+      </Map>
+    );
+  }
 }
