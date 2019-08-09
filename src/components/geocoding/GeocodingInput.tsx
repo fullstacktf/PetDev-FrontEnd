@@ -62,6 +62,6 @@ export const GeocodingInput = () => {
 
   return <form onSubmit={handleOnSubmit}>
     <input onChange={handleOnChange}/>
-    {results && results.map(result => <AddressResult address={result}/>)}
+    {results && results.map((result, i) => <AddressResult key={i} address={result}/>)}
   </form>
 };

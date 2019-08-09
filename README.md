@@ -1,6 +1,6 @@
 # PetDev :paw_prints:
 
-[![Build Status](https://travis-ci.org/fullstacktf/fanimals-frontend.svg?branch=master)](https://travis-ci.org/fullstacktf/fanimals-frontend)
+[![Build Status](https://travis-ci.org/fullstacktf/PetDev-FrontEnd.svg?branch=develop)](https://travis-ci.org/fullstacktf/PetDev-FrontEnd)
 
 _Proyecto Web para encontrar alojamiento a tu mascota, de confianza y a tu alrededor._
 _Un proyecto altruista para solucionar problemas reales._
