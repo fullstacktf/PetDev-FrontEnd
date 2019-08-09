@@ -37,24 +37,14 @@ export const MiniMarker = props => {
     const handleOnMouseOut = (e) => {
         console.log('CLOSE');
         setSelected(false);
-        
-
     };
 
-    
-
     return (
-        
-           
-        
+  
     <LeafletMiniMarker
         position={props.center}
         icon={selected ? PointerIcon : PointerIconSelected}
         onMouseOut={handleOnMouseOut}
         onMouseOver={handleOnMouseOver}/>
-        
-
- 
-    
     )
 };
