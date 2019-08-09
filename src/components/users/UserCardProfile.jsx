@@ -7,6 +7,13 @@ import RatingUser from "./RatingUser";
 import axios from "axios";
 
 //const id = "5d48d3c2e28e1c5854a01c79";
+const API_URL = "http://localhost:3001/api";
+
+const cardStyle = {
+  marginTop: "42px",
+  boxShadow: '0.5px 0.5px 5px grey'
+};
+
 const UserCardProfile = props => {
   const [state, setState] = useState({
     user: {},
@@ -18,7 +25,7 @@ const UserCardProfile = props => {
     const { userID } = props.id.params;
     axios({
       method: "get",
-      url: `http://localhost:3001/api/users/${userID}`
+      url: `${API_URL}/users/${userID}`
     }).then(res => {
       const user = res.data;
       const address = res.data.address;
@@ -38,7 +45,7 @@ const UserCardProfile = props => {
   }, []);
 
   return (
-    <Card>
+    <Card style={cardStyle}>
       <Image src={photo} wrapped ui={false} />
       <Card.Content>
         <Card.Header>
@@ -85,7 +92,7 @@ const UserCardProfile = props => {
         </a>
       </Card.Content>
       <Card.Content extra>
-        <div style={{ alignItems: "center" }}>
+        <div style={{ display:"flex", justifyContent: "center" }}>
           <MiniMap center={[ state.lat , state.lng ]} />
         </div>
       </Card.Content>

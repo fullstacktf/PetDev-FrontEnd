@@ -32,6 +32,7 @@ export default class LeafletMap extends Component {
 
     render() {
         const { users } = this.state;
+        console.log(users)
         const position = [this.state.lat, this.state.lng];
         return (
             <Map center={position} zoom={this.state.zoom} style={mapStyles}>

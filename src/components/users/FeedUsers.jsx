@@ -10,7 +10,7 @@ const FeedUsers = () => (
         background: 'whitesmoke', 
         borderRadius: '5px',
         marginBottom: '20px',
-        boxShadow: '0.5px 0.5px 5px black'
+        boxShadow: '0.5px 0.5px 5px grey'
     }
 }>
     <Comment.Group>

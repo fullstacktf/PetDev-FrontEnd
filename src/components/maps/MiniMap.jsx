@@ -4,7 +4,10 @@ import { MiniMarker } from "./MiniMarker";
 
 const mapStyles = {
     width: "250px",
-    height: "250px"
+    height: "250px",
+    border: '1px solid grey',
+    borderRadius: '3px',
+    boxShadow: '0.5px 0.5px 5px grey'
 };
 
 export const MiniMap = props => {
