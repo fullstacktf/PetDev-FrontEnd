@@ -14,6 +14,20 @@ export interface GeocodingResult {
   },
 }
 
+const styleInput = {
+  width: '500px',
+  height: '40px',
+  paddingLeft: '5px',
+  fontFamily: 'Lato,Arial,Helvetica,sans-serif',
+  background: 'white',
+  border: '1px solid #22242626',
+  borderRadius: '5px 5px 5px 5px',
+  color: 'grey',
+  fontSize: '14px',
+  padding: '5px'
+
+}
+
 const addressParser = (input): GeocodingResult[] => {
   return input.results.map(item => ({
     name: item.address_components[0].short_name + ' ' + item.address_components[1].short_name,
@@ -55,13 +69,14 @@ export const GeocodingInput = () => {
   const handleOnChange = ({ target }) => {
     setInputValue(target.value);
   };
-
   const handleOnSubmit = (e) => {
     e.preventDefault();
   }
 
   return <form onSubmit={handleOnSubmit}>
-    <input onChange={handleOnChange}/>
+    <input style={styleInput} onChange={handleOnChange} placeholder="Encuentra cuidadores cerca..."/>
+    <i className='purple circular inverted paw icon' onClick={handleOnChange} style={{marginLeft: '-35px'}}></i>
     {results && results.map((result, i) => <AddressResult key={i} address={result}/>)}
-  </form>
+    </form>
+
 };

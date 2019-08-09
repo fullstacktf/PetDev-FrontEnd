@@ -7,21 +7,17 @@ import { Marker } from "./Marker";
 
 const API_URL = "http://localhost:3001/api"
 const mapStyles = {
-  width: "850px",
-  height: "620px"
+    width: "850px",
+    height: "620px"
 };
 
 export default class LeafletMap extends Component {
-  state = {
+state = {
     lat: 28.467297,
     lng: -16.2755351,
     zoom: 13,
     users: []
-  };
-
-  displayMarkers = () => {
-
-  };
+};
 
     componentWillMount() {
         axios.get(`${API_URL}/users/`).then(res => {
