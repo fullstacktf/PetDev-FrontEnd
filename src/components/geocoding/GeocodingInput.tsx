@@ -2,7 +2,6 @@ import * as React from "react";
 import { useEffect, useState } from "react";
 import { MOCK_RESPONSE } from "./mock";
 import { AddressResult } from "./AddressResult";
-import { tsPropertySignature } from "@babel/types";
 
 const KEY = 'AIzaSyBzGVNtpx96mevl5hXFpx7n-ZeAeM3u1k8';
 const BASE_URL = `https://maps.googleapis.com/maps/api/geocode/json?key=${KEY}`;
@@ -36,7 +35,11 @@ const getStreetsRequests = (inputValue: string): Promise<GeocodingResult[]> => {
   });
 };
 
-export const GeocodingInput = ({ parentCallback }) => {
+interface GeocodingInputProps {
+  onSelectLocation: (lat: number, lng: number) => void;
+}
+
+export const GeocodingInput = (props: GeocodingInputProps) => {
   const [inputValue, setInputValue] = useState<string>();
   const [results, setResults] = useState<GeocodingResult[]>([]);
 
@@ -60,12 +63,14 @@ export const GeocodingInput = ({ parentCallback }) => {
 
   const handleOnSubmit = e => {
     e.preventDefault();
-    parentCallback(results[0]);
-    
-  }
+    if (results && results.length > 0) {
+      const selectedLocation = results[0].location;
+      props.onSelectLocation(selectedLocation.lat, selectedLocation.lng);
+    }
+  };
 
-  return <form onSubmit = {handleOnSubmit}>
+  return <form onSubmit={handleOnSubmit}>
     <input onChange={handleOnChange}/>
-    {results && results.map((result,i) => <AddressResult key={i} address={result}/>)}
+    {results && results.map((result, i) => <AddressResult key={i} address={result}/>)}
   </form>
 };

@@ -9,11 +9,9 @@ export default class Home extends React.Component {
     const newUser = { name: "test" };
     return (
       <div>
-        <InputSearchHomePage />
+        <InputSearchHomePage/>
         {axiosHandler("GET", "/users", newUser)}
         <InputAndMap/>
-        
-
       </div>
     );
   }
