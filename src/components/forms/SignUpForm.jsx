@@ -4,7 +4,7 @@ import axios from "axios";
 
 import {windowStyle} from '../../App'
 const Form = styled.form`
-
+  background: white;
 `;
 
 const Button = styled.button`

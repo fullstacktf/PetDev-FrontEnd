@@ -1,12 +1,14 @@
 import React from 'react';
 import { Button, Menu } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
 import Image from '../../assets/faniLogo.png';
+import Popup from "reactjs-popup";
+import LoginForm from "../forms/LoginForm";
+import {SignUpForm} from "../forms/SignUpForm";
 // TODO: Update <Search> usage after its will be implemented
 
-const HeaderFanimals = () => (
-  <div>
-    <Menu fixed="top">
+const HeaderFanimals = () => {
+
+  return <Menu fixed="top">
     <img width="75px" height="75px" src={Image} alt="" style={{padding:"10px"}}/>
       <h1 style={{ margin: 'auto', marginLeft: '10px' }}>  Fanimals</h1>
 
@@ -15,8 +17,19 @@ const HeaderFanimals = () => (
           <div className='ui transparent icon input'>
 
             <div>
-              <Link to="/login"><Button compact color="purple" >Login</Button></Link>
-              <Link to="/signup"> <Button compact color="violet" >Register</Button></Link>
+            <Popup
+            trigger={<Button compact color="purple" >Login</Button>}
+            closeOnDocumentClick
+          >
+            <LoginForm/>
+            </Popup>
+            <Popup
+            modal
+            trigger={<Button compact color="violet" >Register</Button>}          
+            closeOnDocumentClick
+          >
+            <SignUpForm/>
+            </Popup>          
             </div>
 
 
@@ -25,9 +38,8 @@ const HeaderFanimals = () => (
         </div>
       </Menu.Menu>
     </Menu>
+}
 
 
-  </div>
-)
 
 export default HeaderFanimals;
