@@ -41,17 +41,22 @@ const addressParser = (input): GeocodingResult[] => {
 const getStreetsRequests = (inputValue: string): Promise<GeocodingResult[]> => {
   return new Promise((resolve, reject) => {
     const url = `${BASE_URL}&address=${inputValue}`;
-    resolve(addressParser(MOCK_RESPONSE));
-    // TODO only in production
-    // fetch(url)
-    //   .then(result => result.json()).then(addressParser).then(resolve)
-    //   .catch(err => reject(`😒 ${err}`));
+    //resolve(addressParser(MOCK_RESPONSE));
+    //TODO only in production
+    fetch(url)
+      .then(result => result.json()).then(addressParser).then(resolve)
+      .catch(err => reject(`😒 ${err}`)); 
   });
 };
 
-export const GeocodingInput = () => {
+interface GeocodingInputProps {
+  onSelectLocation: (lat: number, lng: number) => void;
+}
+
+export const GeocodingInput = (props: GeocodingInputProps) => {
   const [inputValue, setInputValue] = useState<string>();
   const [results, setResults] = useState<GeocodingResult[]>([]);
+
 
   useEffect(() => {
     const getStreets = async () => {
@@ -68,15 +73,19 @@ export const GeocodingInput = () => {
 
   const handleOnChange = ({ target }) => {
     setInputValue(target.value);
+
   };
-  const handleOnSubmit = (e) => {
+
+  const handleOnSubmit = e => {
     e.preventDefault();
-  }
+    if (results && results.length > 0) {
+      const selectedLocation = results[0].location;
+      props.onSelectLocation(selectedLocation.lat, selectedLocation.lng);
+    }
+  };
 
   return <form onSubmit={handleOnSubmit}>
-    <input style={styleInput} onChange={handleOnChange} placeholder="Encuentra cuidadores cerca..."/>
-    <i className='purple circular inverted paw icon' onClick={handleOnChange} style={{marginLeft: '-35px'}}></i>
+    <input onChange={handleOnChange} placeholder="Introduce tu dirección..."/>
     {results && results.map((result, i) => <AddressResult key={i} address={result}/>)}
-    </form>
-
+  </form>
 };

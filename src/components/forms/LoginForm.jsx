@@ -3,10 +3,10 @@ import React from 'react'
 import { Button, Form, Grid, Header, Icon } from 'semantic-ui-react'
 
 const LoginForm = () => (
-  <Grid className="container2" textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>
+  <Grid className="container2" textAlign='center' style={{ height: '100%', padding: "10px" }} verticalAlign='middle'>
     <Grid.Column style={{ maxWidth: 300 }}>
       <Header as='h2' color='grey' textAlign='center'>
-        <Icon name="sign-in" color="purple" /> Login Fanimals
+        <Icon name="sign-in" color="purple" /> Login 
       </Header>
       <Form size='big' success>
 

@@ -12,10 +12,9 @@ const mapStyles = {
 };
 
 export default class LeafletMap extends Component {
+
+
 state = {
-    lat: 28.467297,
-    lng: -16.2755351,
-    zoom: 13,
     users: []
 };
 
@@ -24,12 +23,27 @@ state = {
             const usersInfo = res.data;
             this.setState({ users: usersInfo });
         });
-    }
+
+    };
+
+    componentDidMount(){
+
+    };
+
+    updateMap(){
+        this.setState({
+            lat: this.props.lat,
+            lng: this.props.lng,
+            zoom: this.props.zoom,
+        })
+        }
+    
 
     render() {
         const { users } = this.state;
         const position = [this.state.lat, this.state.lng];
         return (
+                
             <Map center={position} zoom={this.state.zoom} style={mapStyles}>
                 <TileLayer
                     attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
