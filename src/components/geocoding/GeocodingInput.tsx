@@ -15,7 +15,7 @@ export interface GeocodingResult {
 }
 
 const styleInput = {
-  width: '500px',
+  width: '250px',
   height: '40px',
   paddingLeft: '5px',
   fontFamily: 'Lato,Arial,Helvetica,sans-serif',
