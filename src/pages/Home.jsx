@@ -20,16 +20,14 @@ background-repeat:   no-repeat;
 background-position: center center;
 `
 const Form = styled.form`
-  background: white;
+  background: #ffffffb3;
   width: 400px;
   height: 400px;
   display:flex;
   flex-direction: column;
   justify-content: center;
   padding: 35px; 
-  border-radius: 10px;
-
-  box-shadow: 3px 3px 8px darkgrey;
+  border-radius: 3px;
   `
 
 class Home extends React.Component {

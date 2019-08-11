@@ -15,13 +15,13 @@ export interface GeocodingResult {
 }
 
 const styleInput = {
-  width: '250px',
-  height: '40px',
+  width: '100%',
+  height: '50px',
   paddingLeft: '5px',
   fontFamily: 'Lato,Arial,Helvetica,sans-serif',
   background: 'white',
   border: '1px solid #22242626',
-  borderRadius: '5px 5px 5px 5px',
+  borderRadius: '3px 3px 3px 3px',
   color: 'grey',
   fontSize: '14px',
   padding: '5px'
@@ -85,7 +85,8 @@ export const GeocodingInput = (props: GeocodingInputProps) => {
   };
 
   return <form onSubmit={handleOnSubmit}>
-    <input onChange={handleOnChange} placeholder="Introduce tu dirección..."/>
+    <input style={styleInput} onChange={handleOnChange} placeholder="Search direction"/>
+    <i className='purple circular inverted paw icon' onClick={handleOnChange} style={{marginLeft: '-35px'}}></i>
     {results && results.map((result, i) => <AddressResult key={i} address={result}/>)}
   </form>
 };
