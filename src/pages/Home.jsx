@@ -1,5 +1,4 @@
 import React from "react";
-<<<<<<< HEAD
 import { css } from 'emotion'
 import image from '../../src/assets/dogbackground.jpg';
 import Calendar from "../components/bookings/Calendar";
@@ -7,10 +6,6 @@ import {GeocodingInput} from '../components/geocoding/GeocodingInput';
 import styled from '@emotion/styled';
 import { Button } from 'semantic-ui-react';
 
-=======
-import { InputSearchHomePage } from "../components/forms/InputSearchHomePage";
-import { InputAndMap } from './../components/geocoding/InputAndMap.jsx'
->>>>>>> develop
 
 const bodyStyle = css`
 width: 100%;
@@ -40,7 +35,6 @@ const Form = styled.form`
 class Home extends React.Component {
   render() {
     return (
-<<<<<<< HEAD
       <div className={bodyStyle}>
         <div className={css`
           margin-left: 100px;
@@ -54,12 +48,6 @@ class Home extends React.Component {
           
 
         </div>
-=======
-
-      <div>
-        <InputSearchHomePage/>
-        <InputAndMap/>
->>>>>>> develop
       </div>
     );
   }
