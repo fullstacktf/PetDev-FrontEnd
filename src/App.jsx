@@ -13,7 +13,7 @@ import NearUsers from './pages/NearUsers';
 import birdsbackground from './assets/birdsbackground.png';
 
 export const windowStyle = {
-  
+
   // linear-gradient(120deg, rgba(255, 178, 243, 0.6), transparent)
   backgroundImage: `linear-gradient(rgba(137, 236, 125, 0.6), rgba(101, 138, 149, 0.6)), url(${birdsbackground})`,
   backgroundRepeat: 'repeat',
