@@ -18,9 +18,7 @@ export const MiniMap = props => {
             <TileLayer
                 attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
-                
-                <MiniMarker center={props.center}/>
-                
+            <MiniMarker center={props.center}/> 
         </Map>
   
   )
