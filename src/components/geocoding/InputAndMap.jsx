@@ -4,7 +4,7 @@ import { GeocodingInput } from './GeocodingInput'
 import { LeafletMapF } from '../maps/LeafletMapF';
 
 const INITIAL_MAP_CENTER = { lat: 28.462664409289054, lng: -16.260967254638672 };
-const INITIAL_MAP_ZOOM = 15;
+const INITIAL_MAP_ZOOM = 17;
 
 const FAKE_POINTS = [
   { lat: 28.509521714628573, lng: -16.184921264648438 },

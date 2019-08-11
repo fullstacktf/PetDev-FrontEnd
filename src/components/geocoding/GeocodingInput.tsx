@@ -29,9 +29,9 @@ const getStreetsRequests = (inputValue: string): Promise<GeocodingResult[]> => {
     const url = `${BASE_URL}&address=${inputValue}`;
     resolve(addressParser(MOCK_RESPONSE));
     // TODO only in production
-    // fetch(url)
-    //   .then(result => result.json()).then(addressParser).then(resolve)
-    //   .catch(err => reject(`😒 ${err}`));
+   /*  fetch(url)
+      .then(result => result.json()).then(addressParser).then(resolve)
+      .catch(err => reject(`😒 ${err}`)); */
   });
 };
 
@@ -42,6 +42,7 @@ interface GeocodingInputProps {
 export const GeocodingInput = (props: GeocodingInputProps) => {
   const [inputValue, setInputValue] = useState<string>();
   const [results, setResults] = useState<GeocodingResult[]>([]);
+
 
   useEffect(() => {
     const getStreets = async () => {
@@ -58,6 +59,7 @@ export const GeocodingInput = (props: GeocodingInputProps) => {
 
   const handleOnChange = ({ target }) => {
     setInputValue(target.value);
+
   };
 
 
@@ -70,7 +72,7 @@ export const GeocodingInput = (props: GeocodingInputProps) => {
   };
 
   return <form onSubmit={handleOnSubmit}>
-    <input onChange={handleOnChange}/>
+    <input onChange={handleOnChange} placeholder="Introduce tu dirección..."/>
     {results && results.map((result, i) => <AddressResult key={i} address={result}/>)}
   </form>
 };

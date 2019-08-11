@@ -35,7 +35,7 @@ export const LeafletMapF = (props) => {
 
   return <Map center={[lat, lng]} zoom={zoom} style={mapStyles}>
     {/*<TileLayer attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors' url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>*/}
-    <TileLayer attribution="Map tiles by Carto, under CC BY 3.0. Data by OpenStreetMap, under ODbL." url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png"/>
+    <TileLayer attribution="Map tiles by Carto, under CC BY 3.0. Data by OpenStreetMap, under ODbL." url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png"/>
     {users.map(user => <Marker key={user.id} user={user}/>)}
   </Map>;
 };
