@@ -2,18 +2,13 @@ import React from 'react';
 import { Button, Menu } from 'semantic-ui-react';
 import Image from '../../assets/faniLogo.png';
 import Popup from "reactjs-popup";
-import styled from "@emotion/styled";
 import LoginForm from "../forms/LoginForm";
 import {SignUpForm} from "../forms/SignUpForm";
 // TODO: Update <Search> usage after its will be implemented
-const Box = styled.div`
-  width: 50000px;
-  background: white;
-  
-`
-const HeaderFanimals = () => (
-  <div>
-    <Menu fixed="top">
+
+const HeaderFanimals = () => {
+
+  return <Menu fixed="top">
     <img width="75px" height="75px" src={Image} alt="" style={{padding:"10px"}}/>
       <h1 style={{ margin: 'auto', marginLeft: '10px' }}>  Fanimals</h1>
 
@@ -43,9 +38,8 @@ const HeaderFanimals = () => (
         </div>
       </Menu.Menu>
     </Menu>
+}
 
 
-  </div>
-)
 
 export default HeaderFanimals;
