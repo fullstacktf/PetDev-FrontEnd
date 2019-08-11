@@ -1,31 +1,25 @@
-import React, { Component } from "react";
-import GoogleMapReact from "google-map-react";
+import React from "react";
+import { Map, TileLayer } from "react-leaflet";
+import { MiniMarker } from "./MiniMarker";
 
-const AnyReactComponent = () => <div>{"text"}</div>;
+const mapStyles = {
+    width: "250px",
+    height: "250px",
+    border: '1px solid grey',
+    borderRadius: '3px',
+    boxShadow: '0.5px 0.5px 5px grey'
+};
 
-class MiniMap extends Component {
-    static defaultProps = {
-        center: {
-            lat: 59.95,
-            lng: 30.33
-        },
-        zoom: 11
-    };
+export const MiniMap = props => {
+  return (
+    
 
-    render() {
-        return (
-            // Important! Always set the container height explicitly
-            <div style={{ height: "250px", width: "250px", marginLeft: '' }}>
-                <GoogleMapReact
-                    bootstrapURLKeys={{ key: "AIzaSyBzGVNtpx96mevl5hXFpx7n-ZeAeM3u1k8" }}
-                    defaultCenter={this.props.center}
-                    defaultZoom={this.props.zoom}
-                >
-                    <AnyReactComponent lat={28.452302} lng={-16.2880045} text="My Marker" />
-                </GoogleMapReact>
-            </div>
-        );
-    }
-}
-
-export default MiniMap;
+        <Map center={props.center} zoom={12} style={mapStyles}>
+            <TileLayer
+                attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
+            <MiniMarker center={props.center}/> 
+        </Map>
+  
+  )
+};

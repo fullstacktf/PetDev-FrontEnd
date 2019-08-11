@@ -14,6 +14,20 @@ export interface GeocodingResult {
   },
 }
 
+const styleInput = {
+  width: '500px',
+  height: '40px',
+  paddingLeft: '5px',
+  fontFamily: 'Lato,Arial,Helvetica,sans-serif',
+  background: 'white',
+  border: '1px solid #22242626',
+  borderRadius: '5px 5px 5px 5px',
+  color: 'grey',
+  fontSize: '14px',
+  padding: '5px'
+
+}
+
 const addressParser = (input): GeocodingResult[] => {
   return input.results.map(item => ({
     name: item.address_components[0].short_name + ' ' + item.address_components[1].short_name,
@@ -27,11 +41,11 @@ const addressParser = (input): GeocodingResult[] => {
 const getStreetsRequests = (inputValue: string): Promise<GeocodingResult[]> => {
   return new Promise((resolve, reject) => {
     const url = `${BASE_URL}&address=${inputValue}`;
-    resolve(addressParser(MOCK_RESPONSE));
-    // TODO only in production
-   /*  fetch(url)
+    //resolve(addressParser(MOCK_RESPONSE));
+    //TODO only in production
+    fetch(url)
       .then(result => result.json()).then(addressParser).then(resolve)
-      .catch(err => reject(`😒 ${err}`)); */
+      .catch(err => reject(`😒 ${err}`)); 
   });
 };
 
@@ -61,7 +75,6 @@ export const GeocodingInput = (props: GeocodingInputProps) => {
     setInputValue(target.value);
 
   };
-
 
   const handleOnSubmit = e => {
     e.preventDefault();

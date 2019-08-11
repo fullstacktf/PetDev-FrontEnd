@@ -4,13 +4,14 @@ import { GeocodingInput } from './GeocodingInput'
 import { LeafletMapF } from '../maps/LeafletMapF';
 
 const INITIAL_MAP_CENTER = { lat: 28.462664409289054, lng: -16.260967254638672 };
-const INITIAL_MAP_ZOOM = 17;
+const INITIAL_MAP_ZOOM = 15;
 
 const FAKE_POINTS = [
   { lat: 28.509521714628573, lng: -16.184921264648438 },
   { lat: 28.462815321479674, lng: -16.262447834014893 },
   INITIAL_MAP_CENTER,
 ];
+
 
 export const InputAndMap = () => {
   const [mapCenter, setMapCenter] = useState(INITIAL_MAP_CENTER);
