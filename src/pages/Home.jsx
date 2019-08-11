@@ -1,7 +1,7 @@
 import React from "react";
 import { css } from 'emotion'
-import AccordionHome from "../components/containers/AccordionHome";
-import { MapAndInput } from "../components/geocoding/MapAndInput";
+import DatePicker from 'react-datepicker2';
+import image from '../../src/assets/dogbackground.jpg';
 
 
 export default class Home extends React.Component {
@@ -10,21 +10,22 @@ export default class Home extends React.Component {
       <div className={css`
         width: 100%;
         height: 100%;
-        margin: 25px;
         display: flex;
         flex-direction: row;
-        justify-content: center;
-        align-items: top;
+        justify-content: left;
+        align-items: center;
+        background-image: url('${image}');
+        background-size:     cover;
+        background-repeat:   no-repeat;
+        background-position: center center;
       `}>
         <div className={css`
-        margin-top: 100px;
-        margin: 25px;
+          margin-left: 100px;
         `}>
-          <AccordionHome />
+          FECHA DE ENTRADA<DatePicker />
+          FECHA DE SALIDA<DatePicker />
+
         </div>
-      <div>
-        <MapAndInput/>
-      </div>
       </div>
     );
   }
