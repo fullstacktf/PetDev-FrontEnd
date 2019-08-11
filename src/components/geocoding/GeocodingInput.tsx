@@ -41,11 +41,11 @@ const addressParser = (input): GeocodingResult[] => {
 const getStreetsRequests = (inputValue: string): Promise<GeocodingResult[]> => {
   return new Promise((resolve, reject) => {
     const url = `${BASE_URL}&address=${inputValue}`;
-    //resolve(addressParser(MOCK_RESPONSE));
+    resolve(addressParser(MOCK_RESPONSE));
     //TODO only in production
-    fetch(url)
+    /* fetch(url)
       .then(result => result.json()).then(addressParser).then(resolve)
-      .catch(err => reject(`😒 ${err}`)); 
+      .catch(err => reject(`😒 ${err}`));  */
   });
 };
 
