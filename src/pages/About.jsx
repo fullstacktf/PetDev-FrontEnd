@@ -23,7 +23,7 @@ const About = () => (
     </div>
 
     <div>
-      <Divider horizontal>Nuestro Equipo</Divider>
+      <Divider horizontal>Our team</Divider>
       <TeamCard />
     </div>
   </div>

@@ -25,13 +25,13 @@ const UserProfile = ({ match }) => (
 
 
                     <Divider horizontal inverted>
-                        Mascotas
+                        Pets
                     </Divider>
                     <div className="pet-conatiner">
                         <NewCardPet id={match} />
                     </div>
                     <Divider horizontal inverted>
-                        Galería
+                        Gallery
                     </Divider>
                     <br />
                     <div>
