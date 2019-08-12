@@ -1,7 +1,4 @@
 import React, {useState} from "react";
-import FakeUserDetailsRegister from "./FakeUserDetailsRegister";
-import FakeOtherDetailsRegister from "./FakeOtherDetailsRegister";
-import FakeAddressDetailsRegister from "./FakeAddressDetailsRegister";
 import { Button, Form, Grid, Header, Icon } from 'semantic-ui-react'
 
 
@@ -91,8 +88,6 @@ const handleOnClick = (e) => {
         console.log("Failed to change form");
 }
 
-
-    
 }
 
 const handleOnClickBack = (e) => {
@@ -131,9 +126,6 @@ const handleOnClickBack = (e) => {
                     background: 'whitesmoke',
                     boxShadow: '0.5px 0.5px 5px grey'}} size='big' success>
             
-                    {/* <Form.Input onChange={handleOnChange} value={formData.name} placeholder='Name...' />
-                    <Form.Input onChange={handleOnChange} value={formData.lastName} placeholder='Lastname...' />
-                    <Form.Input onChange={handleOnChange} value={formData.email} type='email'  placeholder='Email...' /> */}
                     { FIELDS1 && FIELDS1.map((field, i)=> <Input handleChange={handleOnChange} key={i} value={formData} {...field}/>)}
                     
                     <Button color='purple' fluid size='large' onClick={handleOnClick}>Next</Button>
@@ -159,10 +151,6 @@ const handleOnClickBack = (e) => {
                 boxShadow: '0.5px 0.5px 5px grey'}}
             size='big' success>
         
-{/*                 <Form.Input  onChange={handleOnChange} value={formData.country}  placeholder='Country...' />
-                <Form.Input  onChange={handleOnChange} value={formData.province} placeholder='Province...'/>
-                <Form.Input  onChange={handleOnChange} value={formData.addressLine}placeholder='Address Line...'/>
-                <Form.Input  onChange={handleOnChange} value={formData.postalCode} placeholder='Postal Code...'/> */}
                 { FIELDS2 && FIELDS2.map((field, i)=> <Input handleChange={handleOnChange} key={i} value={formData} {...field}/>)}
                 
             <Button color="grey" size='large' onClick={handleOnClickBack}>Back</Button>
@@ -189,11 +177,6 @@ const handleOnClickBack = (e) => {
                 background: 'whitesmoke',
                 boxShadow: '0.5px 0.5px 5px grey'}}
             size='big' success>
-        
-{/*                <Form.Input  value="" placeholder='Short Description...' />
-                <Form.Input  value="" placeholder='Pet Preferences...'/>
-                <Form.Input  value="" placeholder='Pet...'/>
-                <Form.Input  value="" placeholder='Pet Name'/> */}
                 { FIELDS3 && FIELDS3.map((field, i)=> <Input handleChange={handleOnChange} key={i} value={formData} {...field}/>)}
                 
             <Button  color="grey" size='large' onClick={handleOnClickBack}>Back</Button>
