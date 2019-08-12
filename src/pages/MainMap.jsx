@@ -2,10 +2,27 @@ import React from 'react';
 import LeafletMap from '../components/maps/LeafletMap';
 import { slide as Menu } from 'react-burger-menu';
 import styled from "@emotion/styled";
+import NearUsers from './NearUsers';
 
-const Filters = styled.div`
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: row;
+  
+
+`
+
+const UsersContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 2000px;
+
+`
+
+const FiltersContainer = styled.div`
   display: flex;
   flex-direction: column;
+  width: 500px;
 `
 const FilterRow = styled.div`
 display:flex;
@@ -34,12 +51,16 @@ const sidebarStyle = {
   },
   bmMenuWrap: {
     position: 'fixed',
-    height: '100%'
+    height: '100%',
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'row'
   },
   bmMenu: {
     background: '#373a47',
     padding: '2.5em 1.5em 0',
-    fontSize: '1.15em'
+    fontSize: '1.15em',
+   
   },
   bmMorphShape: {
     fill: '#373a47'
@@ -53,23 +74,38 @@ const sidebarStyle = {
   },
   bmOverlay: {
     background: 'rgba(0, 0, 0, 0.3)'
-  }
+  },
+
 }
+
+const divStyle = {
+  width: '100vw',
+  height: '100vw'
+}
+
 const MainMap = () =>{
 
     return(<div>
-      <Menu styles = {sidebarStyle}>
-          <h3>Filtros</h3><br/>
-          <Filters>
-          <FilterRow><input type = "checkbox"/>Piso</FilterRow>
-          <FilterRow><input type = "checkbox"/>Casa</FilterRow>
-          <FilterRow><input type = "checkbox"/>Con mascota</FilterRow>
-          <FilterRow><input type = "checkbox"/>Sin mascota</FilterRow>
-          <FilterRow><input type = "checkbox"/>Con jardín</FilterRow>
-          <FilterRow><input type = "checkbox"/>Sin jardín</FilterRow>
 
-          </Filters>
+      <Menu styles = {sidebarStyle}>
+        <Container>
+           
+              <FiltersContainer>
+              <h3>Filtros</h3><br/>
+              <FilterRow><input type = "checkbox"/>Piso</FilterRow>
+              <FilterRow><input type = "checkbox"/>Casa</FilterRow>
+              <FilterRow><input type = "checkbox"/>Con mascota</FilterRow>
+              <FilterRow><input type = "checkbox"/>Sin mascota</FilterRow>
+              <FilterRow><input type = "checkbox"/>Con jardín</FilterRow>
+              <FilterRow><input type = "checkbox"/>Sin jardín</FilterRow>
+
+              </FiltersContainer>
+              <div style={divStyle}>
+              <NearUsers/>
+              </div>
+            </Container>
         </Menu>
+
           
       
         

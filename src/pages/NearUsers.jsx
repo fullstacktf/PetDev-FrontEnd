@@ -3,11 +3,9 @@ import styled from '@emotion/styled';
 import UserCardMini from '../components/users/UserCardMini'
 
 const Container = styled.div`
-    margin:auto;
     border: 1px solid red;
     width: 70vw;
     height: 100%;
-    padding: 50px; 
     color: black;
     display: flex;
     justify-content: center;
