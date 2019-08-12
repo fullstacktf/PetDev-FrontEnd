@@ -11,7 +11,7 @@ import About from './pages/About';
 import MainMap from './pages/MainMap';
 
 import birdsbackground from './assets/birdsbackground.png';
-import FakeAdressDetailsRegister from './components/forms/FakeAdressDetailsRegister';
+import FakeAdressDetailsRegister from './components/forms/FakeAddressDetailsRegister';
 import FakeOtherDetailsRegister from './components/forms/FakeOtherDetailsRegister';
 import FakeUserDetailsRegister from './components/forms/FakeUserDetailsRegister';
 

@@ -2,7 +2,7 @@ import React from 'react'
 import { Button, Form, Grid, Header, Icon } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
 
-const FakeAdressDetailsRegister = () => (
+const FakeAddressDetailsRegister = () => (
   <Grid className="container2" textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>
     <Grid.Column style={{ maxWidth: 300 }}>
       <Header as='h2' color='grey' textAlign='center'>
@@ -22,8 +22,8 @@ const FakeAdressDetailsRegister = () => (
         <Form.Input  placeholder='Adress Line...'/>
         <Form.Input  placeholder='Postal Code...'/>
         
-        <Link to="/firstsignup"><Button color="grey"  size='large'>Back</Button></Link>
-        <Link to="/thirdsignup"><Button color='purple'  size='large'>Next</Button></Link>
+       <Button color="grey"  size='large'>Back</Button>
+       <Button color='purple'  size='large'>Next</Button>
        
       
 
@@ -33,4 +33,4 @@ const FakeAdressDetailsRegister = () => (
   </Grid>
 )
 
-export default FakeAdressDetailsRegister
+export default FakeAddressDetailsRegister;
