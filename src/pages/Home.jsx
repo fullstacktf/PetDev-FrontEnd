@@ -18,7 +18,6 @@ background-image: url('${image}');
 background-size:     cover;
 background-repeat:   no-repeat;
 background-position: center center;
-overflow: hidden;
 `
 const Form = styled.form`
   background: #ffffffb3;
