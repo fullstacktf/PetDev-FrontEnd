@@ -22,12 +22,14 @@ background-position: center center;
 const Form = styled.form`
   background: #ffffffb3;
   width: 400px;
-  height: 400px;
+  height: 300px;
   display:flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
   padding: 35px; 
   border-radius: 3px;
+  box-shadow: 3px 3px 15px;
   `
 
 const Home = () => {
@@ -40,7 +42,7 @@ const Home = () => {
           <Form>
             <GeocodingInput/>
             <Calendar/>
-            <Button compact color="purple">Enviar</Button>
+            <Button size = "huge" fluid color="purple" src="/mainmap">Enviar</Button>
 
           </Form>
           
