@@ -13,6 +13,7 @@ import NearUsers from './pages/NearUsers';
 import birdsbackground from './assets/birdsbackground.png';
 import FakeAdressDetailsRegister from './components/forms/FakeAdressDetailsRegister';
 import FakeOtherDetailsRegister from './components/forms/FakeOtherDetailsRegister';
+import FakeUserDetailsRegister from './components/forms/FakeUserDetailsRegister';
 
 export const windowStyle = {
   
@@ -39,6 +40,7 @@ const App = () => {
         <Route exact path="/nearusers" component={NearUsers} />
         <Route exact path="/secondsignup" component={FakeAdressDetailsRegister}/>
         <Route exact path="/thirdsignup" component={FakeOtherDetailsRegister}/>
+        <Route exact path="/firstsignup" component= {FakeUserDetailsRegister}/>
 
 
 

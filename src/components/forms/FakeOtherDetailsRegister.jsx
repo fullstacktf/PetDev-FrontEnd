@@ -22,8 +22,9 @@ const FakeOtherDetailsRegister = () => (
         <Form.Input  placeholder='Pet...'/>
         <Form.Input  placeholder='Pet Name'/>
         
-        <Link to="/UserProfile"><Button color='purple' size='large'>Submit</Button></Link>
-        <Link to="/secondsignup"><Button color="grey" size='large'>Back</Button></Link>
+        <Link to="/secondsignup"><Button  color="grey" size='large'>Back</Button></Link>
+        <Link to="/home"><Button color='purple' size='large'>Submit</Button></Link>
+       
       
 
       </Form>

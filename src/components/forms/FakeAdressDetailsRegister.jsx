@@ -22,8 +22,9 @@ const FakeAdressDetailsRegister = () => (
         <Form.Input  placeholder='Adress Line...'/>
         <Form.Input  placeholder='Postal Code...'/>
         
+        <Link to="/firstsignup"><Button color="grey"  size='large'>Back</Button></Link>
         <Link to="/thirdsignup"><Button color='purple'  size='large'>Next</Button></Link>
-        <Link to="/signup"><Button color="grey"  size='large'>Back</Button></Link>
+       
       
 
       </Form>

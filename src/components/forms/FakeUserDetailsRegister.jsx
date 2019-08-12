@@ -3,7 +3,7 @@ import { Button, Form, Grid, Header, Icon } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
 
 const FakeUserDetailsRegister = () => (
-  <Grid className="container2" textAlign='center' style={{ height: '100%', marginTop: '30px'}} verticalAlign='middle'>
+  <Grid className="container2" textAlign='center'  style={{ height: '100%' }} verticalAlign='middle'>
     <Grid.Column style={{ maxWidth: 300 }}>
       <Header as='h2' color='grey' textAlign='center'>
         <Icon style={{marginLeft: '20px'}} name="sign-in" color="purple" /> Register
