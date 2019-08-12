@@ -1,56 +1,65 @@
-import React, { Component } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-unused-vars */
+import React, { useState, useEffect } from 'react';
 import { Card, Image, Icon } from 'semantic-ui-react';
 import axios from 'axios';
 
-const id =  "5d49c446b097c85ec3631e6f";
 
-class NewCardPet extends Component {
-    state= {
-        user: {},
-        pets: {}
+const API_URL = "http://localhost:3001/api";
+const defaultPets = { petName: "Default Pet", petDescription: "Very default", petImg: "https://saudeplanoparapet.nsbeneficios.com.br/img/carenciazero_pet_mobile.png" };
+const defaultUser = { name: "Default User" };
+
+const NewCardPet = (props) => {
+    const [user, setUser] = useState(defaultPets);
+    const [pets, setPets] = useState(defaultUser);
+
+    const getUser = () => {
+        const { userID } = props.id.params;
+        axios({
+            method: "get",
+            url: `${API_URL}/users/${userID}`
+        }).then(res => {
+            setUser(res.data);
+            setPets(res.data.pets);
+        });
     };
 
-    componentWillMount(){
-        axios.get(`http://localhost:3001/api/users/${id}`).then(res =>{
-            const user = res.data;
-            const pets = res.data.pets;
-            
-            this.setState({
-                user,
-                pets
-            });
-            console.log(pets)
-        });
-    }
-    render() {
-        return (
+    useEffect(() => {
+        getUser();
+    }, []);
+
+    if (pets.petName) return (
         <Card.Group centered>
+            <Card>
+                <Card.Content>
+                    <Image floated='right' circular size='mini' src={"https://saudeplanoparapet.nsbeneficios.com.br/img/carenciazero_pet_mobile.png"} />
+                    <Card.Header><Icon name="paw" />{pets.petName}</Card.Header>
+                    <Card.Meta>Owner: {user.name}</Card.Meta>
+                    <Card.Description>
+                        {pets.petDescription}
+
+                    </Card.Description>
+                </Card.Content>
+            </Card>
+
+        </Card.Group>
+
+    )
+    else return (<Card.Group centered>
         <Card>
             <Card.Content>
                 <Image floated='right' circular size='mini' src='https://saudeplanoparapet.nsbeneficios.com.br/img/carenciazero_pet_mobile.png' />
-                <Card.Header><Icon name="paw" />{this.state.pets.petName}</Card.Header>
-                <Card.Meta>Owner: {this.state.user.name}</Card.Meta>
+                <Card.Header><Icon name="paw" />------------------</Card.Header>
+                <Card.Meta>Owner: ----------</Card.Meta>
                 <Card.Description>
-                   {this.state.pets.chip}
-             
+                    -------------------------
+
                 </Card.Description>
             </Card.Content>
         </Card>
-        <Card>
-            <Card.Content>
-                <Image floated='right' circular size='mini' src='https://upload.wikimedia.org/wikipedia/commons/6/66/An_up-close_picture_of_a_curious_male_domestic_shorthair_tabby_cat.jpg' />
 
-                <Card.Header><Icon name="paw" />Toby</Card.Header>
-                <Card.Meta>New User</Card.Meta>
-                <Card.Description>
-                    Todo el tiempo Toby caza lagartos en el parque.
-                </Card.Description>
-            </Card.Content>
-        </Card>
-    </Card.Group>
-            
-        )
-    }
-    }
+    </Card.Group>)
+}
 
-    export default NewCardPet;
+
+export default NewCardPet;
