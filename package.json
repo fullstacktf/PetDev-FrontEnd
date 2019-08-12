@@ -34,6 +34,7 @@
     "leaflet": "^1.5.1",
     "moment": "^2.24.0",
     "react": "^16.8.6",
+    "react-burger-menu": "^2.6.11",
     "react-datepicker2": "^3.0.3",
     "react-dates": "^20.2.5",
     "react-dom": "^16.8.6",
