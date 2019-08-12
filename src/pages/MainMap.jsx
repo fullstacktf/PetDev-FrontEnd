@@ -66,6 +66,9 @@ const MainMap = () =>{
           <FilterRow><input type = "checkbox"/>Casa</FilterRow>
           <FilterRow><input type = "checkbox"/>Con mascota</FilterRow>
           <FilterRow><input type = "checkbox"/>Sin mascota</FilterRow>
+          <FilterRow><input type = "checkbox"/>Sin mascota</FilterRow>
+          <FilterRow><input type = "checkbox"/>Sin mascota</FilterRow>
+          
           </Filters>
         </Menu>
           
