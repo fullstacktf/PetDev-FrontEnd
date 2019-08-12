@@ -2,7 +2,7 @@ import React from "react";
 import { css } from 'emotion'
 import image from '../../src/assets/dogbackground.jpg';
 import Calendar from "../components/bookings/Calendar";
-import {GeocodingInput} from '../components/geocoding/GeocodingInput';
+import { GeocodingInput } from '../components/geocoding/GeocodingInput';
 import styled from '@emotion/styled';
 import { Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom'
@@ -27,30 +27,30 @@ const Form = styled.form`
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  padding: 35px; 
+  padding: 35px;
   border-radius: 5px;
   box-shadow: 0.5px 0.5px 10px darkgrey;
   `
 
 const Home = () => {
-  
-    return (
-      <div className={bodyStyle}>
-        <div className={css`
+
+  return (
+    <div className={bodyStyle}>
+      <div className={css`
           margin-left: 100px;
         `}>
-          <Form>
-            <GeocodingInput/>
-            <Calendar/>
-            <Link to="/mainmap"><Button style={{width: '290px'}} size = "huge" fluid color="purple">Send</Button></Link>
+        <Form>
+          <GeocodingInput />
+          <Calendar />
+          <Link to="/mainmap"><Button size="huge" fluid color="purple">Send</Button></Link>
 
-          </Form>
-          
+        </Form>
 
-        </div>
+
       </div>
-    );
-  }
+    </div>
+  );
+}
 
 
 export default Home;

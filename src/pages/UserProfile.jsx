@@ -8,28 +8,30 @@ import UserCardProfile from '../components/users/UserCardProfile';
 import NewCardPet from '../components/users/NewCardPet'
 import FeedUsers from '../components/users/FeedUsers';
 import GridImages from '../components/users/GridImages';
-import {windowStyle} from '../App'
+import { windowStyle } from '../App'
 
-const UserProfile = ({match}) => (
+const UserProfile = ({ match }) => (
     <div className="superContainer">
-        
+
         <Container style={windowStyle} className="container" fluid textAlign="center" >
-            
+
             <div className="container-divs">
                 <div className="card-container">
                     <div>
-                        <UserCardProfile id={match}/>
+                        <UserCardProfile id={match} />
                     </div>
                 </div>
                 <div className="container-right">
+
+
                     <Divider horizontal inverted>
-                        Mascotas
+                        Pets
                     </Divider>
-                   {/*  <div className="pet-conatiner">
-                        <NewCardPet/>
-                    </div> */}
+                    <div className="pet-conatiner">
+                        <NewCardPet id={match} />
+                    </div>
                     <Divider horizontal inverted>
-                        Galería
+                        Gallery
                     </Divider>
                     <br />
                     <div>

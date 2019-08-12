@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import { Card, Icon, Image, Rating } from "semantic-ui-react";
 import photo from "../../assets/matthew.png";
@@ -28,8 +29,8 @@ const UserCardProfile = props => {
     }).then(res => {
       const user = res.data;
       const address = res.data.address;
-      const lat = res.data.geo.coordinates[0] ;
-      const lng = res.data.geo.coordinates[1] ;
+      const lat = res.data.geo.coordinates[0];
+      const lng = res.data.geo.coordinates[1];
 
       setState({
         user,
@@ -43,6 +44,8 @@ const UserCardProfile = props => {
     getUser();
   }, []);
 
+
+
   return (
     <Card style={cardStyle}>
       <Image src={photo} wrapped ui={false} />
@@ -51,8 +54,8 @@ const UserCardProfile = props => {
           {state.user.name} {state.user.lastName}{" "}
         </Card.Header>
         <Card.Content>
-        <Rating icon='star' defaultRating={state.user.rating} maxRating={5} />
-      </Card.Content>
+          <Rating icon='star' defaultRating={state.user.rating} maxRating={5} />
+        </Card.Content>
         <Card.Content style={{ paddingTop: "20px" }}>
           <Icon name="edit outline" />
           {state.user.description}
@@ -62,10 +65,10 @@ const UserCardProfile = props => {
         </Card.Content>
       </Card.Content>{" "}
       <Card.Content style={{ paddingTop: "20px" }}>
-        Tipo de casa: {state.user.houseType}
+        House type: {state.user.houseType}
       </Card.Content>{" "}
       <Card.Meta>
-        <span className="date">Se unió en 2019</span>
+        <span className="date">Joined on 03/08/2019</span>
       </Card.Meta>
       <Card.Meta />
 
@@ -78,12 +81,12 @@ const UserCardProfile = props => {
       <Card.Content extra>
         <a href="http://google.com">
           <Icon name="hand peace" />
-          Número de mascotas: 2
+          Number of pets: 1
         </a>
       </Card.Content>
       <Card.Content extra>
-        <div style={{ display:"flex", justifyContent: "center" }}>
-          <MiniMap center={[ state.lat , state.lng ]} />
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <MiniMap center={[state.lat, state.lng]} />
         </div>
       </Card.Content>
     </Card>
