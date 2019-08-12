@@ -65,10 +65,10 @@ const UserCardProfile = props => {
         </Card.Content>
       </Card.Content>{" "}
       <Card.Content style={{ paddingTop: "20px" }}>
-        Tipo de casa: {state.user.houseType}
+        House type: {state.user.houseType}
       </Card.Content>{" "}
       <Card.Meta>
-        <span className="date">Se unió en 2019</span>
+        <span className="date">Joined on 03/08/2019</span>
       </Card.Meta>
       <Card.Meta />
 
@@ -81,7 +81,7 @@ const UserCardProfile = props => {
       <Card.Content extra>
         <a href="http://google.com">
           <Icon name="hand peace" />
-          Número de mascotas: 1
+          Number of pets: 1
         </a>
       </Card.Content>
       <Card.Content extra>
