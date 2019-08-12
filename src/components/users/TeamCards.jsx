@@ -1,39 +1,39 @@
 import React from 'react'
-import { Image as ImageComponent, Item, Divider } from 'semantic-ui-react'
+import { Card } from 'semantic-ui-react'
 
-const paragraph = <ImageComponent src='https://react.semantic-ui.com/images/wireframe/short-paragraph.png' />
 
-const TeamCard = () => (
-    <Item.Group link>
-        <Divider horizontal inverted>Team</Divider>
-        <Item>
-            <Item.Image size='tiny' src='https://react.semantic-ui.com/images/avatar/large/stevie.jpg' />
+const TeamCards = () => (
+  < Card.Group >
+    <Card
+      image='https://avatars1.githubusercontent.com/u/50339331?s=460&v=4'
+      header='Aarón Pérez'
+      description='Desarrollador Full-Stack'
+      link
+      href='https://www.linkedin.com/in/aar%C3%B3n-p%C3%A9rez-p%C3%A9rez-77ab29182/'
 
-            <Item.Content>
-                <Item.Header>Stevie Feliciano</Item.Header>
-                <Item.Description>{paragraph}</Item.Description>
-            </Item.Content>
-        </Item>
+    />
+    <Card
+      image='https://avatars2.githubusercontent.com/u/18171665?s=460&v=4'
+      header='Alejandro Fuentes'
+      description='Desarrollador Full-Stack'
+      link
+    />
+    <Card
+      image='https://avatars1.githubusercontent.com/u/50631393?s=460&v=4'
+      header='Miguel Rodriguez'
+      description='Desarrollador Full-Stack'
+      link
+    />
+    <Card
+      image='https://avatars2.githubusercontent.com/u/18354017?s=460&v=4'
+      header='Darío Milanés'
+      description='Desarrollador Full-Stack'
+      link
+      href='https://www.linkedin.com/in/dariomilanes/'
+    />
+  </Card.Group >
 
-        <Item>
-            <Item.Image size='tiny' src='https://react.semantic-ui.com/images/avatar/large/veronika.jpg' />
-
-            <Item.Content>
-                <Item.Header>Veronika Ossi</Item.Header>
-                <Item.Description>{paragraph}</Item.Description>
-            </Item.Content>
-        </Item>
-
-        <Item>
-            <Item.Image size='tiny' src='https://react.semantic-ui.com/images/avatar/large/jenny.jpg' />
-
-            <Item.Content>
-                <Item.Header>Jenny Hess</Item.Header>
-                <Item.Description>{paragraph}</Item.Description>
-            </Item.Content>
-        </Item>
-    </Item.Group>
 )
 
-export default TeamCard
+export default TeamCards
 
