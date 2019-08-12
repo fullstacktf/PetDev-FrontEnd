@@ -39,6 +39,7 @@
     "react-dates": "^20.2.5",
     "react-dom": "^16.8.6",
     "react-leaflet": "^2.4.0",
+    "react-moment-proptypes": "^1.6.0",
     "react-router": "^5.0.1",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",

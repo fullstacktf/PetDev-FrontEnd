@@ -4,7 +4,9 @@ import Image from '../../assets/faniLogo.png';
 import Popup from "reactjs-popup";
 import LoginForm from "../forms/LoginForm";
 import {SignUpForm} from "../forms/SignUpForm";
+import FakeUserDetailsRegister from "../forms/FakeUserDetailsRegister";
 import {Link} from 'react-router-dom';
+import FakeSignUpForm from '../forms/FakeSignUpForm';
 // TODO: Update <Search> usage after its will be implemented
 
 const HeaderFanimals = () => (
@@ -21,6 +23,7 @@ const HeaderFanimals = () => (
             <Popup
             trigger={<Button compact color="purple" >Login</Button>}
             closeOnDocumentClick
+            
           >
             <LoginForm/>
             </Popup>
@@ -28,8 +31,9 @@ const HeaderFanimals = () => (
             modal
             trigger={<Button compact color="violet" >Register</Button>}          
             closeOnDocumentClick
+            contentStyle={{width:"auto"}}
           >
-            <SignUpForm/>
+            <FakeSignUpForm/>
             </Popup>          
             </div>
 

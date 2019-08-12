@@ -25,8 +25,7 @@ const FakeUserDetailsRegister = () => (
           placeholder='Password:'
           type='password'
         />
-        <Link to="/secondsignup"><Button color='purple' fluid size='large'>Next</Button></Link>
-      
+        <Button color='purple' fluid size='large'>Next</Button>
       
 
       </Form>
@@ -35,4 +34,4 @@ const FakeUserDetailsRegister = () => (
   </Grid>
 )
 
-export default FakeUserDetailsRegister
+export default FakeUserDetailsRegister;
