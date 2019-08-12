@@ -2,6 +2,7 @@ import * as React from "react";
 import { useEffect, useState } from "react";
 import { MOCK_RESPONSE } from "./mock";
 import { AddressResult } from "./AddressResult";
+import styled from "@emotion/styled";
 
 const KEY = 'AIzaSyBzGVNtpx96mevl5hXFpx7n-ZeAeM3u1k8';
 const BASE_URL = `https://maps.googleapis.com/maps/api/geocode/json?key=${KEY}`;
@@ -15,18 +16,26 @@ export interface GeocodingResult {
 }
 
 const styleInput = {
-  width: '100%',
-  height: '50px',
-  paddingLeft: '5px',
+  width: '285px',
+  height: '48px',
+  paddingLeft: '10px',
   fontFamily: 'Lato,Arial,Helvetica,sans-serif',
   background: 'white',
   border: '1px solid #22242626',
   borderRadius: '3px 3px 3px 3px',
   color: 'grey',
-  fontSize: '14px',
+  fontSize: '20px',
   padding: '5px'
 
 }
+
+const Ul= styled.ul`
+  list-style-type: none; 
+  padding: 0px;
+  margin: 0px;
+  position: absolute;
+  z-index: 15;
+`;
 
 const addressParser = (input): GeocodingResult[] => {
   return input.results.map(item => ({
@@ -85,8 +94,8 @@ export const GeocodingInput = (props: GeocodingInputProps) => {
   };
 
   return <form onSubmit={handleOnSubmit}>
-    <input style={styleInput} onChange={handleOnChange} placeholder="Search direction"/>
+    <input style={styleInput} onChange={handleOnChange} placeholder=" Search direction..."/>
     <i className='purple circular inverted paw icon' onClick={handleOnChange} style={{marginLeft: '-35px'}}></i>
-    {results && results.map((result, i) => <AddressResult key={i} address={result}/>)}
+    <Ul>{results && results.map((result, i) => <AddressResult key={i} address={result}/>)}</Ul>
   </form>
 };

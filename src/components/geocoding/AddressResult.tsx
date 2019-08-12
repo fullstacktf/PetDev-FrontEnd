@@ -29,11 +29,10 @@ const Name = styled.h2`
 `;
 
 const Button = styled.button`
-  width:100% ;
-  list-style:none;
+  width:285px ;
   background: white;
   border: 0;
-  height: 50px;
+  height: 60px;
   text-align: left;
   
   z-index: 10;
@@ -52,11 +51,10 @@ const COLOR = ['red', 'green', 'blue'];
 
 
 export const AddressResult = (props: AddressResultProps) => {
-  const color = COLOR[~~(Math.random() * COLOR.length)];
   return <Container>
-    <ul>
+   
     <li><Button> <i className='map marker alternate icon'></i> {props.address.name}</Button></li>
-    </ul>
+    
    {/*  <div>{props.address.location.lat}</div> */}
   </Container>
 };
