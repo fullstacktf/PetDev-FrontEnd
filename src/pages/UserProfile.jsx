@@ -25,9 +25,9 @@ const UserProfile = ({match}) => (
                     <Divider horizontal inverted>
                         Mascotas
                     </Divider>
-                    <div className="pet-conatiner">
+                   {/*  <div className="pet-conatiner">
                         <NewCardPet/>
-                    </div>
+                    </div> */}
                     <Divider horizontal inverted>
                         Galería
                     </Divider>

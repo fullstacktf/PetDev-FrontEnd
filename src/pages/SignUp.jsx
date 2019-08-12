@@ -1,8 +1,9 @@
 import React from "react";
-import { SignUpForm } from "../components/forms/SignUpForm";
+
+import FakeRegisterComponent from "../components/forms/FakeUserDetailsRegister";
 
 export default class SignUp extends React.Component {
   render() {
-    return <SignUpForm />;
+    return <FakeRegisterComponent/>
   }
 }
