@@ -16,7 +16,8 @@ const sidebarStyle = {
     width: '36px',
     height: '30px',
     left: '80px',
-    top: '105px'
+    top: '105px',
+    boxShadow:"2px 2px 2px black"
   },
   bmBurgerBars: {
     background: '#373a47'
