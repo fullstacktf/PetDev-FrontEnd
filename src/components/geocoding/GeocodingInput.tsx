@@ -93,9 +93,9 @@ export const GeocodingInput = (props: GeocodingInputProps) => {
     }
   };
 
-  return <form onSubmit={handleOnSubmit}>
+  return <div onSubmit={handleOnSubmit}>
     <input style={styleInput} onChange={handleOnChange} placeholder=" Search direction..."/>
     <i className='purple circular inverted paw icon' onClick={handleOnChange} style={{marginLeft: '-35px'}}></i>
     <Ul>{results && results.map((result, i) => <AddressResult key={i} address={result}/>)}</Ul>
-  </form>
+  </div>
 };

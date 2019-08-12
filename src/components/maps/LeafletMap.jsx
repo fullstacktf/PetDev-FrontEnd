@@ -9,8 +9,6 @@ const API_URL = "http://localhost:3001/api"
 const mapStyles = {
     width: "100vw",
     height: "92vh",
-    border:"5px solid darkgrey", 
-    boxShadow:"inset 2px 2px 20px darkgrey",
     position:"absolute",
     bottom:"0"
 };
