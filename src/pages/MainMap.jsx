@@ -1,8 +1,6 @@
 import React from 'react';
 import LeafletMap from '../components/maps/LeafletMap';
 import { slide as Menu } from 'react-burger-menu';
-import Popup from "reactjs-popup";
-import NearUsers from "./NearUsers";
 import styled from "@emotion/styled";
 
 const Filters = styled.div`
