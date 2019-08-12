@@ -2,6 +2,7 @@ import * as React from "react";
 import { useEffect, useState } from "react";
 import { MOCK_RESPONSE } from "./mock";
 import { AddressResult } from "./AddressResult";
+import styled from "@emotion/styled";
 
 const KEY = 'AIzaSyBzGVNtpx96mevl5hXFpx7n-ZeAeM3u1k8';
 const BASE_URL = `https://maps.googleapis.com/maps/api/geocode/json?key=${KEY}`;
@@ -15,18 +16,26 @@ export interface GeocodingResult {
 }
 
 const styleInput = {
-  width: '500px',
-  height: '40px',
-  paddingLeft: '5px',
+  width: '285px',
+  height: '48px',
+  paddingLeft: '10px',
   fontFamily: 'Lato,Arial,Helvetica,sans-serif',
   background: 'white',
   border: '1px solid #22242626',
-  borderRadius: '5px 5px 5px 5px',
+  borderRadius: '3px 3px 3px 3px',
   color: 'grey',
-  fontSize: '14px',
+  fontSize: '20px',
   padding: '5px'
 
 }
+
+const Ul= styled.ul`
+  list-style-type: none; 
+  padding: 0px;
+  margin: 0px;
+  position: absolute;
+  z-index: 15;
+`;
 
 const addressParser = (input): GeocodingResult[] => {
   return input.results.map(item => ({
@@ -42,16 +51,21 @@ const getStreetsRequests = (inputValue: string): Promise<GeocodingResult[]> => {
   return new Promise((resolve, reject) => {
     const url = `${BASE_URL}&address=${inputValue}`;
     resolve(addressParser(MOCK_RESPONSE));
-    // TODO only in production
-    // fetch(url)
-    //   .then(result => result.json()).then(addressParser).then(resolve)
-    //   .catch(err => reject(`😒 ${err}`));
+    //TODO only in production
+    /* fetch(url)
+      .then(result => result.json()).then(addressParser).then(resolve)
+      .catch(err => reject(`😒 ${err}`));  */
   });
 };
 
-export const GeocodingInput = () => {
+interface GeocodingInputProps {
+  onSelectLocation: (lat: number, lng: number) => void;
+}
+
+export const GeocodingInput = (props: GeocodingInputProps) => {
   const [inputValue, setInputValue] = useState<string>();
   const [results, setResults] = useState<GeocodingResult[]>([]);
+
 
   useEffect(() => {
     const getStreets = async () => {
@@ -68,15 +82,20 @@ export const GeocodingInput = () => {
 
   const handleOnChange = ({ target }) => {
     setInputValue(target.value);
+
   };
-  const handleOnSubmit = (e) => {
+
+  const handleOnSubmit = e => {
     e.preventDefault();
-  }
+    if (results && results.length > 0) {
+      const selectedLocation = results[0].location;
+      props.onSelectLocation(selectedLocation.lat, selectedLocation.lng);
+    }
+  };
 
   return <form onSubmit={handleOnSubmit}>
-    <input style={styleInput} onChange={handleOnChange} placeholder="Encuentra cuidadores cerca..."/>
+    <input style={styleInput} onChange={handleOnChange} placeholder=" Search direction..."/>
     <i className='purple circular inverted paw icon' onClick={handleOnChange} style={{marginLeft: '-35px'}}></i>
-    {results && results.map((result, i) => <AddressResult key={i} address={result}/>)}
-    </form>
-
+    <Ul>{results && results.map((result, i) => <AddressResult key={i} address={result}/>)}</Ul>
+  </form>
 };

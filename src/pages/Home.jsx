@@ -1,31 +1,56 @@
 import React from "react";
 import { css } from 'emotion'
-import AccordionHome from "../components/containers/AccordionHome";
-import { MapAndInput } from "../components/geocoding/MapAndInput";
+import image from '../../src/assets/dogbackground.jpg';
+import Calendar from "../components/bookings/Calendar";
+import {GeocodingInput} from '../components/geocoding/GeocodingInput';
+import styled from '@emotion/styled';
+import { Button } from 'semantic-ui-react';
+import { Link } from 'react-router-dom'
 
+const bodyStyle = css`
+width: 100%;
+height: 100%;
+display: flex;
+flex-direction: row;
+justify-content: left;
+align-items: center;
+background-image: url('${image}');
+background-size:     cover;
+background-repeat:   no-repeat;
+background-position: center center;
+`
+const Form = styled.form`
+  background: #ffffffb3;
+  width: 400px;
+  height: 300px;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 35px; 
+  border-radius: 5px;
+  box-shadow: 0.5px 0.5px 10px darkgrey;
+  `
 
-export default class Home extends React.Component {
-  render() {
+const Home = () => {
+  
     return (
-      <div className={css`
-        width: 100%;
-        height: 100%;
-        margin: 25px;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: top;
-      `}>
+      <div className={bodyStyle}>
         <div className={css`
-        margin-top: 100px;
-        margin: 25px;
+          margin-left: 100px;
         `}>
-          <AccordionHome />
+          <Form>
+            <GeocodingInput/>
+            <Calendar/>
+            <Link to="/mainmap"><Button size = "huge" fluid color="purple">Send</Button></Link>
+
+          </Form>
+          
+
         </div>
-      <div>
-        <MapAndInput/>
-      </div>
       </div>
     );
   }
-}
+
+
+export default Home;

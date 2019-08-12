@@ -8,7 +8,7 @@ import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import UserProfile from './pages/UserProfile';
 import About from './pages/About';
-import NearUsers from './pages/NearUsers';
+import MainMap from './pages/MainMap';
 
 import birdsbackground from './assets/birdsbackground.png';
 import FakeAdressDetailsRegister from './components/forms/FakeAdressDetailsRegister';
@@ -16,7 +16,7 @@ import FakeOtherDetailsRegister from './components/forms/FakeOtherDetailsRegiste
 import FakeUserDetailsRegister from './components/forms/FakeUserDetailsRegister';
 
 export const windowStyle = {
-  
+
   // linear-gradient(120deg, rgba(255, 178, 243, 0.6), transparent)
   backgroundImage: `linear-gradient(rgba(137, 236, 125, 0.6), rgba(101, 138, 149, 0.6)), url(${birdsbackground})`,
   backgroundRepeat: 'repeat',
@@ -27,8 +27,6 @@ const App = () => {
   return (
 
     <Router>
-
-
       <div className="App" style={windowStyle}>
         <HeaderFanimals />
         <Route exact path="/" component={HomePage} />
@@ -37,13 +35,10 @@ const App = () => {
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/user/:userID" component={UserProfile} />
         <Route exact path="/about" component={About} />
-        <Route exact path="/nearusers" component={NearUsers} />
         <Route exact path="/secondsignup" component={FakeAdressDetailsRegister}/>
         <Route exact path="/thirdsignup" component={FakeOtherDetailsRegister}/>
         <Route exact path="/firstsignup" component= {FakeUserDetailsRegister}/>
-
-
-
+        <Route exact path="/mainmap" component={MainMap} />
       </div>
     </Router>
 
