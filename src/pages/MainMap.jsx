@@ -2,8 +2,16 @@ import React from 'react';
 import LeafletMap from '../components/maps/LeafletMap';
 import { slide as Menu } from 'react-burger-menu';
 import Popup from "reactjs-popup";
-import NearUsers from "./NearUsers"
+import NearUsers from "./NearUsers";
+import styled from "@emotion/styled";
 
+const Filters = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+const FilterRow = styled.div`
+display:flex;
+`
 const sidebarStyle = {
   bmBurgerButton: {
     position: 'fixed',
@@ -52,13 +60,17 @@ const MainMap = () =>{
 
     return(<div>
       <Menu styles = {sidebarStyle}>
-          <a id="home" className="menu-item" href="/">Home</a>
-          <a id="about" className="menu-item" href="/about">About</a>
-          <a id="contact" className="menu-item" href="/contact">Contact</a>
+          <h3>Filtros</h3><br/>
+          <Filters>
+          <FilterRow><input type = "checkbox"/>Piso</FilterRow>
+          <FilterRow><input type = "checkbox"/>Casa</FilterRow>
+          <FilterRow><input type = "checkbox"/>Con mascota</FilterRow>
+          <FilterRow><input type = "checkbox"/>Sin mascota</FilterRow>
+          </Filters>
         </Menu>
           
       
-        <NearUsers/>
+        
         <LeafletMap/>
         </div>
     )
