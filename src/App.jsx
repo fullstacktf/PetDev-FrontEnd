@@ -8,10 +8,12 @@ import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import UserProfile from './pages/UserProfile';
 import About from './pages/About';
-import NearUsers from './pages/NearUsers';
+import MainMap from './pages/MainMap';
 
 import birdsbackground from './assets/birdsbackground.png';
-import MainMap from './pages/MainMap';
+import FakeAdressDetailsRegister from './components/forms/FakeAdressDetailsRegister';
+import FakeOtherDetailsRegister from './components/forms/FakeOtherDetailsRegister';
+import FakeUserDetailsRegister from './components/forms/FakeUserDetailsRegister';
 
 export const windowStyle = {
 
@@ -33,6 +35,9 @@ const App = () => {
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/user/:userID" component={UserProfile} />
         <Route exact path="/about" component={About} />
+        <Route exact path="/secondsignup" component={FakeAdressDetailsRegister}/>
+        <Route exact path="/thirdsignup" component={FakeOtherDetailsRegister}/>
+        <Route exact path="/firstsignup" component= {FakeUserDetailsRegister}/>
         <Route exact path="/mainmap" component={MainMap} />
       </div>
     </Router>

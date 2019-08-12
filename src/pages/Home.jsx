@@ -42,7 +42,7 @@ const Home = () => {
           <Form>
             <GeocodingInput/>
             <Calendar/>
-            <Link to="/mainmap"><Button size = "huge" fluid color="purple">Send</Button></Link>
+            <Link to="/mainmap"><Button style={{width: '290px'}} size = "huge" fluid color="purple">Send</Button></Link>
 
           </Form>
           

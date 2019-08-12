@@ -4,12 +4,13 @@ import Image from '../../assets/faniLogo.png';
 import Popup from "reactjs-popup";
 import LoginForm from "../forms/LoginForm";
 import {SignUpForm} from "../forms/SignUpForm";
+import {Link} from 'react-router-dom';
 // TODO: Update <Search> usage after its will be implemented
 
-const HeaderFanimals = () => {
+const HeaderFanimals = () => (
 
-  return <Menu fixed="top">
-    <img width="75px" height="75px" src={Image} alt="" style={{padding:"10px"}}/>
+    <Menu fixed="top">
+    <Link to="/home"><img width="75px" height="75px" src={Image} alt="" style={{padding:"10px"}}/></Link>
       <h1 style={{ margin: 'auto', marginLeft: '10px' }}>  Fanimals</h1>
 
       <Menu.Menu position='right'>
@@ -38,7 +39,7 @@ const HeaderFanimals = () => {
         </div>
       </Menu.Menu>
     </Menu>
-}
+)
 
 
 
