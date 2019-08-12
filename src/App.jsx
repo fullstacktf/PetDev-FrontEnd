@@ -11,6 +11,7 @@ import About from './pages/About';
 import NearUsers from './pages/NearUsers';
 
 import birdsbackground from './assets/birdsbackground.png';
+import MainMap from './pages/MainMap';
 
 export const windowStyle = {
 
@@ -34,7 +35,7 @@ const App = () => {
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/user/:userID" component={UserProfile} />
         <Route exact path="/about" component={About} />
-        <Route exact path="/nearusers" component={NearUsers} />
+        <Route exact path="/mainmap" component={MainMap} />
 
 
 

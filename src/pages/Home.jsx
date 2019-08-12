@@ -30,8 +30,8 @@ const Form = styled.form`
   border-radius: 3px;
   `
 
-class Home extends React.Component {
-  render() {
+const Home = () => {
+  
     return (
       <div className={bodyStyle}>
         <div className={css`
@@ -49,6 +49,6 @@ class Home extends React.Component {
       </div>
     );
   }
-}
+
 
 export default Home;

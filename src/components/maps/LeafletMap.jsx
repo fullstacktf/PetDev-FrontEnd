@@ -7,14 +7,21 @@ import { Marker } from "./Marker";
 
 const API_URL = "http://localhost:3001/api"
 const mapStyles = {
-    width: "850px",
-    height: "620px"
+    width: "100vw",
+    height: "92vh",
+    border:"5px solid darkgrey", 
+    boxShadow:"inset 2px 2px 20px darkgrey",
+    position:"absolute",
+    bottom:"0"
 };
 
 export default class LeafletMap extends Component {
 
 
 state = {
+    lat: 28.469648,
+    lng: -16.254088,
+    zoom: 15,
     users: []
 };
 
@@ -49,7 +56,7 @@ state = {
                     attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
-                {users.map((user, i) => <Marker  key={i} user={user}/>)}
+                {users.map((user, i) => <Marker key={i} user={user}/>)}
             </Map>
         );
     }
