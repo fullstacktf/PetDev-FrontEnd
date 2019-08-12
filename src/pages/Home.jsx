@@ -28,8 +28,8 @@ const Form = styled.form`
   justify-content: space-around;
   align-items: center;
   padding: 35px; 
-  border-radius: 3px;
-  box-shadow: 3px 3px 15px;
+  border-radius: 5px;
+  box-shadow: 0.5px 0.5px 10px darkgrey;
   `
 
 const Home = () => {
