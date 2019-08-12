@@ -25,8 +25,6 @@ const App = () => {
   return (
 
     <Router>
-
-
       <div className="App" style={windowStyle}>
         <HeaderFanimals />
         <Route exact path="/" component={HomePage} />
@@ -36,9 +34,6 @@ const App = () => {
         <Route exact path="/user/:userID" component={UserProfile} />
         <Route exact path="/about" component={About} />
         <Route exact path="/mainmap" component={MainMap} />
-
-
-
       </div>
     </Router>
 

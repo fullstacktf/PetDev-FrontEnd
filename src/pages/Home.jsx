@@ -5,7 +5,7 @@ import Calendar from "../components/bookings/Calendar";
 import {GeocodingInput} from '../components/geocoding/GeocodingInput';
 import styled from '@emotion/styled';
 import { Button } from 'semantic-ui-react';
-
+import { Link } from 'react-router-dom'
 
 const bodyStyle = css`
 width: 100%;
@@ -42,7 +42,7 @@ const Home = () => {
           <Form>
             <GeocodingInput/>
             <Calendar/>
-            <Button size = "huge" fluid color="purple" src="/mainmap">Enviar</Button>
+            <Link to="/mainmap"><Button size = "huge" fluid color="purple">Send</Button></Link>
 
           </Form>
           

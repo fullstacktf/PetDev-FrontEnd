@@ -17,7 +17,7 @@ export const MiniMap = props => {
         <Map center={props.center} zoom={12} style={mapStyles}>
             <TileLayer
                 attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
+                url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"/>
             <MiniMarker center={props.center}/> 
         </Map>
   

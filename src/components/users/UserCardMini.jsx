@@ -1,7 +1,7 @@
-import React from 'react'
-import { Card, Icon, Image} from 'semantic-ui-react'
-import styled from '@emotion/styled'
-import RatingUser from './RatingUser'
+import React from 'react';
+import { Card, Icon, Image} from 'semantic-ui-react';
+import styled from '@emotion/styled';
+import {Rating} from "semantic-ui-react";
 
 
 
@@ -26,7 +26,7 @@ const UserCardMini = () => (
       <Card.Header>Aaron</Card.Header>
      {/*  <Card.Meta css={cardTitle}> */}<SubTitleContainer> 
         <span className='distance'>1.6 kms</span>
-        <RatingUser />
+        <Rating icon='star' defaultRating={3} maxRating={5} />
         </SubTitleContainer>
      {/*  </Card.Meta> */}
       <Card.Description>
