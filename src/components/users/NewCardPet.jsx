@@ -21,6 +21,7 @@ const NewCardPet = (props) => {
         }).then(res => {
             setUser(res.data);
             setPets(res.data.pets);
+            console.log(pets)
         });
     };
 
@@ -28,7 +29,7 @@ const NewCardPet = (props) => {
         getUser();
     }, []);
 
-    if (pets.petName) return (
+    if (pets !== undefined) return (
         <Card.Group centered>
             <Card>
                 <Card.Content>
@@ -45,20 +46,7 @@ const NewCardPet = (props) => {
         </Card.Group>
 
     )
-    else return (<Card.Group centered>
-        <Card>
-            <Card.Content>
-                <Image floated='right' circular size='mini' src='https://saudeplanoparapet.nsbeneficios.com.br/img/carenciazero_pet_mobile.png' />
-                <Card.Header><Icon name="paw" />------------------</Card.Header>
-                <Card.Meta>Owner: ----------</Card.Meta>
-                <Card.Description>
-                    -------------------------
-
-                </Card.Description>
-            </Card.Content>
-        </Card>
-
-    </Card.Group>)
+    else return (<div>None</div>)
 }
 
 
