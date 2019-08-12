@@ -45,7 +45,7 @@ const FIELDS2 = [
 
 const FIELDS3 = [
     {  name: "description", placeholder:"Your description..." },
-    {  name: "petPreferences" ,placeholder:"Pet preference..."},
+    {  name: "petPreference" ,placeholder:"Pet preference..."},
     {  name: "petName" , placeholder:"Pet name..."},
     {  name: "petDescription"  ,placeholder:"Pet description..."},
 ];
@@ -54,17 +54,16 @@ const initialState = {
     addressLine: "",
     country: "",
     description: "",
+    petDescription:"",
+    petName:"",
     email: "",
     houseType: "",
     lastName: "",
     name: "",
     password: "",
-    petPreferences: "",
+    petPreference: "",
     postalCode: "",
     province: "",
-    userName: "",
-    lat: "",
-    lng: ""
 };
 const FakeSignUpForm = () => {
 const [step, setStep] = useState(1);
