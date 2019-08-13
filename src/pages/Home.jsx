@@ -40,7 +40,7 @@ const Home = () => {
           margin-left: 100px;
         `}>
         <Form>
-          <GeocodingInput />
+          <GeocodingInput page="home"/>
           <Calendar />
           <Link to="/mainmap"><Button size="huge" fluid color="purple">Send</Button></Link>
 

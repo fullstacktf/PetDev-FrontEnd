@@ -13,14 +13,10 @@ export interface GeocodingResult {
     lat: number;
     lng: number;
   },
-}
-const Container = styled.div`
-  position:absolute;
-  left: 40%;
-  z-index:1232131;
-  top: 15px;
+};
 
-`;
+let Container = styled.div``;
+
 const styleInput = {
   width: '285px',
   height: '48px',
@@ -66,6 +62,7 @@ const getStreetsRequests = (inputValue: string): Promise<GeocodingResult[]> => {
 
 interface GeocodingInputProps {
   onSelectLocation: (lat: number, lng: number) => void;
+  page: string
 }
 
 export const GeocodingInput = (props: GeocodingInputProps) => {
@@ -97,6 +94,15 @@ export const GeocodingInput = (props: GeocodingInputProps) => {
       props.onSelectLocation(selectedLocation.lat, selectedLocation.lng);
     }
   };
+  if(props.page=="mainmap"){
+  Container = styled.div`
+  position:absolute;
+  left: 40%;
+  z-index:1232131;
+  top: 15px;
+
+`}
+
 
   return <Container onSubmit={handleOnSubmit}><form>
     <input style={styleInput} onChange={handleOnChange} placeholder=" Search direction..." />

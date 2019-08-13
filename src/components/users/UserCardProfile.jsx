@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import { Card, Icon, Image, Rating } from "semantic-ui-react";
-import photo from "../../assets/matthew.png";
 import "../../UserProfile.css";
 import { MiniMap } from "../maps/MiniMap";
 import axios from "axios";
@@ -15,9 +14,7 @@ const cardStyle = {
 };
 
 const UserCardProfile = props => {
-  //TODO force update to show rating
-/*   const [, updateState] = React.useState();
-  const forceUpdate = React.useCallback(() => updateState({}), []); */
+
   const [state, setState] = useState({
     user: {},
     address: {},
@@ -26,6 +23,7 @@ const UserCardProfile = props => {
   });
   const getUser = () => {
     const { userID } = props.id.params;
+    
     axios({
       method: "get",
       url: `${API_URL}/users/${userID}`
