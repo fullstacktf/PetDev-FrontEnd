@@ -51,7 +51,7 @@ const UserCardProfile = props => {
     if(props.pets===undefined){ return 0} else return 1;
 
   }
-console.log(typeof(state.user.rating))
+
 
 const rating = state.user.rating;
 const randomFriends = Math.floor((Math.random() * 40) + 1);
@@ -65,7 +65,6 @@ const randomFriends = Math.floor((Math.random() * 40) + 1);
         <Card.Content extra>
           <Rating icon='star' disabled defaultRating={state.user.rating} maxRating={5} />
         </Card.Content>
-
         <Card.Content >
           {state.user.description}
         </Card.Content>

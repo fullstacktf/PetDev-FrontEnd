@@ -29,8 +29,8 @@ const styleInput = {
 
 }
 
-const Ul= styled.ul`
-  list-style-type: none; 
+const Ul = styled.ul`
+  list-style-type: none;
   padding: 0px;
   margin: 0px;
   position: absolute;
@@ -54,7 +54,7 @@ const getStreetsRequests = (inputValue: string): Promise<GeocodingResult[]> => {
     //TODO only in production
     /* fetch(url)
       .then(result => result.json()).then(addressParser).then(resolve)
-      .catch(err => reject(`😒 ${err}`));  */
+      .catch(err => reject(`😒 ${err}`)); */
   });
 };
 
@@ -94,8 +94,8 @@ export const GeocodingInput = (props: GeocodingInputProps) => {
   };
 
   return <div onSubmit={handleOnSubmit}>
-    <input style={styleInput} onChange={handleOnChange} placeholder=" Search direction..."/>
-    <i className='purple circular inverted paw icon' onClick={handleOnChange} style={{marginLeft: '-35px'}}></i>
-    <Ul>{results && results.map((result, i) => <AddressResult key={i} address={result}/>)}</Ul>
+    <input style={styleInput} onChange={handleOnChange} placeholder=" Search direction..." />
+    <i className='purple circular inverted paw icon' onClick={handleOnChange} style={{ marginLeft: '-35px' }}></i>
+    <Ul>{results && results.map((result, i) => <AddressResult key={i} address={result} />)}</Ul>
   </div>
 };

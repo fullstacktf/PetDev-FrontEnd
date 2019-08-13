@@ -13,6 +13,7 @@
 .container-right {
     width: 670px;
     align-items: left;
+    margin-top: 30px;
 }
 
 .pet-container {
