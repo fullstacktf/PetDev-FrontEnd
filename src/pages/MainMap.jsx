@@ -18,8 +18,7 @@ const FiltersContainer = styled.div`
 
 const FilterRow = styled.div`
 display:flex;
-`;
-
+`
 const sidebarStyle = {
   bmBurgerButton: {
     position: 'fixed',
