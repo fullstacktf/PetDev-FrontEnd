@@ -8,15 +8,6 @@ import NearUsers from './NearUsers';
 const Container = styled.div`
   display: flex;
   flex-direction: row;
-  
-
-`
-
-const UsersContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  width: 2000px;
-
 `
 
 const FiltersContainer = styled.div`
@@ -34,7 +25,6 @@ const sidebarStyle = {
     height: '30px',
     left: '80px',
     top: '105px',
-    boxShadow:"2px 2px 2px black"
   },
   bmBurgerBars: {
     background: '#373a47'
@@ -57,7 +47,7 @@ const sidebarStyle = {
     flexDirection: 'row'
   },
   bmMenu: {
-    background: '#373a47',
+    background: 'linear-gradient(90deg, rgba(66,68,69,1) 0%, rgba(66,68,69,1) 18%, rgba(66,68,69,0.7175245098039216) 19%)',
     padding: '2.5em 1.5em 0',
     fontSize: '1.15em',
    
@@ -70,7 +60,8 @@ const sidebarStyle = {
     padding: '0.8em'
   },
   bmItem: {
-    display: 'inline-block'
+    display: 'flex',
+    outline: '0'
   },
   bmOverlay: {
     background: 'rgba(0, 0, 0, 0.3)'
@@ -79,8 +70,8 @@ const sidebarStyle = {
 }
 
 const divStyle = {
-  width: '100vw',
-  height: '100vw'
+  width: '100%',
+  height: '100%'
 }
 
 const MainMap = () =>{
