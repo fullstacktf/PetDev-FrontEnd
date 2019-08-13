@@ -14,6 +14,11 @@ const SubTitleContainer = styled.div`
 
 `;
 
+const DescriptionContainer = styled.div` 
+  margin-top: 5px;
+  text-align: center;
+`
+
 const UserCardMini = ({user}) => {
 
   console.log(user);
@@ -29,7 +34,7 @@ const UserCardMini = ({user}) => {
 
 return( <Card style={{
     margin: "15px",
-    height: "450px"
+    
   }}className="card1" color="purple">
 
     <Card.Content>
@@ -37,15 +42,17 @@ return( <Card style={{
       <Card.Header>{user.name}</Card.Header>
      {/*  <Card.Meta css={cardTitle}> */}<SubTitleContainer> 
         <span className='distance'>1.6 kms</span>
-        <Rating icon='star' defaultRating={3} maxRating={5} />
+        <Rating icon='star' defaultRating={user.rating} disabled maxRating={5} />
         </SubTitleContainer>
      {/*  </Card.Meta> */}
       <Card.Description>
-       {user.address.addressLine}
+      
+      {user.address.addressLine}
+      
       </Card.Description>
 
       <Card.Description>
-        Type house: {user.houseType}
+        House type: {user.houseType}
         
       </Card.Description>
       
@@ -53,11 +60,13 @@ return( <Card style={{
         display:"flex",
         justifyContent:"center"
       }}>
-        <Image  src='https://react.semantic-ui.com/images/avatar/large/matthew.png'  />
+        <Image width="200px" src={user.avatarURL}  />
       </Card.Content>
 
       <Card.Content>
+      <DescriptionContainer>
         {user.description}
+        </DescriptionContainer>
       </Card.Content>
     </Card.Content>
     <Card.Content extra>
