@@ -15,6 +15,9 @@ const cardStyle = {
 };
 
 const UserCardProfile = props => {
+  //TODO force update to show rating
+/*   const [, updateState] = React.useState();
+  const forceUpdate = React.useCallback(() => updateState({}), []); */
   const [state, setState] = useState({
     user: {},
     address: {},
@@ -42,8 +45,12 @@ const UserCardProfile = props => {
   };
   useEffect(() => {
     getUser();
+    
   }, []);
+  const renderNumberOfPets=(props)=>{
+    if(props.pets===undefined){ return 0} else return 1;
 
+  }
 console.log(typeof(state.user.rating))
 
 const rating = state.user.rating;
@@ -51,28 +58,28 @@ const randomFriends = Math.floor((Math.random() * 40) + 1);
   return (
     <Card style={cardStyle}>
       <Image src={state.user.avatarURL} wrapped ui={false} />
-      <Card.Content>
+      <Card.Content extra>
         <Card.Header>
           {state.user.name} {state.user.lastName}
         </Card.Header>
-        <Card.Content>
+        <Card.Content extra>
           <Rating icon='star' disabled defaultRating={state.user.rating} maxRating={5} />
         </Card.Content>
-        <Card.Content style={{ paddingTop: "20px" }}>
-        
+
+        <Card.Content >
           {state.user.description}
         </Card.Content>
-        <Card.Content style={{ paddingTop: "20px" }}>
+        <Card.Content >
           {state.address.addressLine}
         </Card.Content>
-      </Card.Content>{" "}
-      <Card.Content style={{ paddingTop: "20px" }}>
-        House type: {state.user.houseType}
-      </Card.Content>{" "}
+      </Card.Content>
+      <Card.Content extra >
+        Tipo de vivienda: {state.user.houseType}
+      </Card.Content>
       <Card.Meta>
         <span className="date">Joined on 03/08/2019</span>
       </Card.Meta>
-      <Card.Meta />
+      
 
       <Card.Content extra>
         <a href="http://google.com">
@@ -83,7 +90,7 @@ const randomFriends = Math.floor((Math.random() * 40) + 1);
       <Card.Content extra>
         <a href="http://google.com">
           <Icon name="paw" />
-          Number of pets: 1
+          Number of pets: {renderNumberOfPets(props)}
         </a>
       </Card.Content>
       <Card.Content extra>
