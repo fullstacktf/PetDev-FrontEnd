@@ -44,17 +44,18 @@ const UserCardProfile = props => {
     getUser();
   }, []);
 
+console.log(typeof(state.user.rating))
 
-
+const rating = state.user.rating;
   return (
     <Card style={cardStyle}>
-      <Image src={photo} wrapped ui={false} />
+      <Image src={state.user.avatarURL} wrapped ui={false} />
       <Card.Content>
         <Card.Header>
-          {state.user.name} {state.user.lastName}{" "}
+          {state.user.name} {state.user.lastName}
         </Card.Header>
         <Card.Content>
-          <Rating icon='star' defaultRating={state.user.rating} maxRating={5} />
+          <Rating icon='star' disabled defaultRating={state.user.rating} maxRating={5} />
         </Card.Content>
         <Card.Content style={{ paddingTop: "20px" }}>
           <Icon name="edit outline" />
