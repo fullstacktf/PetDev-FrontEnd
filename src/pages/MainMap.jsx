@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import LeafletMap from '../components/maps/LeafletMap';
 import { slide as Menu } from 'react-burger-menu';
 import styled from "@emotion/styled";
@@ -83,15 +83,10 @@ const buttonStyle = {
 
 const MainMap = () => {
 
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const closeMenu = () => {
-    setIsMenuOpen(false)
-  }
-
 
   return (<div>
 
-    <Menu styles={sidebarStyle} isOpen={isMenuOpen}>
+    <Menu styles={sidebarStyle} >
       <Container>
 
         <FiltersContainer>
@@ -99,10 +94,12 @@ const MainMap = () => {
           <h4>Tipo de vivienda:</h4>
           <FilterRow><Checkbox />&nbsp; Piso  &nbsp; &nbsp;<Checkbox /> &nbsp; Casa</FilterRow> <br />
           <h4>Otros Datos:</h4>
-          <FilterRow>Con Mascota &nbsp; &nbsp; <Checkbox toggle value='MAscota' ></Checkbox></FilterRow> <br />
-          <FilterRow>Con Jardín &nbsp; &nbsp; <Checkbox toggle value='MAscota' ></Checkbox></FilterRow> <br /><br />
+          <FilterRow>Con perro en casa &nbsp; &nbsp; <Checkbox toggle value='MAscota' ></Checkbox></FilterRow> <br />
+          <FilterRow>Con gato en casa &nbsp; &nbsp; <Checkbox toggle value='MAscota' ></Checkbox></FilterRow> <br />
+          <FilterRow>Con jardín &nbsp; &nbsp; <Checkbox toggle value='MAscota' ></Checkbox></FilterRow> <br />
+          <FilterRow>Con terraza &nbsp; &nbsp; <Checkbox toggle value='MAscota' ></Checkbox></FilterRow> <br /><br />
           <div styles={buttonStyle}>
-            <Button onClick={closeMenu} size='large' toggle type='button'>Aplicar Filtros</Button>
+            <Button size='large' toggle type='button'>Aplicar Filtros</Button>
           </div>
 
         </FiltersContainer>
@@ -111,13 +108,10 @@ const MainMap = () => {
         </div>
       </Container>
     </Menu>
-
-
-
-
     <LeafletMap />
   </div>
   )
 }
 
 export default MainMap;
+
