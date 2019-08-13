@@ -69,17 +69,19 @@ const randomFriends = Math.floor((Math.random() * 40) + 1);
         <Card.Content >
           {state.user.description}
         </Card.Content>
-        <Card.Content >
+        <Card.Content extra>
+          <span className="date">Joined on 03/08/2019</span>
+        </Card.Content >
+      </Card.Content>
+      <Card.Content extra >
+        <Card.Content extra >
+          Tipo de vivienda: {state.user.houseType}
+        </Card.Content>
+      
+        <Card.Content extra>
           {state.address.addressLine}
         </Card.Content>
       </Card.Content>
-      <Card.Content extra >
-        Tipo de vivienda: {state.user.houseType}
-      </Card.Content>
-      <Card.Meta>
-        <span className="date">Joined on 03/08/2019</span>
-      </Card.Meta>
-      
 
       <Card.Content extra>
         <a href="http://google.com">

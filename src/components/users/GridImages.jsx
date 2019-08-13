@@ -12,7 +12,7 @@ border-radius: 5px;
 const GridImages = () => {
   const handleOnDragStart = e => e.preventDefault()
   return (
-    <AliceCarousel  buttonsDisabled  mouseDragEnabled >
+    <AliceCarousel autoPlayInterval={4000} autoPlay fadeOutAnimation buttonsDisabled  mouseDragEnabled >
       <Image src="https://source.unsplash.com/random/500x301"  onDragStart={handleOnDragStart} className="yours-custom-class" />
       <Image src="https://source.unsplash.com/random/500x302"   onDragStart={handleOnDragStart} className="yours-custom-class" />
       <Image src="https://source.unsplash.com/random/500x303"   onDragStart={handleOnDragStart} className="yours-custom-class" />
