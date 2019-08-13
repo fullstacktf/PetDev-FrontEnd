@@ -21,7 +21,6 @@ const NewCardPet = (props) => {
         }).then(res => {
             setUser(res.data);
             setPets(res.data.pets);
-            console.log(pets)
         });
     };
 

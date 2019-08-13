@@ -27,15 +27,11 @@ export const MiniMarker = props => {
     
     const [selected, setSelected] = useState(false);
 
-    console.log(props);
-
     const handleOnMouseOver = (e) => {
-        console.log('OPEN');
         setSelected(true);
     };
 
     const handleOnMouseOut = (e) => {
-        console.log('CLOSE');
         setSelected(false);
     };
 
