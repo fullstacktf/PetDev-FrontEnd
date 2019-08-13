@@ -5,13 +5,13 @@ const GridImages = () => (
   <Grid>
     <Grid.Row columns={3}>
       <Grid.Column>
-        <Image size='large' src='https://source.unsplash.com/random/800x600' />
+        <Image bordered rounded size='large' src='https://source.unsplash.com/random/400x200' />
       </Grid.Column>
       <Grid.Column>
-        <Image size='large' src='https://source.unsplash.com/random/600x400' />
+        <Image bordered rounded size='large' src='https://source.unsplash.com/random/500x281.25' />
       </Grid.Column>
       <Grid.Column>
-        <Image size='large' src='https://source.unsplash.com/random/1240x1024' />
+        <Image bordered rounded size='large' src='https://source.unsplash.com/random/600x300' />
       </Grid.Column>
     </Grid.Row>
   </Grid>
