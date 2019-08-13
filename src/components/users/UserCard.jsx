@@ -4,7 +4,7 @@ import { Card, Icon } from "semantic-ui-react";
 import RatingUser from "./RatingUser";
 
 const UserCard = () => (
-  <Card style={{ marginLeft: "30px" }} className="card1" color="purple">
+  <Card style={{ marginLeft: "30px" }} size="small"className="card1" color="purple">
     <Card.Content>
       <Card.Header>Aaron</Card.Header>
       <Card.Meta>

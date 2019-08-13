@@ -14,26 +14,39 @@ const SubTitleContainer = styled.div`
 
 `;
 
-const UserCardMini = () => (
+const UserCardMini = ({user}) => {
 
-  <Card style={{
+  console.log(user);
+
+  let petName = "Without pets";
+
+  if(user.pets){
+    petName = user.pets.petName;
+  }
+  
+  
+
+
+return( <Card style={{
     margin: "15px",
     height: "450px"
   }}className="card1" color="purple">
 
     <Card.Content>
 
-      <Card.Header>Aaron</Card.Header>
+      <Card.Header>{user.name}</Card.Header>
      {/*  <Card.Meta css={cardTitle}> */}<SubTitleContainer> 
         <span className='distance'>1.6 kms</span>
         <Rating icon='star' defaultRating={3} maxRating={5} />
         </SubTitleContainer>
      {/*  </Card.Meta> */}
       <Card.Description>
-        C/ Sargento Provisional nº16 3ºIzda
+       {user.address.addressLine}
       </Card.Description>
+
       <Card.Description>
-        Piso.
+        Type house: {user.houseType}
+        
       </Card.Description>
       
       <Card.Content style={{
@@ -44,16 +57,18 @@ const UserCardMini = () => (
       </Card.Content>
 
       <Card.Content>
-        Persona amantes de los animales, veterinario y desarrollador de Fanimals
+        {user.description}
       </Card.Content>
     </Card.Content>
     <Card.Content extra>
       <a href="http://goole.com">
         <Icon name='paw' />
-        Número de mascotas: 2
+      
+          Mascotas: {petName}
+        
       </a>
     </Card.Content>
   </Card>
-)
+)}
 
 export default UserCardMini;
