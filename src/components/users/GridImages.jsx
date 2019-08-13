@@ -1,17 +1,17 @@
-import React from 'react'
-import { Grid, Image } from 'semantic-ui-react'
+import React from 'react';
+import { Grid, Image } from 'semantic-ui-react';
 
 const GridImages = () => (
   <Grid>
     <Grid.Row columns={3}>
       <Grid.Column>
-        <Image size='large' src='https://www.biositemaps.org/wp-content/uploads/2018/11/simple-home-garden-ideas_astonishing_garden_design_ideas_for_small_backyards_14_for_your.jpg' />
+        <Image size='large' src='https://source.unsplash.com/random/800x600' />
       </Grid.Column>
       <Grid.Column>
-        <Image size='large' src='https://d17fnq9dkz9hgj.cloudfront.net/uploads/2012/11/150838553-tips-for-first-30-days-dog-632x475.jpg' />
+        <Image size='large' src='https://source.unsplash.com/random/600x400' />
       </Grid.Column>
       <Grid.Column>
-        <Image size='large' src='https://i.ytimg.com/vi/pKMh3M8idlg/hqdefault.jpg' />
+        <Image size='large' src='https://source.unsplash.com/random/1240x1024' />
       </Grid.Column>
     </Grid.Row>
   </Grid>
