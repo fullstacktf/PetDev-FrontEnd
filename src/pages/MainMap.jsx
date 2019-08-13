@@ -82,31 +82,31 @@ const buttonStyle = {
 
 const MainMap = () => {
 
-  const [menuState, setMenuState] = useState({ isOpen: false });
+  const [menuState, setMenuState] = useState(null);
 
   const closeMenu = () => setMenuState({ isOpen: false });
-  const handleOnChangeMenuState = (newMenuState) => setMenuState(newMenuState);
+  // const handleOnChangeMenuState = (newMenuState) => setMenuState(newMenuState);
 
   return <div>
-    <Menu styles={sidebarStyle} onStateChange={handleOnChangeMenuState} isOpen={menuState}>
+    <Menu styles={sidebarStyle} /* onStateChange={handleOnChangeMenuState} */ isOpen={menuState}>
       <Container>
         <FiltersContainer>
-          <h3>Filtros</h3><br/>
+          <h3>Filtros</h3><br />
           <h4>Tipo de vivienda:</h4>
-          <FilterRow><Checkbox/>&nbsp; Piso  &nbsp; &nbsp;<Checkbox/> &nbsp; Casa</FilterRow> <br/>
+          <FilterRow><Checkbox />&nbsp; Piso  &nbsp; &nbsp;<Checkbox /> &nbsp; Casa</FilterRow> <br />
           <h4>Otros Datos:</h4>
-          <FilterRow>Con Mascota &nbsp; &nbsp; <Checkbox toggle value='MAscota'/></FilterRow> <br/>
-          <FilterRow>Con Jardín &nbsp; &nbsp; <Checkbox toggle value='MAscota'/></FilterRow> <br/><br/>
+          <FilterRow>Con Mascota &nbsp; &nbsp; <Checkbox toggle value='MAscota' /></FilterRow> <br />
+          <FilterRow>Con Jardín &nbsp; &nbsp; <Checkbox toggle value='MAscota' /></FilterRow> <br /><br />
           <div styles={buttonStyle}>
             <Button onClick={closeMenu} size='large' toggle type='button'>Aplicar Filtros</Button>
           </div>
         </FiltersContainer>
         <div style={divStyle}>
-          <NearUsers/>
+          <NearUsers />
         </div>
       </Container>
     </Menu>
-    <LeafletMap/>
+    <LeafletMap />
   </div>
 };
 
