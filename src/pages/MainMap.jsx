@@ -3,6 +3,7 @@ import LeafletMap from '../components/maps/LeafletMap';
 import { slide as Menu } from 'react-burger-menu';
 import styled from "@emotion/styled";
 import NearUsers from './NearUsers';
+import { Button, Checkbox } from 'semantic-ui-react';
 
 
 const Container = styled.div`
@@ -50,7 +51,7 @@ const sidebarStyle = {
     background: 'linear-gradient(90deg, rgba(66,68,69,1) 0%, rgba(66,68,69,1) 18%, rgba(66,68,69,0.7175245098039216) 19%)',
     padding: '2.5em 1.5em 0',
     fontSize: '1.15em',
-   
+
   },
   bmMorphShape: {
     fill: '#373a47'
@@ -74,35 +75,43 @@ const divStyle = {
   height: '100%'
 }
 
-const MainMap = () =>{
+const buttonStyle = {
+  width: '20px',
+  marginTop: '35px'
+}
 
-    return(<div>
+const MainMap = () => {
 
-      <Menu styles = {sidebarStyle}>
-        <Container>
-           
-              <FiltersContainer>
-              <h3>Filtros</h3><br/>
-              <FilterRow><input type = "checkbox"/>Piso</FilterRow>
-              <FilterRow><input type = "checkbox"/>Casa</FilterRow>
-              <FilterRow><input type = "checkbox"/>Con mascota</FilterRow>
-              <FilterRow><input type = "checkbox"/>Sin mascota</FilterRow>
-              <FilterRow><input type = "checkbox"/>Con jardín</FilterRow>
-              <FilterRow><input type = "checkbox"/>Sin jardín</FilterRow>
+  return (<div>
 
-              </FiltersContainer>
-              <div style={divStyle}>
-              <NearUsers/>
-              </div>
-            </Container>
-        </Menu>
+    <Menu styles={sidebarStyle}>
+      <Container>
 
-          
-      
-        
-        <LeafletMap/>
+        <FiltersContainer>
+          <h3>Filtros</h3><br />
+          <FilterRow><input type="checkbox" />Piso</FilterRow>
+          <FilterRow><input type="checkbox" />Casa</FilterRow>
+          <FilterRow><input type="checkbox" />Con mascota <Checkbox toggle ></Checkbox></FilterRow>
+          <FilterRow><input type="checkbox" />Sin mascota</FilterRow>
+          <FilterRow><input type="checkbox" />Con jardín</FilterRow>
+          <FilterRow><input type="checkbox" />Sin jardín</FilterRow>
+          <div styles={buttonStyle}>
+            <Button size='large' toggle type='button'>Aplicar Filtros</Button>
+          </div>
+
+        </FiltersContainer>
+        <div style={divStyle}>
+          <NearUsers />
         </div>
-    )
+      </Container>
+    </Menu>
+
+
+
+
+    <LeafletMap />
+  </div>
+  )
 }
 
 export default MainMap;
