@@ -9,19 +9,19 @@ const API_URL = "http://localhost:3001/api"
 const mapStyles = {
     width: "100vw",
     height: "92vh",
-    position:"absolute",
-    bottom:"0"
+    position: "absolute",
+    bottom: "0"
 };
 
 export default class LeafletMap extends Component {
 
 
-state = {
-    lat: 28.469648,
-    lng: -16.254088,
-    zoom: 15,
-    users: []
-};
+    state = {
+        lat: 28.469648,
+        lng: -16.254088,
+        zoom: 15,
+        users: []
+    };
 
     componentWillMount() {
         axios.get(`${API_URL}/users/`).then(res => {
@@ -31,30 +31,26 @@ state = {
 
     };
 
-    componentDidMount(){
-
-    };
-
-    updateMap(){
+    updateMap() {
         this.setState({
             lat: this.props.lat,
             lng: this.props.lng,
             zoom: this.props.zoom,
         })
-        }
-    
+    }
+
 
     render() {
         const { users } = this.state;
         const position = [this.state.lat, this.state.lng];
         return (
-                
+
             <Map center={position} zoom={this.state.zoom} style={mapStyles}>
                 <TileLayer
                     attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
                 />
-                {users.map((user, i) => <Marker key={i} user={user}/>)}
+                {users.map((user, i) => <Marker key={i} user={user} />)}
             </Map>
         );
     }

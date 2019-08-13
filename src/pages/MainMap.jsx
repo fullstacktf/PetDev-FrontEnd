@@ -4,7 +4,7 @@ import { slide as Menu } from 'react-burger-menu';
 import styled from "@emotion/styled";
 import NearUsers from './NearUsers';
 import { Button, Checkbox } from 'semantic-ui-react';
-
+import { InputAndMap } from "../components/geocoding/InputAndMap"
 
 const Container = styled.div`
   display: flex;
@@ -107,9 +107,9 @@ const MainMap = () => {
     </Menu>
 
 
+    <InputAndMap />
 
-
-    <LeafletMap />
+    {/*   <LeafletMap /> */}
   </div>
   )
 }

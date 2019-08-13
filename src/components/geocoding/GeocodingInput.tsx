@@ -14,7 +14,13 @@ export interface GeocodingResult {
     lng: number;
   },
 }
+const Container = styled.div`
+  position:absolute;
+  left: 40%;
+  z-index:1232131;
+  top: 15px;
 
+`;
 const styleInput = {
   width: '285px',
   height: '48px',
@@ -50,11 +56,11 @@ const addressParser = (input): GeocodingResult[] => {
 const getStreetsRequests = (inputValue: string): Promise<GeocodingResult[]> => {
   return new Promise((resolve, reject) => {
     const url = `${BASE_URL}&address=${inputValue}`;
-    resolve(addressParser(MOCK_RESPONSE));
+    // resolve(addressParser(MOCK_RESPONSE));
     //TODO only in production
-    /* fetch(url)
+    fetch(url)
       .then(result => result.json()).then(addressParser).then(resolve)
-      .catch(err => reject(`😒 ${err}`)); */
+      .catch(err => reject(`😒 ${err}`));
   });
 };
 
@@ -72,7 +78,6 @@ export const GeocodingInput = (props: GeocodingInputProps) => {
       if (inputValue && inputValue.length > 3) {
         const results = await getStreetsRequests(inputValue);
         setResults([...results, ...results]);
-        console.log('😌', results);
       } else {
         setResults([]);
       }
@@ -93,9 +98,10 @@ export const GeocodingInput = (props: GeocodingInputProps) => {
     }
   };
 
-  return <div onSubmit={handleOnSubmit}>
+  return <Container onSubmit={handleOnSubmit}><form>
     <input style={styleInput} onChange={handleOnChange} placeholder=" Search direction..." />
     <i className='purple circular inverted paw icon' onClick={handleOnChange} style={{ marginLeft: '-35px' }}></i>
-    <Ul>{results && results.map((result, i) => <AddressResult key={i} address={result} />)}</Ul>
-  </div>
+    <Ul>{results && results.map((result, i) => <AddressResult onAddressClick={props.onSelectLocation} key={i} address={result} />)}</Ul>
+  </form>
+  </Container>
 };
