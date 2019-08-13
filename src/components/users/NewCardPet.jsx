@@ -21,7 +21,6 @@ const NewCardPet = (props) => {
         }).then(res => {
             setUser(res.data);
             setPets(res.data.pets);
-            console.log(pets)
         });
     };
 
@@ -33,12 +32,11 @@ const NewCardPet = (props) => {
         <Card.Group centered>
             <Card>
                 <Card.Content>
-                    <Image floated='right' circular size='mini' src={"https://saudeplanoparapet.nsbeneficios.com.br/img/carenciazero_pet_mobile.png"} />
+                    <Image floated='right' circular size='mini' src={pets.picturesURL} />
                     <Card.Header><Icon name="paw" />{pets.petName}</Card.Header>
                     <Card.Meta>Owner: {user.name}</Card.Meta>
                     <Card.Description>
                         {pets.petDescription}
-
                     </Card.Description>
                 </Card.Content>
             </Card>

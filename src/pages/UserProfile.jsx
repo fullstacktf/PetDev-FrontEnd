@@ -1,7 +1,6 @@
 
 import React from 'react';
 import 'semantic-ui-css/semantic.min.css';
-import Footer from '../components/shared/FooterFanimals';
 import { Container, Divider, } from 'semantic-ui-react'
 import '../UserProfile.css';
 import UserCardProfile from '../components/users/UserCardProfile';
@@ -23,11 +22,10 @@ const UserProfile = ({ match }) => (
                 </div>
                 <div className="container-right">
 
-
-                    <Divider horizontal inverted>
+                    <Divider className={{paddingTop:"50px"}} horizontal inverted>
                         Pets
                     </Divider>
-                    <div className="pet-conatiner">
+                    <div className="pet-container">
                         <NewCardPet id={match} />
                     </div>
                     <Divider horizontal inverted>
@@ -43,7 +41,6 @@ const UserProfile = ({ match }) => (
                     </div>
                 </div>
             </div>
-            <Footer />
         </Container >
     </div>
 )

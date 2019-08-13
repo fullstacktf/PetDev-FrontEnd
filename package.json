@@ -58,6 +58,7 @@
     "@types/react": "^16.8.23",
     "@types/react-dom": "^16.8.4",
     "@types/react-leaflet": "^2.2.1",
+    "react-alice-carousel": "^1.15.2",
     "react-test-renderer": "^16.8.6",
     "storybook": "^1.0.0",
     "typescript": "3.5.3"
