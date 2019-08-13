@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import LeafletMap from '../components/maps/LeafletMap';
 import { slide as Menu } from 'react-burger-menu';
 import styled from "@emotion/styled";
 import NearUsers from './NearUsers';
-import { Button, Checkbox } from 'semantic-ui-react';
+import { Button, Checkbox, Header, Divider } from 'semantic-ui-react';
 
 
 const Container = styled.div`
@@ -80,23 +80,29 @@ const buttonStyle = {
   marginTop: '35px'
 }
 
+
 const MainMap = () => {
+
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const closeMenu = () => {
+    setIsMenuOpen(false)
+  }
+
 
   return (<div>
 
-    <Menu styles={sidebarStyle}>
+    <Menu styles={sidebarStyle} isOpen={isMenuOpen}>
       <Container>
 
         <FiltersContainer>
           <h3>Filtros</h3><br />
-          <FilterRow><input type="checkbox" />Piso</FilterRow>
-          <FilterRow><input type="checkbox" />Casa</FilterRow>
-          <FilterRow><input type="checkbox" />Con mascota <Checkbox toggle ></Checkbox></FilterRow>
-          <FilterRow><input type="checkbox" />Sin mascota</FilterRow>
-          <FilterRow><input type="checkbox" />Con jardín</FilterRow>
-          <FilterRow><input type="checkbox" />Sin jardín</FilterRow>
+          <h4>Tipo de vivienda:</h4>
+          <FilterRow><Checkbox />&nbsp; Piso  &nbsp; &nbsp;<Checkbox /> &nbsp; Casa</FilterRow> <br />
+          <h4>Otros Datos:</h4>
+          <FilterRow>Con Mascota &nbsp; &nbsp; <Checkbox toggle value='MAscota' ></Checkbox></FilterRow> <br />
+          <FilterRow>Con Jardín &nbsp; &nbsp; <Checkbox toggle value='MAscota' ></Checkbox></FilterRow> <br /><br />
           <div styles={buttonStyle}>
-            <Button size='large' toggle type='button'>Aplicar Filtros</Button>
+            <Button onClick={closeMenu} size='large' toggle type='button'>Aplicar Filtros</Button>
           </div>
 
         </FiltersContainer>
