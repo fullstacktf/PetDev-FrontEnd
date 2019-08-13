@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card } from 'semantic-ui-react'
+import { Card, Image } from 'semantic-ui-react'
 
 
 const PopUpMiniCardMap = (props) => {
@@ -9,7 +9,7 @@ const PopUpMiniCardMap = (props) => {
 
         <Card>
             <Card.Content>
-                {/*  <Image floated='right' circular size='mini' src={"props.urlImage"}/> */}
+                <Image floated='right' circular size='mini' src={props.user.avatarURL}/> 
                 <Card.Header>{props.user.name}</Card.Header>
                 <Card.Meta>{props.user.houseType}</Card.Meta>
                 <Card.Description>{props.user.description}</Card.Description>

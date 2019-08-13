@@ -43,7 +43,6 @@ const UserProfile = ({ match }) => (
                     </div>
                 </div>
             </div>
-            <Footer />
         </Container >
     </div>
 )

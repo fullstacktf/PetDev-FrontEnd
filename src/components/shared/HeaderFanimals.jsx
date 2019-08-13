@@ -10,7 +10,7 @@ import FakeSignUpForm from '../forms/FakeSignUpForm';
 import styled from '@emotion/styled';
 // TODO: Update <Search> usage after its will be implemented
 const HeaderContainer = styled.div`
-  margin-bottom: 80px;
+  
 
 `
 
