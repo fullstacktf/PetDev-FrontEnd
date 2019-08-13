@@ -16,7 +16,10 @@ export interface GeocodingResult {
 }
 const Container = styled.div`
   position:absolute;
+  left: 40%;
   z-index:1232131;
+  top: 15px;
+
 `;
 const styleInput = {
   width: '285px',
@@ -75,7 +78,6 @@ export const GeocodingInput = (props: GeocodingInputProps) => {
       if (inputValue && inputValue.length > 3) {
         const results = await getStreetsRequests(inputValue);
         setResults([...results, ...results]);
-        console.log('😌', results);
       } else {
         setResults([]);
       }
@@ -96,9 +98,10 @@ export const GeocodingInput = (props: GeocodingInputProps) => {
     }
   };
 
-  return <Container onSubmit={handleOnSubmit}>
+  return <Container onSubmit={handleOnSubmit}><form>
     <input style={styleInput} onChange={handleOnChange} placeholder=" Search direction..." />
     <i className='purple circular inverted paw icon' onClick={handleOnChange} style={{ marginLeft: '-35px' }}></i>
     <Ul>{results && results.map((result, i) => <AddressResult onAddressClick={props.onSelectLocation} key={i} address={result} />)}</Ul>
+  </form>
   </Container>
 };
