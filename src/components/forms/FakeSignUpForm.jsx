@@ -114,17 +114,12 @@ const handleOnClickBack = (e) => {
         case 1:
             
             return(
-                <Grid className="container2" textAlign='center'  style={{ height: '100%' }} verticalAlign='middle'>
+                <Grid className="container2" textAlign='center'  style={{ height: '100%', padding: '10px' }} verticalAlign='middle'>
                 <Grid.Column style={{ maxWidth: 300 }}> 
                 <Header as='h2' color='grey' textAlign='center'>
                     <Icon name="sign-in" color="purple" /> Register
                 </Header>
-                <Form style={
-                    {border: '1px solid grey', 
-                    borderRadius:'5px', 
-                    padding: '10px', 
-                    background: 'whitesmoke',
-                    boxShadow: '0.5px 0.5px 5px grey'}} size='big' success>
+                <Form size='big' success>
             
                     { FIELDS1 && FIELDS1.map((field, i)=> <Input handleChange={handleOnChange} key={i} value={formData} {...field}/>)}
                     
@@ -137,19 +132,12 @@ const handleOnClickBack = (e) => {
             )
             
         case 2:
-            return(<Grid className="container2" textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>
+            return(<Grid className="container2" textAlign='center' style={{ height: '100%', padding: '10px' }} verticalAlign='middle'>
             <Grid.Column style={{ maxWidth: 300 }}>
             <Header as='h2' color='grey' textAlign='center'>
                 <Icon name="sign-in" color="purple" /> Register
             </Header>
-            <Form 
-            style={
-                {border: '1px solid grey', 
-                borderRadius:'5px', 
-                padding: '10px', 
-                background: 'whitesmoke',
-                boxShadow: '0.5px 0.5px 5px grey'}}
-            size='big' success>
+            <Form size='big' success>
         
                 { FIELDS2 && FIELDS2.map((field, i)=> <Input handleChange={handleOnChange} key={i} value={formData} {...field}/>)}
                 
@@ -164,19 +152,12 @@ const handleOnClickBack = (e) => {
         </Grid>)
         
         case 3:
-            return(  <Grid className="container2" textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>
+            return(  <Grid className="container2" textAlign='center' style={{ height: '100%', padding: '10px' }} verticalAlign='middle'>
             <Grid.Column style={{ maxWidth: 300 }}>
             <Header as='h2' color='grey' textAlign='center'>
                 <Icon name="sign-in" color="purple" /> Register
             </Header>
-            <Form
-            style={
-                {border: '1px solid grey', 
-                borderRadius:'5px', 
-                padding: '10px', 
-                background: 'whitesmoke',
-                boxShadow: '0.5px 0.5px 5px grey'}}
-            size='big' success>
+            <Form size='big' success>
                 { FIELDS3 && FIELDS3.map((field, i)=> <Input handleChange={handleOnChange} key={i} value={formData} {...field}/>)}
                 
             <Button  color="grey" size='large' onClick={handleOnClickBack}>Back</Button>
