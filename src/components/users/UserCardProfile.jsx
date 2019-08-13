@@ -47,6 +47,7 @@ const UserCardProfile = props => {
 console.log(typeof(state.user.rating))
 
 const rating = state.user.rating;
+const randomFriends = Math.floor((Math.random() * 40) + 1);
   return (
     <Card style={cardStyle}>
       <Image src={state.user.avatarURL} wrapped ui={false} />
@@ -58,7 +59,7 @@ const rating = state.user.rating;
           <Rating icon='star' disabled defaultRating={state.user.rating} maxRating={5} />
         </Card.Content>
         <Card.Content style={{ paddingTop: "20px" }}>
-          <Icon name="edit outline" />
+        
           {state.user.description}
         </Card.Content>
         <Card.Content style={{ paddingTop: "20px" }}>
@@ -76,12 +77,12 @@ const rating = state.user.rating;
       <Card.Content extra>
         <a href="http://google.com">
           <Icon name="user" />
-          22 Friends
+          {randomFriends} Friends
         </a>
       </Card.Content>
       <Card.Content extra>
         <a href="http://google.com">
-          <Icon name="hand peace" />
+          <Icon name="paw" />
           Number of pets: 1
         </a>
       </Card.Content>
