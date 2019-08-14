@@ -66,7 +66,7 @@ interface GeocodingInputProps {
 }
 
 export const GeocodingInput = (props: GeocodingInputProps) => {
-  const [inputValue, setInputValue] = useState<string>();
+  const [inputValue, setInputValue] = useState<string>("");
   const [results, setResults] = useState<GeocodingResult[]>([]);
 
 
@@ -84,6 +84,7 @@ export const GeocodingInput = (props: GeocodingInputProps) => {
 
   const handleOnChange = ({ target }) => {
     setInputValue(target.value);
+    console.log(target.value)
 
   };
 
@@ -92,6 +93,7 @@ export const GeocodingInput = (props: GeocodingInputProps) => {
     if (results && results.length > 0) {
       const selectedLocation = results[0].location;
       props.onSelectLocation(selectedLocation.lat, selectedLocation.lng);
+      setInputValue("");
     }
   };
   if(props.page=="mainmap"){
@@ -105,7 +107,7 @@ export const GeocodingInput = (props: GeocodingInputProps) => {
 
 
   return <Container onSubmit={handleOnSubmit}><form>
-    <input style={styleInput} onChange={handleOnChange} placeholder=" Search direction..." />
+    <input style={styleInput} onChange={handleOnChange} value={inputValue} key={"searchInput"} placeholder=" Search direction..." />
     <i className='purple circular inverted paw icon' onClick={handleOnChange} style={{ marginLeft: '-35px' }}></i>
     <Ul>{results && results.map((result, i) => <AddressResult onAddressClick={props.onSelectLocation} key={i} address={result} />)}</Ul>
   </form>

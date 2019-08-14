@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import LeafletMap from '../components/maps/LeafletMap';
 import { slide as Menu } from 'react-burger-menu';
 import styled from "@emotion/styled";
@@ -81,10 +81,13 @@ const buttonStyle = {
 }
 
 const MainMap = () => {
+  const [menuState, setMenuState] = useState(null);
 
-  return (<div>
+  const closeMenu = () => setMenuState({ isOpen: false });
+  // const handleOnChangeMenuState = (newMenuState) => setMenuState(newMenuState);
 
-    <Menu styles={sidebarStyle}>
+  return <div>
+    <Menu styles={sidebarStyle} /* onStateChange={handleOnChangeMenuState} */ isOpen={menuState}>
       <Container>
 
         <FiltersContainer>
@@ -107,11 +110,11 @@ const MainMap = () => {
     </Menu>
 
 
-    <InputAndMap />
+    <InputAndMap page="mainmap" />
 
-    {/*   <LeafletMap /> */}
+  
   </div>
-  )
+  
 }
 
 export default MainMap;
