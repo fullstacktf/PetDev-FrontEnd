@@ -16,7 +16,7 @@ export interface GeocodingResult {
 };
 
 let Container = styled.form`
-z-index: 1221212;`;
+z-index: 10`;
 
 const styleInput = {
   width: '285px',
