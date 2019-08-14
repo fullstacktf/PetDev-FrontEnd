@@ -36,7 +36,7 @@ export const InputAndMap = () => {
 
   return <div>
     <button onClick={test}>Test change map location</button>
-    <GeocodingInput onSelectLocation={handleOnSelectLocation}/>
-    <LeafletMapF {...mapCenter} zoom={mapZoom}/>
+    <GeocodingInput page="mainmap"onSelectLocation={handleOnSelectLocation} />
+    <LeafletMapF {...mapCenter} zoom={mapZoom} />
   </div>;
 };

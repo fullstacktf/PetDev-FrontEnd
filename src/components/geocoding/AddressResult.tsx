@@ -34,7 +34,7 @@ const Button = styled.button`
   border: 0;
   height: 60px;
   text-align: left;
-  
+
   z-index: 10;
   &:hover {
     background: rgb(245, 245, 245) ;
@@ -43,18 +43,27 @@ const Button = styled.button`
 
 
 interface AddressResultProps {
-  address: GeocodingResult
+  address: GeocodingResult,
+  key: number,
+  page: string,
+  onAddressClick: (lat: number, lng: number) => void;
 }
 
 const COLOR = ['red', 'green', 'blue'];
 
 
 
-export const AddressResult = (props: AddressResultProps) => {
-  return <Container>
-   
-    <li><Button> <i className='map marker alternate icon'></i> {props.address.name}</Button></li>
-    
-   {/*  <div>{props.address.location.lat}</div> */}
+export const AddressResult: any = (props: AddressResultProps) => {
+  const handleOnClick = () => {
+    if(props.page!="home"){
+    props.onAddressClick(props.address.location.lat, props.address.location.lng);
+    console.log(props.address);
+    }
+  }
+  return <Container onClick={handleOnClick}>
+
+    <li><Button > <i className='map marker alternate icon'></i> {props.address.name}</Button></li>
+
+    {/*  <div>{props.address.location.lat}</div> */}
   </Container>
 };

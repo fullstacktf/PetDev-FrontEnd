@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useEffect, useState } from "react";
-import { MOCK_RESPONSE } from "./mock";
+/* import { MOCK_RESPONSE } from "./mock"; */
 import { AddressResult } from "./AddressResult";
 import styled from "@emotion/styled";
 
@@ -13,7 +13,10 @@ export interface GeocodingResult {
     lat: number;
     lng: number;
   },
-}
+};
+
+let Container = styled.form`
+z-index: 10`;
 
 const styleInput = {
   width: '285px',
@@ -34,7 +37,7 @@ const Ul = styled.ul`
   padding: 0px;
   margin: 0px;
   position: absolute;
-  z-index: 15;
+  z-index:15;
 `;
 
 const addressParser = (input): GeocodingResult[] => {
@@ -50,29 +53,29 @@ const addressParser = (input): GeocodingResult[] => {
 const getStreetsRequests = (inputValue: string): Promise<GeocodingResult[]> => {
   return new Promise((resolve, reject) => {
     const url = `${BASE_URL}&address=${inputValue}`;
-    resolve(addressParser(MOCK_RESPONSE));
+    // resolve(addressParser(MOCK_RESPONSE));
     //TODO only in production
-    /* fetch(url)
+    fetch(url)
       .then(result => result.json()).then(addressParser).then(resolve)
-      .catch(err => reject(`😒 ${err}`)); */
+      .catch(err => reject(`😒 ${err}`));
   });
 };
 
 interface GeocodingInputProps {
   onSelectLocation: (lat: number, lng: number) => void;
+  page: string
 }
 
 export const GeocodingInput = (props: GeocodingInputProps) => {
-  const [inputValue, setInputValue] = useState<string>();
+  const [inputValue, setInputValue] = useState<string>("");
   const [results, setResults] = useState<GeocodingResult[]>([]);
-
+  const [placeholder, setPlaceholder] = useState<string>("Search direction...")
 
   useEffect(() => {
     const getStreets = async () => {
       if (inputValue && inputValue.length > 3) {
         const results = await getStreetsRequests(inputValue);
         setResults([...results, ...results]);
-        console.log('😌', results);
       } else {
         setResults([]);
       }
@@ -82,20 +85,43 @@ export const GeocodingInput = (props: GeocodingInputProps) => {
 
   const handleOnChange = ({ target }) => {
     setInputValue(target.value);
+    
 
   };
 
   const handleOnSubmit = e => {
-    e.preventDefault();
-    if (results && results.length > 0) {
+   /*  e.preventDefault(); */
+    if (results && results.length > 0 && props.page!="home") {
       const selectedLocation = results[0].location;
+      setPlaceholder(inputValue);
+      setInputValue(" ");
       props.onSelectLocation(selectedLocation.lat, selectedLocation.lng);
-    }
+
+    }else if (props.page!="mainmap"){
+      e.preventDefault();
+      setPlaceholder(inputValue);
+      setInputValue("");
+    } 
+    
+    
+    
   };
 
-  return <div onSubmit={handleOnSubmit}>
-    <input style={styleInput} onChange={handleOnChange} placeholder=" Search direction..." />
-    <i className='purple circular inverted paw icon' onClick={handleOnChange} style={{ marginLeft: '-35px' }}></i>
-    <Ul>{results && results.map((result, i) => <AddressResult key={i} address={result} />)}</Ul>
-  </div>
+  if(props.page=="mainmap"){
+  Container = styled.form`
+  position:absolute;
+  left: 40%;
+  top: 15px;
+  z-index: 1010;
+
+`}
+
+
+  return (<Container onSubmit={handleOnSubmit}>
+    <input autoFocus style={styleInput} onChange={handleOnChange} value={inputValue} key={"search"} placeholder={placeholder} />
+    <i className='purple circular inverted paw icon' style={{ marginLeft: '-35px' }}></i>
+    <Ul>{results && results.map((result, i) => <AddressResult page={props.page} onAddressClick={handleOnSubmit} key={i} address={result} />)}</Ul>
+  
+  </Container>
+  )
 };

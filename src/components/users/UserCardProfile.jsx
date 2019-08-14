@@ -1,10 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import { Card, Icon, Image, Rating } from "semantic-ui-react";
-import photo from "../../assets/matthew.png";
 import "../../UserProfile.css";
 import { MiniMap } from "../maps/MiniMap";
 import axios from "axios";
+import plainImage from "../../assets/matthew.png"
 
 //const id = "5d48d3c2e28e1c5854a01c79";
 const API_URL = "http://localhost:3001/api";
@@ -15,17 +15,16 @@ const cardStyle = {
 };
 
 const UserCardProfile = props => {
-  //TODO force update to show rating
-/*   const [, updateState] = React.useState();
-  const forceUpdate = React.useCallback(() => updateState({}), []); */
+
   const [state, setState] = useState({
-    user: {},
+    user: {avatarURL: plainImage},
     address: {},
     lat: 10,
     lng: 10
   });
   const getUser = () => {
     const { userID } = props.id.params;
+    
     axios({
       method: "get",
       url: `${API_URL}/users/${userID}`
@@ -53,8 +52,8 @@ const UserCardProfile = props => {
   }
 
 
-const rating = state.user.rating;
-const randomFriends = Math.floor((Math.random() * 40) + 1);
+const randomRating = Math.ceil(Math.random() * 5);
+const randomFriends = Math.ceil(Math.random() * 40);
   return (
     <Card style={cardStyle}>
       <Image src={state.user.avatarURL} wrapped ui={false} />
@@ -63,7 +62,7 @@ const randomFriends = Math.floor((Math.random() * 40) + 1);
           {state.user.name} {state.user.lastName}
         </Card.Header>
         <Card.Content extra>
-          <Rating icon='star' disabled defaultRating={state.user.rating} maxRating={5} />
+          <Rating icon='star' disabled defaultRating={randomRating} maxRating={5} />
         </Card.Content>
         <Card.Content >
           {state.user.description}

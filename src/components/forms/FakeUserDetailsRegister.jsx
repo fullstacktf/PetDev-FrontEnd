@@ -6,7 +6,7 @@ const FakeUserDetailsRegister = () => (
   <Grid className="container2" textAlign='center'  style={{ height: '100%' }} verticalAlign='middle'>
     <Grid.Column style={{ maxWidth: 300 }}> 
       <Header as='h2' color='grey' textAlign='center'>
-        <Icon name="sign-in" color="purple" /> Register
+        <Icon name="sign-in" color="purple" /> Register/>
       </Header>
       <Form style={
         {border: '1px solid grey', 

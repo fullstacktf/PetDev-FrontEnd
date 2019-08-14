@@ -4,6 +4,7 @@ import { slide as Menu } from 'react-burger-menu';
 import styled from "@emotion/styled";
 import NearUsers from './NearUsers';
 import { Button, Checkbox } from 'semantic-ui-react';
+import { InputAndMap } from "../components/geocoding/InputAndMap"
 
 const Container = styled.div`
   display: flex;
@@ -41,6 +42,7 @@ const sidebarStyle = {
     background: '#bdc3c7'
   },
   bmMenuWrap: {
+    zIndex: "899999999999",
     position: 'fixed',
     height: '100%',
     width: '100%',
@@ -81,12 +83,14 @@ const buttonStyle = {
 
 
 const MainMap = () => {
-
   const [menuState, setMenuState] = useState(null);
+
+
 
   const closeMenu = () => setMenuState({ isOpen: false });
   // const handleOnChangeMenuState = (newMenuState) => setMenuState(newMenuState);
 
+  // const handleOnChangeMenuState = (newMenuState) => setMenuState(newMenuState);
   return <div>
     <Menu styles={sidebarStyle} /* onStateChange={handleOnChangeMenuState} */ isOpen={menuState}>
       <Container>
@@ -106,8 +110,13 @@ const MainMap = () => {
         </div>
       </Container>
     </Menu>
-    <LeafletMap />
+
+
+    <InputAndMap page="mainmap" />
+
+  
   </div>
-};
+  
+}
 
 export default MainMap;

@@ -19,7 +19,7 @@ background-size:     cover;
 background-repeat:   no-repeat;
 background-position: center center;
 `
-const Form = styled.form`
+const Form = styled.div`
   background: #ffffffb3;
   width: 400px;
   height: 300px;
@@ -40,7 +40,7 @@ const Home = () => {
           margin-left: 100px;
         `}>
         <Form>
-          <GeocodingInput />
+          <GeocodingInput page="home"/>
           <Calendar />
           <Link to="/mainmap"><Button size="huge" fluid color="purple">Send</Button></Link>
 
