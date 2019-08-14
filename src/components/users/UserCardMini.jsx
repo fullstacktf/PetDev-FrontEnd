@@ -21,8 +21,6 @@ const DescriptionContainer = styled.div`
 
 const UserCardMini = ({user}) => {
 
-  console.log(user);
-
   let petName = "Without pets";
 
   if(user.pets){
@@ -30,9 +28,6 @@ const UserCardMini = ({user}) => {
   }
   const distance = Math.random()*10+1;
   
-  
-
-
 return( <Card style={{
     margin: "15px",
     

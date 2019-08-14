@@ -51,8 +51,8 @@ const UserCardProfile = props => {
   }
 
 
-const rating = state.user.rating;
-const randomFriends = Math.floor((Math.random() * 40) + 1);
+const randomRating = Math.ceil(Math.random() * 5);
+const randomFriends = Math.ceil(Math.random() * 40);
   return (
     <Card style={cardStyle}>
       <Image src={state.user.avatarURL} wrapped ui={false} />
@@ -61,7 +61,7 @@ const randomFriends = Math.floor((Math.random() * 40) + 1);
           {state.user.name} {state.user.lastName}
         </Card.Header>
         <Card.Content extra>
-          <Rating icon='star' disabled defaultRating={state.user.rating} maxRating={5} />
+          <Rating icon='star' disabled defaultRating={randomRating} maxRating={5} />
         </Card.Content>
         <Card.Content >
           {state.user.description}
