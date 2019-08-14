@@ -28,6 +28,7 @@ const UserCardMini = ({user}) => {
   if(user.pets){
     petName = user.pets.petName;
   }
+  const distance = Math.random()*10+1;
   
   
 
@@ -35,13 +36,13 @@ const UserCardMini = ({user}) => {
 return( <Card style={{
     margin: "15px",
     
-  }}className="card1" color="purple">
+  }}className="card1">
 
     <Card.Content>
 
       <Card.Header>{user.name}</Card.Header>
      {/*  <Card.Meta css={cardTitle}> */}<SubTitleContainer> 
-        <span className='distance'>1.6 kms</span>
+        <span className='distance'>{distance.toFixed(2)} kms</span>
         <Rating icon='star' defaultRating={user.rating} disabled maxRating={5} />
         </SubTitleContainer>
      {/*  </Card.Meta> */}
