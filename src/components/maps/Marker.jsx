@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Marker as LeafletMarker, Popup,  } from "react-leaflet";
 import {Icon} from "leaflet";
 
-const URL = "http://localhost:3000";
+const URL = "http://fanimals.me/";
 
 export const PointerIcon = new Icon({
     iconUrl: require("../../assets/faniMarker.png"),

@@ -5,7 +5,7 @@ import { Map, TileLayer } from "react-leaflet";
 import axios from "axios";
 import { Marker } from "./Marker";
 
-const API_URL = "http://localhost:3001/api"
+const API_URL = "http://fanimals.me/api"
 const mapStyles = {
   width: "100vw",
   height: "92vh",

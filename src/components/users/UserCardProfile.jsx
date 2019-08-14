@@ -7,7 +7,7 @@ import axios from "axios";
 import plainImage from "../../assets/matthew.png"
 
 //const id = "5d48d3c2e28e1c5854a01c79";
-const API_URL = "http://localhost:3001/api";
+const API_URL = "http://fanimals.me/api";
 
 const cardStyle = {
   marginTop: "42px",

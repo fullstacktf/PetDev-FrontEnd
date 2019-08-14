@@ -3,7 +3,7 @@ import { Card, Icon, Image} from 'semantic-ui-react';
 import styled from '@emotion/styled';
 import {Rating} from "semantic-ui-react";
 
-const URL = "http://localhost:3000";
+const URL = "http://fanimals.me/";
 
 
 const SubTitleContainer = styled.div`

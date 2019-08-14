@@ -5,7 +5,7 @@ import { Card, Image, Icon } from 'semantic-ui-react';
 import axios from 'axios';
 
 
-const API_URL = "http://localhost:3001/api";
+const API_URL = "http://fanimals.me/api";
 const defaultPets = { petName: "Default Pet", petDescription: "Very default", petImg: "https://saudeplanoparapet.nsbeneficios.com.br/img/carenciazero_pet_mobile.png" };
 const defaultUser = { name: "Default User" };
 

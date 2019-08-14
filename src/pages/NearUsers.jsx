@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import UserCardMini from '../components/users/UserCardMini';
 import axios from "axios";
 
-const API_URL = 'http://localhost:3001/api'
+const API_URL = 'http://localhost:3001/api';
 
 
 const Container = styled.div`
