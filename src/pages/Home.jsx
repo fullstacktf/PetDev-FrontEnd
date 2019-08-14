@@ -19,7 +19,7 @@ background-size:     cover;
 background-repeat:   no-repeat;
 background-position: center center;
 `
-const Form = styled.form`
+const Form = styled.div`
   background: #ffffffb3;
   width: 400px;
   height: 300px;

@@ -36,7 +36,7 @@ const GridImages = () => {
       /* "https://api.unsplash.com/search/photos?query=pet&client_id=18b5f0555f971339fa62cc5c859b13aa743db3c5e590ea50fa700ed66f76a5fa" */
     }).then(res => {
       const {results} = res.data;
-      console.log("results",results);
+
       setPics(
         results.map(result=>result.urls.small )
       )
@@ -46,14 +46,10 @@ const GridImages = () => {
   };
   useEffect(() => {
     getPics();
-  
-
-    
-
   }, []);
 
-  
-  console.log("pics", pics);
+
+
 
 
   if(pics){

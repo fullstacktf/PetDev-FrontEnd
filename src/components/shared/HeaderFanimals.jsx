@@ -10,6 +10,7 @@ import FakeSignUpForm from '../forms/FakeSignUpForm';
 import styled from '@emotion/styled';
 // TODO: Update <Search> usage after its will be implemented
 const HeaderContainer = styled.div`
+z-index: -5000;
   
 
 `
@@ -17,7 +18,7 @@ const HeaderContainer = styled.div`
 const HeaderFanimals = () => (
   <HeaderContainer>
     <Menu fixed="top">
-      <Link to="/home"><img width="75px" height="75px" src={Image} alt="" style={{ padding: "10px" }} /></Link>
+      <a href="/"><img width="75px" height="75px" src={Image} alt="" style={{ padding: "10px" }} /></a>
       <h1 style={{ margin: 'auto', marginLeft: '10px' }}>  Fanimals</h1>
 
       <Menu.Menu position='right'>
