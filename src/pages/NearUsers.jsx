@@ -31,6 +31,7 @@ export default class NearUsers extends React.Component {
 
       this.setState({ users: usersInfo });
   });
+ 
   }
   
   render() {
