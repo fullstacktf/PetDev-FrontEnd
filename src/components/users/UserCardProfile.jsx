@@ -4,6 +4,7 @@ import { Card, Icon, Image, Rating } from "semantic-ui-react";
 import "../../UserProfile.css";
 import { MiniMap } from "../maps/MiniMap";
 import axios from "axios";
+import plainImage from "../../assets/matthew.png"
 
 //const id = "5d48d3c2e28e1c5854a01c79";
 const API_URL = "http://localhost:3001/api";
@@ -16,7 +17,7 @@ const cardStyle = {
 const UserCardProfile = props => {
 
   const [state, setState] = useState({
-    user: {},
+    user: {avatarURL: plainImage},
     address: {},
     lat: 10,
     lng: 10
