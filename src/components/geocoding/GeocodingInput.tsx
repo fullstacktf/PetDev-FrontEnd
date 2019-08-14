@@ -15,7 +15,7 @@ export interface GeocodingResult {
   },
 };
 
-let Container = styled.div`
+let Container = styled.form`
 z-index: 1221212;`;
 
 const styleInput = {
@@ -67,9 +67,9 @@ interface GeocodingInputProps {
 }
 
 export const GeocodingInput = (props: GeocodingInputProps) => {
-  const [inputValue, setInputValue] = useState<string>();
+  const [inputValue, setInputValue] = useState<string>("");
   const [results, setResults] = useState<GeocodingResult[]>([]);
-
+  const [placeholder, setPlaceholder] = useState<string>("Search direction...")
 
   useEffect(() => {
     const getStreets = async () => {
@@ -85,6 +85,7 @@ export const GeocodingInput = (props: GeocodingInputProps) => {
 
   const handleOnChange = ({ target }) => {
     setInputValue(target.value);
+    
 
   };
 
@@ -93,12 +94,18 @@ export const GeocodingInput = (props: GeocodingInputProps) => {
     if (results && results.length > 0 && props.page!="home") {
       const selectedLocation = results[0].location;
       props.onSelectLocation(selectedLocation.lat, selectedLocation.lng);
-    } else {
+      setPlaceholder(inputValue);
       setInputValue("");
-    }
+    }else {
+      setPlaceholder(inputValue);
+      setInputValue("");
+    } 
+    
+    
+    
   };
   if(props.page=="mainmap"){
-  Container = styled.div`
+  Container = styled.form`
   position:absolute;
   left: 40%;
   top: 15px;
@@ -107,10 +114,11 @@ export const GeocodingInput = (props: GeocodingInputProps) => {
 `}
 
 
-  return <Container onSubmit={handleOnSubmit}><form>
-    <input style={styleInput} onChange={handleOnChange} placeholder=" Search direction..." />
+  return (<Container onSubmit={handleOnSubmit}>
+    <input autoFocus style={styleInput} onChange={handleOnChange} value={inputValue} key={"search"} placeholder={placeholder} />
     <i className='purple circular inverted paw icon' onClick={handleOnChange} style={{ marginLeft: '-35px' }}></i>
     <Ul>{results && results.map((result, i) => <AddressResult page={props.page} onAddressClick={props.onSelectLocation} key={i} address={result} />)}</Ul>
-  </form>
+  
   </Container>
+  )
 };
