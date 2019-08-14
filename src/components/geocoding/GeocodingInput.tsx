@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useEffect, useState } from "react";
-import { MOCK_RESPONSE } from "./mock";
+/* import { MOCK_RESPONSE } from "./mock"; */
 import { AddressResult } from "./AddressResult";
 import styled from "@emotion/styled";
 
@@ -15,7 +15,8 @@ export interface GeocodingResult {
   },
 };
 
-let Container = styled.div``;
+let Container = styled.form`
+z-index: 10`;
 
 const styleInput = {
   width: '285px',
@@ -36,7 +37,7 @@ const Ul = styled.ul`
   padding: 0px;
   margin: 0px;
   position: absolute;
-  z-index: 15;
+  z-index:15;
 `;
 
 const addressParser = (input): GeocodingResult[] => {
@@ -68,7 +69,7 @@ interface GeocodingInputProps {
 export const GeocodingInput = (props: GeocodingInputProps) => {
   const [inputValue, setInputValue] = useState<string>("");
   const [results, setResults] = useState<GeocodingResult[]>([]);
-
+  const [placeholder, setPlaceholder] = useState<string>("Search direction...")
 
   useEffect(() => {
     const getStreets = async () => {
@@ -84,32 +85,43 @@ export const GeocodingInput = (props: GeocodingInputProps) => {
 
   const handleOnChange = ({ target }) => {
     setInputValue(target.value);
-    console.log(target.value)
+    
 
   };
 
   const handleOnSubmit = e => {
-    e.preventDefault();
-    if (results && results.length > 0) {
+   /*  e.preventDefault(); */
+    if (results && results.length > 0 && props.page!="home") {
       const selectedLocation = results[0].location;
+      setPlaceholder(inputValue);
+      setInputValue(" ");
       props.onSelectLocation(selectedLocation.lat, selectedLocation.lng);
+
+    }else if (props.page!="mainmap"){
+      e.preventDefault();
+      setPlaceholder(inputValue);
       setInputValue("");
-    }
+    } 
+    
+    
+    
   };
+
   if(props.page=="mainmap"){
-  Container = styled.div`
+  Container = styled.form`
   position:absolute;
   left: 40%;
-  z-index:1232131;
   top: 15px;
+  z-index: 1010;
 
 `}
 
 
-  return <Container onSubmit={handleOnSubmit}><form>
-    <input style={styleInput} onChange={handleOnChange} value={inputValue} key={"searchInput"} placeholder=" Search direction..." />
-    <i className='purple circular inverted paw icon' onClick={handleOnChange} style={{ marginLeft: '-35px' }}></i>
-    <Ul>{results && results.map((result, i) => <AddressResult onAddressClick={props.onSelectLocation} key={i} address={result} />)}</Ul>
-  </form>
+  return (<Container onSubmit={handleOnSubmit}>
+    <input autoFocus style={styleInput} onChange={handleOnChange} value={inputValue} key={"search"} placeholder={placeholder} />
+    <i className='purple circular inverted paw icon' style={{ marginLeft: '-35px' }}></i>
+    <Ul>{results && results.map((result, i) => <AddressResult page={props.page} onAddressClick={handleOnSubmit} key={i} address={result} />)}</Ul>
+  
   </Container>
+  )
 };

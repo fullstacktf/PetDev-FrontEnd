@@ -16,12 +16,7 @@ const Container = styled.div`
     
 `;
 
-
 const MOCKED_USERS=[];
-
-
-
-
 
 export default class NearUsers extends React.Component {
 

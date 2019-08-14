@@ -45,6 +45,7 @@ const Button = styled.button`
 interface AddressResultProps {
   address: GeocodingResult,
   key: number,
+  page: string,
   onAddressClick: (lat: number, lng: number) => void;
 }
 
@@ -54,9 +55,10 @@ const COLOR = ['red', 'green', 'blue'];
 
 export const AddressResult: any = (props: AddressResultProps) => {
   const handleOnClick = () => {
+    if(props.page!="home"){
     props.onAddressClick(props.address.location.lat, props.address.location.lng);
     console.log(props.address);
-
+    }
   }
   return <Container onClick={handleOnClick}>
 

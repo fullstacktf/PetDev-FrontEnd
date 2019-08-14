@@ -41,6 +41,7 @@ const sidebarStyle = {
     background: '#bdc3c7'
   },
   bmMenuWrap: {
+    zIndex: "899999999999",
     position: 'fixed',
     height: '100%',
     width: '100%',
