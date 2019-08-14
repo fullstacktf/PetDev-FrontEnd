@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import LeafletMap from '../components/maps/LeafletMap';
 import { slide as Menu } from 'react-burger-menu';
 import styled from "@emotion/styled";
 import NearUsers from './NearUsers';

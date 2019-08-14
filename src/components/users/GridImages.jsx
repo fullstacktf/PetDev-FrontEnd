@@ -8,7 +8,7 @@ const IMAGE_API_KEY = "18b5f0555f971339fa62cc5c859b13aa743db3c5e590ea50fa700ed66
 const API_URL = "https://api.unsplash.com/search/photos";
 const TAG = "pet";
 const ORIENTATION = "landscape"
-const IMAGE_WIDTH = "500";
+//const IMAGE_WIDTH = "500";
 const IMAGE_HEIGHT = "300";
 const QUERY = `?query=${TAG}&orientation=${ORIENTATION}&client_id=${IMAGE_API_KEY}`;
 
@@ -23,7 +23,7 @@ border-radius: 5px;
 const GridImages = () => {
   const handleOnDragStart = e => e.preventDefault();
   const [pics, setPics] = useState();
-  const data = [];
+  
   
   
   const getPics = () => {

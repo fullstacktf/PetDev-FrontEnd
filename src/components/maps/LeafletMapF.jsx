@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { Map, TileLayer } from "react-leaflet";
 
@@ -21,7 +21,7 @@ export const LeafletMapF = (props) => {
   useEffect(() => {
 
 
-    axios.get(`http://localhost:3001/api/users/`).then(res => {
+    axios.get(`${API_URL}/users/`).then(res => {
       const usersInfo = res.data;
       console.log(usersInfo);
       setUsers(usersInfo);
