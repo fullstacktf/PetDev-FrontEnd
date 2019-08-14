@@ -113,7 +113,7 @@ export const GeocodingInput = (props: GeocodingInputProps) => {
   position:absolute;
   left: 40%;
   top: 15px;
-  z-index: 200000;
+  z-index: 1010;
 
 `}
 
