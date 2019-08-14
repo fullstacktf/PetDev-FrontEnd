@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import LeafletMap from '../components/maps/LeafletMap';
 import { slide as Menu } from 'react-burger-menu';
 import styled from "@emotion/styled";
@@ -9,13 +9,14 @@ import { InputAndMap } from "../components/geocoding/InputAndMap"
 const Container = styled.div`
   display: flex;
   flex-direction: row;
-`
+`;
 
 const FiltersContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 500px;
-`
+`;
+
 const FilterRow = styled.div`
 display:flex;
 `
@@ -67,42 +68,42 @@ const sidebarStyle = {
   },
   bmOverlay: {
     background: 'rgba(0, 0, 0, 0.3)'
-  },
-
-}
+  }
+};
 
 const divStyle = {
   width: '100%',
   height: '100%'
-}
+};
 
 const buttonStyle = {
   width: '20px',
   marginTop: '35px'
-}
+};
+
 
 const MainMap = () => {
   const [menuState, setMenuState] = useState(null);
 
+
+
   const closeMenu = () => setMenuState({ isOpen: false });
   // const handleOnChangeMenuState = (newMenuState) => setMenuState(newMenuState);
 
+  // const handleOnChangeMenuState = (newMenuState) => setMenuState(newMenuState);
   return <div>
     <Menu styles={sidebarStyle} /* onStateChange={handleOnChangeMenuState} */ isOpen={menuState}>
       <Container>
-
         <FiltersContainer>
           <h3>Filtros</h3><br />
-          <FilterRow><input type="checkbox" />Piso</FilterRow>
-          <FilterRow><input type="checkbox" />Casa</FilterRow>
-          <FilterRow><input type="checkbox" />Con mascota <Checkbox toggle ></Checkbox></FilterRow>
-          <FilterRow><input type="checkbox" />Sin mascota</FilterRow>
-          <FilterRow><input type="checkbox" />Con jardín</FilterRow>
-          <FilterRow><input type="checkbox" />Sin jardín</FilterRow>
+          <h4>Tipo de vivienda:</h4>
+          <FilterRow><Checkbox />&nbsp; Piso  &nbsp; &nbsp;<Checkbox /> &nbsp; Casa</FilterRow> <br />
+          <h4>Otros Datos:</h4>
+          <FilterRow>Con Mascota &nbsp; &nbsp; <Checkbox toggle value='MAscota' /></FilterRow> <br />
+          <FilterRow>Con Jardín &nbsp; &nbsp; <Checkbox toggle value='MAscota' /></FilterRow> <br /><br />
           <div styles={buttonStyle}>
-            <Button size='large' toggle type='button'>Aplicar Filtros</Button>
+            <Button onClick={closeMenu} size='large' toggle type='button'>Aplicar Filtros</Button>
           </div>
-
         </FiltersContainer>
         <div style={divStyle}>
           <NearUsers />
