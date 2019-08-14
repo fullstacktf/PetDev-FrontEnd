@@ -3,6 +3,7 @@ import { Card, Icon, Image} from 'semantic-ui-react';
 import styled from '@emotion/styled';
 import {Rating} from "semantic-ui-react";
 
+const URL = "http://localhost:3000";
 
 
 const SubTitleContainer = styled.div`
@@ -27,7 +28,7 @@ const UserCardMini = ({user}) => {
     petName = user.pets.petName;
   }
   const distance = Math.random()*10+1;
-  
+  const profileURL = `${URL}/user/${user._id}`;
 return( <Card style={{
     margin: "15px",
     
@@ -56,7 +57,7 @@ return( <Card style={{
         display:"flex",
         justifyContent:"center"
       }}>
-        <Image width="200px" src={user.avatarURL}  />
+        <a href={profileURL}><Image width="200px" src={user.avatarURL}  /></a>
       </Card.Content>
 
       <Card.Content>
