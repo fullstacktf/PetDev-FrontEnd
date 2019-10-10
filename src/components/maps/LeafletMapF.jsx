@@ -5,7 +5,7 @@ import { Map, TileLayer } from "react-leaflet";
 import axios from "axios";
 import { Marker } from "./Marker";
 
-const API_URL = "http://localhost:3001/api"
+const API_URL = "http://165.22.85.125:3001/api"
 const mapStyles = {
   width: "100vw",
   height: "92vh",

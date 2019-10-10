@@ -7,7 +7,7 @@ import axios from "axios";
 import plainImage from "../../assets/matthew.png"
 
 //const id = "5d48d3c2e28e1c5854a01c79";
-const API_URL = "http://localhost:3001/api";
+const API_URL = "http://165.22.85.125:3001/api";
 
 const cardStyle = {
   marginTop: "42px",
@@ -17,14 +17,14 @@ const cardStyle = {
 const UserCardProfile = props => {
 
   const [state, setState] = useState({
-    user: {avatarURL: plainImage},
+    user: { avatarURL: plainImage },
     address: {},
     lat: 10,
     lng: 10
   });
   const getUser = () => {
     const { userID } = props.id.params;
-    
+
     axios({
       method: "get",
       url: `${API_URL}/users/${userID}`
@@ -44,16 +44,16 @@ const UserCardProfile = props => {
   };
   useEffect(() => {
     getUser();
-    
+
   }, []);
-  const renderNumberOfPets=(props)=>{
-    if(props.pets===undefined){ return 0} else return 1;
+  const renderNumberOfPets = (props) => {
+    if (props.pets === undefined) { return 0 } else return 1;
 
   }
 
 
-const randomRating = Math.ceil(Math.random() * 5);
-const randomFriends = Math.ceil(Math.random() * 40);
+  const randomRating = Math.ceil(Math.random() * 5);
+  const randomFriends = Math.ceil(Math.random() * 40);
   return (
     <Card style={cardStyle}>
       <Image src={state.user.avatarURL} wrapped ui={false} />
@@ -75,7 +75,7 @@ const randomFriends = Math.ceil(Math.random() * 40);
         <Card.Content extra >
           Tipo de vivienda: {state.user.houseType}
         </Card.Content>
-      
+
         <Card.Content extra>
           {state.address.addressLine}
         </Card.Content>

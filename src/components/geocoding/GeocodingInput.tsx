@@ -85,30 +85,30 @@ export const GeocodingInput = (props: GeocodingInputProps) => {
 
   const handleOnChange = ({ target }) => {
     setInputValue(target.value);
-    
+
 
   };
 
   const handleOnSubmit = e => {
-   /*  e.preventDefault(); */
-    if (results && results.length > 0 && props.page!="home") {
+    /*  e.preventDefault(); */
+    if (results && results.length > 0 && props.page != "home") {
       const selectedLocation = results[0].location;
       setPlaceholder(inputValue);
       setInputValue(" ");
       props.onSelectLocation(selectedLocation.lat, selectedLocation.lng);
 
-    }else if (props.page!="mainmap"){
+    } else if (props.page != "mainmap") {
       e.preventDefault();
       setPlaceholder(inputValue);
       setInputValue("");
-    } 
-    
-    
-    
+    }
+
+
+
   };
 
-  if(props.page=="mainmap"){
-  Container = styled.form`
+  if (props.page == "mainmap") {
+    Container = styled.form`
   position:absolute;
   left: 40%;
   top: 15px;
@@ -121,7 +121,7 @@ export const GeocodingInput = (props: GeocodingInputProps) => {
     <input autoFocus style={styleInput} onChange={handleOnChange} value={inputValue} key={"search"} placeholder={placeholder} />
     <i className='purple circular inverted paw icon' style={{ marginLeft: '-35px' }}></i>
     <Ul>{results && results.map((result, i) => <AddressResult page={props.page} onAddressClick={handleOnSubmit} key={i} address={result} />)}</Ul>
-  
+
   </Container>
   )
 };
