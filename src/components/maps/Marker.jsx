@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Marker as LeafletMarker, Popup } from "react-leaflet";
 import { Icon } from "leaflet";
 
-const URL = "http://165.22.85.125:3001";
+const URL = "http://165.22.85.125:3000";
 
 export const PointerIcon = new Icon({
   iconUrl: require("../../assets/faniMarker.png"),
@@ -31,7 +31,7 @@ export const Marker = props => {
   const { user } = props;
   const [selected, setSelected] = useState(false);
   // console.log(user)
-  const profileURL = `${URL}/users/${user._id}`;
+  const profileURL = `${URL}/user/${user._id}`;
 
   const handleOnMouseOver = e => {
     e.target.openPopup();
