@@ -31,7 +31,7 @@ export const Marker = props => {
   const { user } = props;
   const [selected, setSelected] = useState(false);
   // console.log(user)
-  const profileURL = `${URL}/user/${user._id}`;
+  const profileURL = `${URL}/users/${user._id}`;
 
   const handleOnMouseOver = e => {
     e.target.openPopup();
