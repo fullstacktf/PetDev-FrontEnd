@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "@emotion/styled";
 import axios from "axios";
 
-import {windowStyle} from '../../App'
+import { windowStyle } from '../../App'
 const Form = styled.form`
   background: white;
 `;
@@ -30,7 +30,7 @@ const Input = ({ name, type = "text", label, value, handleChange }) => {
         type={type}
         value={value[name]}
         onChange={handleChange}
-        
+
       />
     </InputField>
   );
@@ -77,7 +77,7 @@ const FIELDS = [
 ];
 
 
-const URL = "http://localhost:3001";
+const URL = "http://165.22.85.125:3000";
 export function SignUpForm() {
   const [formData, setFormData] = useState(initialState);
   const [coords, setCoords] = useState(initialCoords);
@@ -118,13 +118,13 @@ export function SignUpForm() {
   };
 
 
-  return(
-  <Form style={windowStyle} onSubmit={handleOnSubmit}>
-    
-    { FIELDS && FIELDS.map((field, i)=> <Input handleChange={handleChange} key={i} value={formData} {...field}/>)}
+  return (
+    <Form style={windowStyle} onSubmit={handleOnSubmit}>
 
-    <Button>Enviar</Button>
+      {FIELDS && FIELDS.map((field, i) => <Input handleChange={handleChange} key={i} value={formData} {...field} />)}
 
-  </Form>
+      <Button>Enviar</Button>
+
+    </Form>
   )
 };
